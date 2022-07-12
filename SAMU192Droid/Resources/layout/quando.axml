@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/branco">
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/quando_ll"
+    android:background="@color/branco" >
+		<TextView
+			android:text="@string/quando"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/quando_tv"
+			android:textColor="@color/preto"
+			android:backgroundTint="@color/branco"
+			android:fontFamily="@font/montserratregular"
+			android:textStyle="normal"
+			android:textSize="15dp"
+			android:textAlignment="textStart"
+			android:layout_marginTop="20dp"
+			android:layout_marginLeft="20dp"
+			android:lineSpacingExtra="4dp"
+			android:layout_marginRight="20dp"
+			android:autoLink="web"/>
+  </LinearLayout>
+</ScrollView>

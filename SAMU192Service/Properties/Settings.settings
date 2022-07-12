@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SAMU192InterfaceService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EnderecoServidor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:30060/SAMU192ServiceWCF</Value>
+    </Setting>
+    <Setting Name="NomeAplicacao" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SAMU192ServiceWCF</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

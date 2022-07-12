@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/branco">
+  <ImageView
+      android:src="@drawable/logoSAMUvertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:backgroundTint="@color/branco"
+      android:layout_gravity="center"
+      android:layout_marginRight="84.0dp"
+      android:layout_marginBottom="128.0dp"
+      android:layout_marginLeft="84dp"
+      android:layout_marginTop="93.5dp"/>
+</LinearLayout>

@@ -1,0 +1,1373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F3EE531D-94DB-4ACD-A87A-5B32313EC76A}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAMU192Droid</RootNamespace>
+    <AssemblyName>SAMU192Droid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <AndroidKeyStore>false</AndroidKeyStore>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Java.Interop" />
+    <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics.Android.Bindings, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.Analytics.Android.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Android.Bindings, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.Android.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes.Android.Bindings, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8a600e2fee7ba272, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.4.5.1\lib\MonoAndroid50\Microsoft.AppCenter.Crashes.Android.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Refractored.Fab, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Refractored.FloatingActionButton.2.1.0\lib\MonoAndroid10\Refractored.Fab.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Core.Runtime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.LiveData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.LiveData.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.Core.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.Runtime, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Arch.Lifecycle.ViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Arch.Lifecycle.ViewModel.1.1.1.3\lib\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Annotations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Annotations.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.AsyncLayoutInflater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.AsyncLayoutInflater.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.AsyncLayoutInflater.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Collections, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Collections.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Compat.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CoordinaterLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.CoordinaterLayout.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.CoordinaterLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Core.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Core.UI.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Core.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Core.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Core.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CursorAdapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.CursorAdapter.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.CursorAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CustomView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.CustomView.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.CustomView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Design.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.DocumentFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.DocumentFile.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.DocumentFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.DrawerLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.DrawerLayout.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.DrawerLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Fragment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Fragment.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Fragment.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Interpolator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Interpolator.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Interpolator.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Loader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Loader.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.LocalBroadcastManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.LocalBroadcastManager.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.LocalBroadcastManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Media.Compat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Media.Compat.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Media.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Print, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Print.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Print.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.SlidingPaneLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.SlidingPaneLayout.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.SlidingPaneLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.SwipeRefreshLayout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.SwipeRefreshLayout.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.SwipeRefreshLayout.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Transition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Transition.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Transition.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.v7.CardView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.VersionedParcelable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.VersionedParcelable.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.VersionedParcelable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.ViewPager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.ViewPager.28.0.0.3\lib\monoandroid90\Xamarin.Android.Support.ViewPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Firebase.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.Common.60.1142.1\lib\MonoAndroid80\Xamarin.Firebase.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Firebase.Iid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.Iid.60.1142.1\lib\MonoAndroid80\Xamarin.Firebase.Iid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Firebase.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.Messaging.60.1142.1\lib\MonoAndroid80\Xamarin.Firebase.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Basement.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Location, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Location.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Location.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Maps, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Maps.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Tasks, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\lib\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BootBroadcast.cs" />
+    <Compile Include="FacadeStub\StubAppCenter.cs" />
+    <Compile Include="FacadeStub\StubConexao.cs" />
+    <Compile Include="FacadeStub\StubMidia.cs" />
+    <Compile Include="FacadeStub\StubPushNotifications.cs" />
+    <Compile Include="FacadeStub\StubWebService.cs" />
+    <Compile Include="Implementations\BackgroundTask.cs" />
+    <Compile Include="Implementations\HereApi.cs" />
+    <Compile Include="Implementations\NetworkConnectionImpl.cs" />
+    <Compile Include="Implementations\PushNotificationImpl.cs" />
+    <Compile Include="Implementations\StorageProviderImpl.cs" />
+    <Compile Include="Interface\Activities\BaseActivity.cs" />
+    <Compile Include="Interface\Activities\CameraActivity.cs" />
+    <Compile Include="FacadeStub\StubWalkThrough.cs" />
+    <Compile Include="Interface\Activities\ChatActivity.cs" />
+    <Compile Include="Interface\Activities\InformaActivity.cs" />
+    <Compile Include="Interface\Activities\InformaNaoChatActivity.cs" />
+    <Compile Include="Interface\Fragments\BaseFragment.cs" />
+    <Compile Include="Interface\Fragments\BaseWalkthroughFragment.cs" />
+    <Compile Include="Interface\Fragments\Cadastro2Fragment.cs" />
+    <Compile Include="Interface\Fragments\CadastroFragment.cs" />
+    <Compile Include="Interface\Fragments\CodigoFotoFragment.cs" />
+    <Compile Include="Interface\Fragments\FavoritosAdapter.cs" />
+    <Compile Include="Interface\Fragments\FavoritoNomeFragment.cs" />
+    <Compile Include="Interface\Fragments\FavoritosFragment.cs" />
+    <Compile Include="Interface\Activities\MainActivity.cs" />
+    <Compile Include="Interface\Fragments\MapaFragment.cs" />
+    <Compile Include="Interface\Fragments\QuandoFragment.cs" />
+    <Compile Include="Interface\Fragments\SobreFragment.cs" />
+    <Compile Include="Interface\Activities\SplashActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough4Fragment .cs" />
+    <Compile Include="Interface\Fragments\Walkthrough5Fragment.cs" />
+    <Compile Include="Interface\Utils.cs" />
+    <Compile Include="FacadeStub\StubCadastro.cs" />
+    <Compile Include="FacadeStub\StubGPS.cs" />
+    <Compile Include="FacadeStub\StubLocalizacao.cs" />
+    <Compile Include="FacadeStub\StubMapa.cs" />
+    <Compile Include="FacadeStub\StubTelefonia.cs" />
+    <Compile Include="FacadeStub\StubUtilidades.cs" />
+    <Compile Include="Interface\Fragments\InicialFragment.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough7Fragment.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough6Fragment.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough3Fragment.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough2Fragment.cs" />
+    <Compile Include="Interface\Fragments\Walkthrough1Fragment.cs" />
+    <Compile Include="Interface\Fragments\WalkthroughFragment.cs" />
+    <Compile Include="Implementations\CameraImpl.cs" />
+    <Compile Include="Implementations\GPSImpl.cs" />
+    <Compile Include="Implementations\LeitorCSVImpl.cs" />
+    <Compile Include="Implementations\GeocodeFarm.cs" />
+    <Compile Include="Implementations\TelefoniaImpl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicos\AlarmReceiver.cs" />
+    <Compile Include="Servicos\GPSServico.cs" />
+    <Compile Include="Servicos\LerMensagensService.cs" />
+    <Compile Include="Servicos\MyFirebaseIIDService.cs" />
+    <Compile Include="Servicos\MyFirebaseMessagingService.cs" />
+    <Compile Include="Interface\Fragments\Inicial2Fragment.cs" />
+    <Compile Include="Interface\Fragments\InformaComunicacaoFragment.cs" />
+    <Compile Include="Interface\Fragments\ChatFragment.cs" />
+    <Compile Include="Interface\Fragments\NaoPermiteChatFragment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\CSV\1.CSV" />
+    <AndroidAsset Include="Assets\CSV\10.CSV" />
+    <AndroidAsset Include="Assets\CSV\100.CSV" />
+    <AndroidAsset Include="Assets\CSV\101.CSV" />
+    <AndroidAsset Include="Assets\CSV\102.CSV" />
+    <AndroidAsset Include="Assets\CSV\103.CSV" />
+    <AndroidAsset Include="Assets\CSV\104.CSV" />
+    <AndroidAsset Include="Assets\CSV\105.CSV" />
+    <AndroidAsset Include="Assets\CSV\106.CSV" />
+    <AndroidAsset Include="Assets\CSV\107.CSV" />
+    <AndroidAsset Include="Assets\CSV\108.CSV" />
+    <AndroidAsset Include="Assets\CSV\109.CSV" />
+    <AndroidAsset Include="Assets\CSV\11.CSV" />
+    <AndroidAsset Include="Assets\CSV\110.CSV" />
+    <AndroidAsset Include="Assets\CSV\111.CSV" />
+    <AndroidAsset Include="Assets\CSV\112.CSV" />
+    <AndroidAsset Include="Assets\CSV\113.CSV" />
+    <AndroidAsset Include="Assets\CSV\114.CSV" />
+    <AndroidAsset Include="Assets\CSV\115.CSV" />
+    <AndroidAsset Include="Assets\CSV\116.CSV" />
+    <AndroidAsset Include="Assets\CSV\117.CSV" />
+    <AndroidAsset Include="Assets\CSV\118.CSV" />
+    <AndroidAsset Include="Assets\CSV\119.CSV" />
+    <AndroidAsset Include="Assets\CSV\12.CSV" />
+    <AndroidAsset Include="Assets\CSV\120.CSV" />
+    <AndroidAsset Include="Assets\CSV\121.CSV" />
+    <AndroidAsset Include="Assets\CSV\122.CSV" />
+    <AndroidAsset Include="Assets\CSV\123.CSV" />
+    <AndroidAsset Include="Assets\CSV\124.CSV" />
+    <AndroidAsset Include="Assets\CSV\125.CSV" />
+    <AndroidAsset Include="Assets\CSV\126.CSV" />
+    <AndroidAsset Include="Assets\CSV\127.CSV" />
+    <AndroidAsset Include="Assets\CSV\128.CSV" />
+    <AndroidAsset Include="Assets\CSV\129.CSV" />
+    <AndroidAsset Include="Assets\CSV\13.CSV" />
+    <AndroidAsset Include="Assets\CSV\130.CSV" />
+    <AndroidAsset Include="Assets\CSV\131.CSV" />
+    <AndroidAsset Include="Assets\CSV\132.CSV" />
+    <AndroidAsset Include="Assets\CSV\133.CSV" />
+    <AndroidAsset Include="Assets\CSV\134.CSV" />
+    <AndroidAsset Include="Assets\CSV\135.CSV" />
+    <AndroidAsset Include="Assets\CSV\136.CSV" />
+    <AndroidAsset Include="Assets\CSV\137.CSV" />
+    <AndroidAsset Include="Assets\CSV\138.CSV" />
+    <AndroidAsset Include="Assets\CSV\139.CSV" />
+    <AndroidAsset Include="Assets\CSV\14.CSV" />
+    <AndroidAsset Include="Assets\CSV\140.CSV" />
+    <AndroidAsset Include="Assets\CSV\141.CSV" />
+    <AndroidAsset Include="Assets\CSV\142.CSV" />
+    <AndroidAsset Include="Assets\CSV\143.CSV" />
+    <AndroidAsset Include="Assets\CSV\144.CSV" />
+    <AndroidAsset Include="Assets\CSV\145.CSV" />
+    <AndroidAsset Include="Assets\CSV\146.CSV" />
+    <AndroidAsset Include="Assets\CSV\147.CSV" />
+    <AndroidAsset Include="Assets\CSV\148.CSV" />
+    <AndroidAsset Include="Assets\CSV\149.CSV" />
+    <AndroidAsset Include="Assets\CSV\15.CSV" />
+    <AndroidAsset Include="Assets\CSV\150.CSV" />
+    <AndroidAsset Include="Assets\CSV\151.CSV" />
+    <AndroidAsset Include="Assets\CSV\152.CSV" />
+    <AndroidAsset Include="Assets\CSV\153.CSV" />
+    <AndroidAsset Include="Assets\CSV\154.CSV" />
+    <AndroidAsset Include="Assets\CSV\155.CSV" />
+    <AndroidAsset Include="Assets\CSV\156.CSV" />
+    <AndroidAsset Include="Assets\CSV\157.CSV" />
+    <AndroidAsset Include="Assets\CSV\158.CSV" />
+    <AndroidAsset Include="Assets\CSV\159.CSV" />
+    <AndroidAsset Include="Assets\CSV\16.CSV" />
+    <AndroidAsset Include="Assets\CSV\160.CSV" />
+    <AndroidAsset Include="Assets\CSV\161.CSV" />
+    <AndroidAsset Include="Assets\CSV\162.CSV" />
+    <AndroidAsset Include="Assets\CSV\163.CSV" />
+    <AndroidAsset Include="Assets\CSV\164.CSV" />
+    <AndroidAsset Include="Assets\CSV\165.CSV" />
+    <AndroidAsset Include="Assets\CSV\166.CSV" />
+    <AndroidAsset Include="Assets\CSV\167.CSV" />
+    <AndroidAsset Include="Assets\CSV\168.CSV" />
+    <AndroidAsset Include="Assets\CSV\169.CSV" />
+    <AndroidAsset Include="Assets\CSV\17.CSV" />
+    <AndroidAsset Include="Assets\CSV\170.CSV" />
+    <AndroidAsset Include="Assets\CSV\171.CSV" />
+    <AndroidAsset Include="Assets\CSV\172.CSV" />
+    <AndroidAsset Include="Assets\CSV\173.CSV" />
+    <AndroidAsset Include="Assets\CSV\174.CSV" />
+    <AndroidAsset Include="Assets\CSV\175.CSV" />
+    <AndroidAsset Include="Assets\CSV\176.CSV" />
+    <AndroidAsset Include="Assets\CSV\177.CSV" />
+    <AndroidAsset Include="Assets\CSV\178.CSV" />
+    <AndroidAsset Include="Assets\CSV\179.CSV" />
+    <AndroidAsset Include="Assets\CSV\18.CSV" />
+    <AndroidAsset Include="Assets\CSV\180.CSV" />
+    <AndroidAsset Include="Assets\CSV\181.CSV" />
+    <AndroidAsset Include="Assets\CSV\182.CSV" />
+    <AndroidAsset Include="Assets\CSV\183.CSV" />
+    <AndroidAsset Include="Assets\CSV\184.CSV" />
+    <AndroidAsset Include="Assets\CSV\185.CSV" />
+    <AndroidAsset Include="Assets\CSV\186.CSV" />
+    <AndroidAsset Include="Assets\CSV\187.CSV" />
+    <AndroidAsset Include="Assets\CSV\188.CSV" />
+    <AndroidAsset Include="Assets\CSV\189.CSV" />
+    <AndroidAsset Include="Assets\CSV\19.CSV" />
+    <AndroidAsset Include="Assets\CSV\190.CSV" />
+    <AndroidAsset Include="Assets\CSV\191.CSV" />
+    <AndroidAsset Include="Assets\CSV\192.CSV" />
+    <AndroidAsset Include="Assets\CSV\193.CSV" />
+    <AndroidAsset Include="Assets\CSV\194.CSV" />
+    <AndroidAsset Include="Assets\CSV\195.CSV" />
+    <AndroidAsset Include="Assets\CSV\196.CSV" />
+    <AndroidAsset Include="Assets\CSV\197.CSV" />
+    <AndroidAsset Include="Assets\CSV\198.CSV" />
+    <AndroidAsset Include="Assets\CSV\199.CSV" />
+    <AndroidAsset Include="Assets\CSV\2.CSV" />
+    <AndroidAsset Include="Assets\CSV\20.CSV" />
+    <AndroidAsset Include="Assets\CSV\200.CSV" />
+    <AndroidAsset Include="Assets\CSV\201.CSV" />
+    <AndroidAsset Include="Assets\CSV\202.CSV" />
+    <AndroidAsset Include="Assets\CSV\203.CSV" />
+    <AndroidAsset Include="Assets\CSV\204.CSV" />
+    <AndroidAsset Include="Assets\CSV\205.CSV" />
+    <AndroidAsset Include="Assets\CSV\206.CSV" />
+    <AndroidAsset Include="Assets\CSV\207.CSV" />
+    <AndroidAsset Include="Assets\CSV\208.CSV" />
+    <AndroidAsset Include="Assets\CSV\209.CSV" />
+    <AndroidAsset Include="Assets\CSV\21.CSV" />
+    <AndroidAsset Include="Assets\CSV\210.CSV" />
+    <AndroidAsset Include="Assets\CSV\211.CSV" />
+    <AndroidAsset Include="Assets\CSV\212.CSV" />
+    <AndroidAsset Include="Assets\CSV\213.CSV" />
+    <AndroidAsset Include="Assets\CSV\214.CSV" />
+    <AndroidAsset Include="Assets\CSV\215.CSV" />
+    <AndroidAsset Include="Assets\CSV\216.CSV" />
+    <AndroidAsset Include="Assets\CSV\217.CSV" />
+    <AndroidAsset Include="Assets\CSV\218.CSV" />
+    <AndroidAsset Include="Assets\CSV\219.CSV" />
+    <AndroidAsset Include="Assets\CSV\22.CSV" />
+    <AndroidAsset Include="Assets\CSV\220.CSV" />
+    <AndroidAsset Include="Assets\CSV\221.CSV" />
+    <AndroidAsset Include="Assets\CSV\222.CSV" />
+    <AndroidAsset Include="Assets\CSV\223.CSV" />
+    <AndroidAsset Include="Assets\CSV\224.CSV" />
+    <AndroidAsset Include="Assets\CSV\225.CSV" />
+    <AndroidAsset Include="Assets\CSV\226.CSV" />
+    <AndroidAsset Include="Assets\CSV\227.CSV" />
+    <AndroidAsset Include="Assets\CSV\228.CSV" />
+    <AndroidAsset Include="Assets\CSV\229.CSV" />
+    <AndroidAsset Include="Assets\CSV\23.CSV" />
+    <AndroidAsset Include="Assets\CSV\230.CSV" />
+    <AndroidAsset Include="Assets\CSV\231.CSV" />
+    <AndroidAsset Include="Assets\CSV\232.CSV" />
+    <AndroidAsset Include="Assets\CSV\233.CSV" />
+    <AndroidAsset Include="Assets\CSV\234.CSV" />
+    <AndroidAsset Include="Assets\CSV\235.CSV" />
+    <AndroidAsset Include="Assets\CSV\236.CSV" />
+    <AndroidAsset Include="Assets\CSV\237.CSV" />
+    <AndroidAsset Include="Assets\CSV\238.CSV" />
+    <AndroidAsset Include="Assets\CSV\239.CSV" />
+    <AndroidAsset Include="Assets\CSV\24.CSV" />
+    <AndroidAsset Include="Assets\CSV\240.CSV" />
+    <AndroidAsset Include="Assets\CSV\241.CSV" />
+    <AndroidAsset Include="Assets\CSV\242.CSV" />
+    <AndroidAsset Include="Assets\CSV\243.CSV" />
+    <AndroidAsset Include="Assets\CSV\244.CSV" />
+    <AndroidAsset Include="Assets\CSV\245.CSV" />
+    <AndroidAsset Include="Assets\CSV\246.CSV" />
+    <AndroidAsset Include="Assets\CSV\247.CSV" />
+    <AndroidAsset Include="Assets\CSV\248.CSV" />
+    <AndroidAsset Include="Assets\CSV\249.CSV" />
+    <AndroidAsset Include="Assets\CSV\25.CSV" />
+    <AndroidAsset Include="Assets\CSV\250.CSV" />
+    <AndroidAsset Include="Assets\CSV\251.CSV" />
+    <AndroidAsset Include="Assets\CSV\252.CSV" />
+    <AndroidAsset Include="Assets\CSV\253.CSV" />
+    <AndroidAsset Include="Assets\CSV\254.CSV" />
+    <AndroidAsset Include="Assets\CSV\255.CSV" />
+    <AndroidAsset Include="Assets\CSV\256.CSV" />
+    <AndroidAsset Include="Assets\CSV\257.CSV" />
+    <AndroidAsset Include="Assets\CSV\258.CSV" />
+    <AndroidAsset Include="Assets\CSV\259.CSV" />
+    <AndroidAsset Include="Assets\CSV\26.CSV" />
+    <AndroidAsset Include="Assets\CSV\260.CSV" />
+    <AndroidAsset Include="Assets\CSV\261.CSV" />
+    <AndroidAsset Include="Assets\CSV\262.CSV" />
+    <AndroidAsset Include="Assets\CSV\263.CSV" />
+    <AndroidAsset Include="Assets\CSV\264.CSV" />
+    <AndroidAsset Include="Assets\CSV\265.CSV" />
+    <AndroidAsset Include="Assets\CSV\266.CSV" />
+    <AndroidAsset Include="Assets\CSV\267.CSV" />
+    <AndroidAsset Include="Assets\CSV\268.CSV" />
+    <AndroidAsset Include="Assets\CSV\269.CSV" />
+    <AndroidAsset Include="Assets\CSV\27.CSV" />
+    <AndroidAsset Include="Assets\CSV\270.CSV" />
+    <AndroidAsset Include="Assets\CSV\271.CSV" />
+    <AndroidAsset Include="Assets\CSV\272.CSV" />
+    <AndroidAsset Include="Assets\CSV\273.CSV" />
+    <AndroidAsset Include="Assets\CSV\274.CSV" />
+    <AndroidAsset Include="Assets\CSV\275.CSV" />
+    <AndroidAsset Include="Assets\CSV\276.CSV" />
+    <AndroidAsset Include="Assets\CSV\277.CSV" />
+    <AndroidAsset Include="Assets\CSV\278.CSV" />
+    <AndroidAsset Include="Assets\CSV\279.CSV" />
+    <AndroidAsset Include="Assets\CSV\28.CSV" />
+    <AndroidAsset Include="Assets\CSV\280.CSV" />
+    <AndroidAsset Include="Assets\CSV\281.CSV" />
+    <AndroidAsset Include="Assets\CSV\282.CSV" />
+    <AndroidAsset Include="Assets\CSV\283.CSV" />
+    <AndroidAsset Include="Assets\CSV\284.CSV" />
+    <AndroidAsset Include="Assets\CSV\285.CSV" />
+    <AndroidAsset Include="Assets\CSV\286.CSV" />
+    <AndroidAsset Include="Assets\CSV\287.CSV" />
+    <AndroidAsset Include="Assets\CSV\288.CSV" />
+    <AndroidAsset Include="Assets\CSV\289.CSV" />
+    <AndroidAsset Include="Assets\CSV\29.CSV" />
+    <AndroidAsset Include="Assets\CSV\290.CSV" />
+    <AndroidAsset Include="Assets\CSV\291.CSV" />
+    <AndroidAsset Include="Assets\CSV\292.CSV" />
+    <AndroidAsset Include="Assets\CSV\293.CSV" />
+    <AndroidAsset Include="Assets\CSV\294.CSV" />
+    <AndroidAsset Include="Assets\CSV\295.CSV" />
+    <AndroidAsset Include="Assets\CSV\296.CSV" />
+    <AndroidAsset Include="Assets\CSV\297.CSV" />
+    <AndroidAsset Include="Assets\CSV\298.CSV" />
+    <AndroidAsset Include="Assets\CSV\299.CSV" />
+    <AndroidAsset Include="Assets\CSV\3.CSV" />
+    <AndroidAsset Include="Assets\CSV\30.CSV" />
+    <AndroidAsset Include="Assets\CSV\300.CSV" />
+    <AndroidAsset Include="Assets\CSV\301.CSV" />
+    <AndroidAsset Include="Assets\CSV\302.CSV" />
+    <AndroidAsset Include="Assets\CSV\303.CSV" />
+    <AndroidAsset Include="Assets\CSV\304.CSV" />
+    <AndroidAsset Include="Assets\CSV\305.CSV" />
+    <AndroidAsset Include="Assets\CSV\306.CSV" />
+    <AndroidAsset Include="Assets\CSV\307.CSV" />
+    <AndroidAsset Include="Assets\CSV\308.CSV" />
+    <AndroidAsset Include="Assets\CSV\309.CSV" />
+    <AndroidAsset Include="Assets\CSV\31.CSV" />
+    <AndroidAsset Include="Assets\CSV\310.CSV" />
+    <AndroidAsset Include="Assets\CSV\311.CSV" />
+    <AndroidAsset Include="Assets\CSV\312.CSV" />
+    <AndroidAsset Include="Assets\CSV\313.CSV" />
+    <AndroidAsset Include="Assets\CSV\314.CSV" />
+    <AndroidAsset Include="Assets\CSV\315.CSV" />
+    <AndroidAsset Include="Assets\CSV\316.CSV" />
+    <AndroidAsset Include="Assets\CSV\317.CSV" />
+    <AndroidAsset Include="Assets\CSV\318.CSV" />
+    <AndroidAsset Include="Assets\CSV\319.CSV" />
+    <AndroidAsset Include="Assets\CSV\32.CSV" />
+    <AndroidAsset Include="Assets\CSV\320.CSV" />
+    <AndroidAsset Include="Assets\CSV\321.CSV" />
+    <AndroidAsset Include="Assets\CSV\322.CSV" />
+    <AndroidAsset Include="Assets\CSV\323.CSV" />
+    <AndroidAsset Include="Assets\CSV\324.CSV" />
+    <AndroidAsset Include="Assets\CSV\325.CSV" />
+    <AndroidAsset Include="Assets\CSV\326.CSV" />
+    <AndroidAsset Include="Assets\CSV\327.CSV" />
+    <AndroidAsset Include="Assets\CSV\328.CSV" />
+    <AndroidAsset Include="Assets\CSV\329.CSV" />
+    <AndroidAsset Include="Assets\CSV\33.CSV" />
+    <AndroidAsset Include="Assets\CSV\330.CSV" />
+    <AndroidAsset Include="Assets\CSV\331.CSV" />
+    <AndroidAsset Include="Assets\CSV\332.CSV" />
+    <AndroidAsset Include="Assets\CSV\333.CSV" />
+    <AndroidAsset Include="Assets\CSV\334.CSV" />
+    <AndroidAsset Include="Assets\CSV\335.CSV" />
+    <AndroidAsset Include="Assets\CSV\336.CSV" />
+    <AndroidAsset Include="Assets\CSV\337.CSV" />
+    <AndroidAsset Include="Assets\CSV\338.CSV" />
+    <AndroidAsset Include="Assets\CSV\339.CSV" />
+    <AndroidAsset Include="Assets\CSV\34.CSV" />
+    <AndroidAsset Include="Assets\CSV\340.CSV" />
+    <AndroidAsset Include="Assets\CSV\341.CSV" />
+    <AndroidAsset Include="Assets\CSV\342.CSV" />
+    <AndroidAsset Include="Assets\CSV\343.CSV" />
+    <AndroidAsset Include="Assets\CSV\344.CSV" />
+    <AndroidAsset Include="Assets\CSV\345.CSV" />
+    <AndroidAsset Include="Assets\CSV\346.CSV" />
+    <AndroidAsset Include="Assets\CSV\347.CSV" />
+    <AndroidAsset Include="Assets\CSV\348.CSV" />
+    <AndroidAsset Include="Assets\CSV\349.CSV" />
+    <AndroidAsset Include="Assets\CSV\35.CSV" />
+    <AndroidAsset Include="Assets\CSV\350.CSV" />
+    <AndroidAsset Include="Assets\CSV\351.CSV" />
+    <AndroidAsset Include="Assets\CSV\352.CSV" />
+    <AndroidAsset Include="Assets\CSV\353.CSV" />
+    <AndroidAsset Include="Assets\CSV\354.CSV" />
+    <AndroidAsset Include="Assets\CSV\355.CSV" />
+    <AndroidAsset Include="Assets\CSV\356.CSV" />
+    <AndroidAsset Include="Assets\CSV\357.CSV" />
+    <AndroidAsset Include="Assets\CSV\358.CSV" />
+    <AndroidAsset Include="Assets\CSV\359.CSV" />
+    <AndroidAsset Include="Assets\CSV\36.CSV" />
+    <AndroidAsset Include="Assets\CSV\360.CSV" />
+    <AndroidAsset Include="Assets\CSV\361.CSV" />
+    <AndroidAsset Include="Assets\CSV\362.CSV" />
+    <AndroidAsset Include="Assets\CSV\363.CSV" />
+    <AndroidAsset Include="Assets\CSV\364.CSV" />
+    <AndroidAsset Include="Assets\CSV\365.CSV" />
+    <AndroidAsset Include="Assets\CSV\366.CSV" />
+    <AndroidAsset Include="Assets\CSV\367.CSV" />
+    <AndroidAsset Include="Assets\CSV\368.CSV" />
+    <AndroidAsset Include="Assets\CSV\369.CSV" />
+    <AndroidAsset Include="Assets\CSV\37.CSV" />
+    <AndroidAsset Include="Assets\CSV\370.CSV" />
+    <AndroidAsset Include="Assets\CSV\371.CSV" />
+    <AndroidAsset Include="Assets\CSV\372.CSV" />
+    <AndroidAsset Include="Assets\CSV\373.CSV" />
+    <AndroidAsset Include="Assets\CSV\374.CSV" />
+    <AndroidAsset Include="Assets\CSV\375.CSV" />
+    <AndroidAsset Include="Assets\CSV\376.CSV" />
+    <AndroidAsset Include="Assets\CSV\377.CSV" />
+    <AndroidAsset Include="Assets\CSV\378.CSV" />
+    <AndroidAsset Include="Assets\CSV\379.CSV" />
+    <AndroidAsset Include="Assets\CSV\38.CSV" />
+    <AndroidAsset Include="Assets\CSV\380.CSV" />
+    <AndroidAsset Include="Assets\CSV\381.CSV" />
+    <AndroidAsset Include="Assets\CSV\382.CSV" />
+    <AndroidAsset Include="Assets\CSV\383.CSV" />
+    <AndroidAsset Include="Assets\CSV\384.CSV" />
+    <AndroidAsset Include="Assets\CSV\385.CSV" />
+    <AndroidAsset Include="Assets\CSV\386.CSV" />
+    <AndroidAsset Include="Assets\CSV\387.CSV" />
+    <AndroidAsset Include="Assets\CSV\388.CSV" />
+    <AndroidAsset Include="Assets\CSV\389.CSV" />
+    <AndroidAsset Include="Assets\CSV\39.CSV" />
+    <AndroidAsset Include="Assets\CSV\390.CSV" />
+    <AndroidAsset Include="Assets\CSV\391.CSV" />
+    <AndroidAsset Include="Assets\CSV\392.CSV" />
+    <AndroidAsset Include="Assets\CSV\393.CSV" />
+    <AndroidAsset Include="Assets\CSV\394.CSV" />
+    <AndroidAsset Include="Assets\CSV\395.CSV" />
+    <AndroidAsset Include="Assets\CSV\396.CSV" />
+    <AndroidAsset Include="Assets\CSV\397.CSV" />
+    <AndroidAsset Include="Assets\CSV\398.CSV" />
+    <AndroidAsset Include="Assets\CSV\399.CSV" />
+    <AndroidAsset Include="Assets\CSV\4.CSV" />
+    <AndroidAsset Include="Assets\CSV\40.CSV" />
+    <AndroidAsset Include="Assets\CSV\400.CSV" />
+    <AndroidAsset Include="Assets\CSV\401.CSV" />
+    <AndroidAsset Include="Assets\CSV\402.CSV" />
+    <AndroidAsset Include="Assets\CSV\403.CSV" />
+    <AndroidAsset Include="Assets\CSV\404.CSV" />
+    <AndroidAsset Include="Assets\CSV\405.CSV" />
+    <AndroidAsset Include="Assets\CSV\406.CSV" />
+    <AndroidAsset Include="Assets\CSV\407.CSV" />
+    <AndroidAsset Include="Assets\CSV\408.CSV" />
+    <AndroidAsset Include="Assets\CSV\409.CSV" />
+    <AndroidAsset Include="Assets\CSV\41.CSV" />
+    <AndroidAsset Include="Assets\CSV\410.CSV" />
+    <AndroidAsset Include="Assets\CSV\411.CSV" />
+    <AndroidAsset Include="Assets\CSV\412.CSV" />
+    <AndroidAsset Include="Assets\CSV\413.CSV" />
+    <AndroidAsset Include="Assets\CSV\414.CSV" />
+    <AndroidAsset Include="Assets\CSV\415.CSV" />
+    <AndroidAsset Include="Assets\CSV\416.CSV" />
+    <AndroidAsset Include="Assets\CSV\417.CSV" />
+    <AndroidAsset Include="Assets\CSV\418.CSV" />
+    <AndroidAsset Include="Assets\CSV\419.CSV" />
+    <AndroidAsset Include="Assets\CSV\42.CSV" />
+    <AndroidAsset Include="Assets\CSV\420.CSV" />
+    <AndroidAsset Include="Assets\CSV\421.CSV" />
+    <AndroidAsset Include="Assets\CSV\422.CSV" />
+    <AndroidAsset Include="Assets\CSV\423.CSV" />
+    <AndroidAsset Include="Assets\CSV\424.CSV" />
+    <AndroidAsset Include="Assets\CSV\425.CSV" />
+    <AndroidAsset Include="Assets\CSV\426.CSV" />
+    <AndroidAsset Include="Assets\CSV\427.CSV" />
+    <AndroidAsset Include="Assets\CSV\428.CSV" />
+    <AndroidAsset Include="Assets\CSV\429.CSV" />
+    <AndroidAsset Include="Assets\CSV\43.CSV" />
+    <AndroidAsset Include="Assets\CSV\430.CSV" />
+    <AndroidAsset Include="Assets\CSV\431.CSV" />
+    <AndroidAsset Include="Assets\CSV\432.CSV" />
+    <AndroidAsset Include="Assets\CSV\433.CSV" />
+    <AndroidAsset Include="Assets\CSV\434.CSV" />
+    <AndroidAsset Include="Assets\CSV\435.CSV" />
+    <AndroidAsset Include="Assets\CSV\436.CSV" />
+    <AndroidAsset Include="Assets\CSV\437.CSV" />
+    <AndroidAsset Include="Assets\CSV\438.CSV" />
+    <AndroidAsset Include="Assets\CSV\439.CSV" />
+    <AndroidAsset Include="Assets\CSV\44.CSV" />
+    <AndroidAsset Include="Assets\CSV\440.CSV" />
+    <AndroidAsset Include="Assets\CSV\441.CSV" />
+    <AndroidAsset Include="Assets\CSV\442.CSV" />
+    <AndroidAsset Include="Assets\CSV\443.CSV" />
+    <AndroidAsset Include="Assets\CSV\444.CSV" />
+    <AndroidAsset Include="Assets\CSV\445.CSV" />
+    <AndroidAsset Include="Assets\CSV\446.CSV" />
+    <AndroidAsset Include="Assets\CSV\447.CSV" />
+    <AndroidAsset Include="Assets\CSV\448.CSV" />
+    <AndroidAsset Include="Assets\CSV\449.CSV" />
+    <AndroidAsset Include="Assets\CSV\45.CSV" />
+    <AndroidAsset Include="Assets\CSV\450.CSV" />
+    <AndroidAsset Include="Assets\CSV\451.CSV" />
+    <AndroidAsset Include="Assets\CSV\452.CSV" />
+    <AndroidAsset Include="Assets\CSV\453.CSV" />
+    <AndroidAsset Include="Assets\CSV\454.CSV" />
+    <AndroidAsset Include="Assets\CSV\455.CSV" />
+    <AndroidAsset Include="Assets\CSV\456.CSV" />
+    <AndroidAsset Include="Assets\CSV\457.CSV" />
+    <AndroidAsset Include="Assets\CSV\458.CSV" />
+    <AndroidAsset Include="Assets\CSV\459.CSV" />
+    <AndroidAsset Include="Assets\CSV\46.CSV" />
+    <AndroidAsset Include="Assets\CSV\460.CSV" />
+    <AndroidAsset Include="Assets\CSV\461.CSV" />
+    <AndroidAsset Include="Assets\CSV\462.CSV" />
+    <AndroidAsset Include="Assets\CSV\463.CSV" />
+    <AndroidAsset Include="Assets\CSV\464.CSV" />
+    <AndroidAsset Include="Assets\CSV\465.CSV" />
+    <AndroidAsset Include="Assets\CSV\466.CSV" />
+    <AndroidAsset Include="Assets\CSV\467.CSV" />
+    <AndroidAsset Include="Assets\CSV\468.CSV" />
+    <AndroidAsset Include="Assets\CSV\469.CSV" />
+    <AndroidAsset Include="Assets\CSV\47.CSV" />
+    <AndroidAsset Include="Assets\CSV\470.CSV" />
+    <AndroidAsset Include="Assets\CSV\471.CSV" />
+    <AndroidAsset Include="Assets\CSV\472.CSV" />
+    <AndroidAsset Include="Assets\CSV\473.CSV" />
+    <AndroidAsset Include="Assets\CSV\474.CSV" />
+    <AndroidAsset Include="Assets\CSV\475.CSV" />
+    <AndroidAsset Include="Assets\CSV\476.CSV" />
+    <AndroidAsset Include="Assets\CSV\477.CSV" />
+    <AndroidAsset Include="Assets\CSV\478.CSV" />
+    <AndroidAsset Include="Assets\CSV\479.CSV" />
+    <AndroidAsset Include="Assets\CSV\48.CSV" />
+    <AndroidAsset Include="Assets\CSV\480.CSV" />
+    <AndroidAsset Include="Assets\CSV\481.CSV" />
+    <AndroidAsset Include="Assets\CSV\482.CSV" />
+    <AndroidAsset Include="Assets\CSV\483.CSV" />
+    <AndroidAsset Include="Assets\CSV\484.CSV" />
+    <AndroidAsset Include="Assets\CSV\485.CSV" />
+    <AndroidAsset Include="Assets\CSV\486.CSV" />
+    <AndroidAsset Include="Assets\CSV\487.CSV" />
+    <AndroidAsset Include="Assets\CSV\488.CSV" />
+    <AndroidAsset Include="Assets\CSV\489.CSV" />
+    <AndroidAsset Include="Assets\CSV\49.CSV" />
+    <AndroidAsset Include="Assets\CSV\490.CSV" />
+    <AndroidAsset Include="Assets\CSV\491.CSV" />
+    <AndroidAsset Include="Assets\CSV\492.CSV" />
+    <AndroidAsset Include="Assets\CSV\493.CSV" />
+    <AndroidAsset Include="Assets\CSV\494.CSV" />
+    <AndroidAsset Include="Assets\CSV\495.CSV" />
+    <AndroidAsset Include="Assets\CSV\496.CSV" />
+    <AndroidAsset Include="Assets\CSV\497.CSV" />
+    <AndroidAsset Include="Assets\CSV\498.CSV" />
+    <AndroidAsset Include="Assets\CSV\499.CSV" />
+    <AndroidAsset Include="Assets\CSV\5.CSV" />
+    <AndroidAsset Include="Assets\CSV\50.CSV" />
+    <AndroidAsset Include="Assets\CSV\500.CSV" />
+    <AndroidAsset Include="Assets\CSV\501.CSV" />
+    <AndroidAsset Include="Assets\CSV\502.CSV" />
+    <AndroidAsset Include="Assets\CSV\503.CSV" />
+    <AndroidAsset Include="Assets\CSV\504.CSV" />
+    <AndroidAsset Include="Assets\CSV\507.CSV" />
+    <AndroidAsset Include="Assets\CSV\508.CSV" />
+    <AndroidAsset Include="Assets\CSV\509.CSV" />
+    <AndroidAsset Include="Assets\CSV\51.CSV" />
+    <AndroidAsset Include="Assets\CSV\510.CSV" />
+    <AndroidAsset Include="Assets\CSV\511.CSV" />
+    <AndroidAsset Include="Assets\CSV\512.CSV" />
+    <AndroidAsset Include="Assets\CSV\513.CSV" />
+    <AndroidAsset Include="Assets\CSV\514.CSV" />
+    <AndroidAsset Include="Assets\CSV\515.CSV" />
+    <AndroidAsset Include="Assets\CSV\516.CSV" />
+    <AndroidAsset Include="Assets\CSV\517.CSV" />
+    <AndroidAsset Include="Assets\CSV\518.CSV" />
+    <AndroidAsset Include="Assets\CSV\519.CSV" />
+    <AndroidAsset Include="Assets\CSV\52.CSV" />
+    <AndroidAsset Include="Assets\CSV\520.CSV" />
+    <AndroidAsset Include="Assets\CSV\521.CSV" />
+    <AndroidAsset Include="Assets\CSV\522.CSV" />
+    <AndroidAsset Include="Assets\CSV\523.CSV" />
+    <AndroidAsset Include="Assets\CSV\524.CSV" />
+    <AndroidAsset Include="Assets\CSV\525.CSV" />
+    <AndroidAsset Include="Assets\CSV\526.CSV" />
+    <AndroidAsset Include="Assets\CSV\527.CSV" />
+    <AndroidAsset Include="Assets\CSV\528.CSV" />
+    <AndroidAsset Include="Assets\CSV\529.CSV" />
+    <AndroidAsset Include="Assets\CSV\53.CSV" />
+    <AndroidAsset Include="Assets\CSV\530.CSV" />
+    <AndroidAsset Include="Assets\CSV\531.CSV" />
+    <AndroidAsset Include="Assets\CSV\532.CSV" />
+    <AndroidAsset Include="Assets\CSV\54.CSV" />
+    <AndroidAsset Include="Assets\CSV\55.CSV" />
+    <AndroidAsset Include="Assets\CSV\56.CSV" />
+    <AndroidAsset Include="Assets\CSV\57.CSV" />
+    <AndroidAsset Include="Assets\CSV\58.CSV" />
+    <AndroidAsset Include="Assets\CSV\59.CSV" />
+    <AndroidAsset Include="Assets\CSV\6.CSV" />
+    <AndroidAsset Include="Assets\CSV\60.CSV" />
+    <AndroidAsset Include="Assets\CSV\61.CSV" />
+    <AndroidAsset Include="Assets\CSV\62.CSV" />
+    <AndroidAsset Include="Assets\CSV\63.CSV" />
+    <AndroidAsset Include="Assets\CSV\64.CSV" />
+    <AndroidAsset Include="Assets\CSV\65.CSV" />
+    <AndroidAsset Include="Assets\CSV\66.CSV" />
+    <AndroidAsset Include="Assets\CSV\67.CSV" />
+    <AndroidAsset Include="Assets\CSV\68.CSV" />
+    <AndroidAsset Include="Assets\CSV\69.CSV" />
+    <AndroidAsset Include="Assets\CSV\7.CSV" />
+    <AndroidAsset Include="Assets\CSV\70.CSV" />
+    <AndroidAsset Include="Assets\CSV\71.CSV" />
+    <AndroidAsset Include="Assets\CSV\72.CSV" />
+    <AndroidAsset Include="Assets\CSV\73.CSV" />
+    <AndroidAsset Include="Assets\CSV\74.CSV" />
+    <AndroidAsset Include="Assets\CSV\75.CSV" />
+    <AndroidAsset Include="Assets\CSV\76.CSV" />
+    <AndroidAsset Include="Assets\CSV\77.CSV" />
+    <AndroidAsset Include="Assets\CSV\78.CSV" />
+    <AndroidAsset Include="Assets\CSV\79.CSV" />
+    <AndroidAsset Include="Assets\CSV\8.CSV" />
+    <AndroidAsset Include="Assets\CSV\80.CSV" />
+    <AndroidAsset Include="Assets\CSV\81.CSV" />
+    <AndroidAsset Include="Assets\CSV\82.CSV" />
+    <AndroidAsset Include="Assets\CSV\83.CSV" />
+    <AndroidAsset Include="Assets\CSV\84.CSV" />
+    <AndroidAsset Include="Assets\CSV\85.CSV" />
+    <AndroidAsset Include="Assets\CSV\86.CSV" />
+    <AndroidAsset Include="Assets\CSV\87.CSV" />
+    <AndroidAsset Include="Assets\CSV\88.CSV" />
+    <AndroidAsset Include="Assets\CSV\89.CSV" />
+    <AndroidAsset Include="Assets\CSV\9.CSV" />
+    <AndroidAsset Include="Assets\CSV\90.CSV" />
+    <AndroidAsset Include="Assets\CSV\91.CSV" />
+    <AndroidAsset Include="Assets\CSV\92.CSV" />
+    <AndroidAsset Include="Assets\CSV\93.CSV" />
+    <AndroidAsset Include="Assets\CSV\94.CSV" />
+    <AndroidAsset Include="Assets\CSV\95.CSV" />
+    <AndroidAsset Include="Assets\CSV\96.CSV" />
+    <AndroidAsset Include="Assets\CSV\97.CSV" />
+    <AndroidAsset Include="Assets\CSV\98.CSV" />
+    <AndroidAsset Include="Assets\CSV\99.CSV" />
+    <AndroidAsset Include="Assets\CSV\MAPEAMENTO.CSV" />
+    <AndroidResource Include="Resources\menu\Main_Menu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\foto_codigo.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\xml\provider_paths2.xml" />
+    <AndroidResource Include="Resources\layout\walkthrough4.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\foto.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\regiao_atendimento.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\progresso.axml" />
+    <AndroidResource Include="Resources\layout\walkthrough6.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\chat.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <GoogleServicesJson Include="google-services.json" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <AndroidResource Include="Resources\layout\toolbar.axml" />
+    <AndroidResource Include="Resources\layout\camera.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\montserratregular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\montserratblack.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\font\montserratbold.otf" />
+    <AndroidResource Include="Resources\font\montserratlight.otf" />
+    <AndroidResource Include="Resources\drawable\undraw_cloud_sync_2aph.png" />
+    <AndroidResource Include="Resources\drawable\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable\true_logo.bmp" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\logoSAMUverticalSplash.png" />
+    <AndroidResource Include="Resources\drawable\logoSAMUvertical.png" />
+    <AndroidResource Include="Resources\drawable\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable\topo_walktrhough_right.bmp" />
+    <AndroidResource Include="Resources\drawable\undraw_account_490v.png" />
+    <AndroidResource Include="Resources\drawable\undraw_address_udes.png" />
+    <AndroidResource Include="Resources\drawable\undraw_destanation1_h3vq.png" />
+    <AndroidResource Include="Resources\drawable\undraw_live_collaboration_2r4y.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_a_photo_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_arrow_back_white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu_white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_menu_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_a_photo_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_arrow_back_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_add_a_photo_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_arrow_back_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_a_photo_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_arrow_back_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_a_photo_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_arrow_back_white.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_delete_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_favorite_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu_white.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_person_add_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_black.png" />
+    <AndroidResource Include="Resources\drawable\ic_favorite_laranja.xml" />
+    <AndroidResource Include="Resources\drawable\topo_walktrhough_center.bmp" />
+    <AndroidResource Include="Resources\drawable\topo_walktrhough_left.bmp" />
+    <AndroidResource Include="Resources\drawable\animation_selector.xml" />
+    <AndroidResource Include="Resources\drawable\done_all_to_done.xml" />
+    <AndroidResource Include="Resources\drawable\divider.xml" />
+    <AndroidResource Include="Resources\drawable\done_to_done_all.xml" />
+    <AndroidResource Include="Resources\drawable\ic_done.xml" />
+    <AndroidResource Include="Resources\drawable\ic_done_all.xml" />
+    <AndroidResource Include="Resources\anim\anim_ic_done_all_to_ic_done.xml" />
+    <AndroidResource Include="Resources\anim\anim_ic_done_to_ic_done_all.xml" />
+    <AndroidResource Include="Resources\anim\rotation.xml" />
+    <AndroidResource Include="Resources\anim\shrink_expand.xml" />
+    <AndroidResource Include="Resources\drawable\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable\undraw_selfie1_kpqf.png" />
+    <AndroidResource Include="Resources\drawable\undraw_favorites.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\pinMap.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\pinMap.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\pinMap.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\pinMap.png" />
+    <AndroidResource Include="Resources\drawable\pinMap.png" />
+    <AndroidResource Include="Resources\drawable\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_delete_laranja.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_info_black.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_mode_edit_laranja.png" />
+    <AndroidResource Include="Resources\drawable\walk_page_other.png" />
+    <AndroidResource Include="Resources\drawable\walk_page_current.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_paramim.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_enviarfoto.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_ligar.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\btn_outrapessoa.png" />
+    <AndroidResource Include="Resources\drawable\btn_paramim.png" />
+    <AndroidResource Include="Resources\drawable\btn_enviarfoto.png" />
+    <AndroidResource Include="Resources\drawable\btn_ligar.png" />
+    <AndroidResource Include="Resources\drawable\btn_outrapessoa.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_paramim.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_enviarfoto.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_ligar.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\btn_outrapessoa.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_paramim.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_enviarfoto.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_ligar.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_outrapessoa.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_paramim.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_enviarfoto.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_ligar.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_outrapessoa.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_white.png" />
+    <AndroidResource Include="Resources\drawable\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_check.png" />
+    <AndroidResource Include="Resources\drawable\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_arrow_forward.png" />
+    <AndroidResource Include="Resources\drawable\undraw_ligar.png" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable\iconmessenger_blue.png" />
+    <AndroidResource Include="Resources\drawable\send.png" />
+    <Content Include="Resources\font\sourcebelleallurecmgras.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\font\sourcemontserrat.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <AndroidResource Include="Resources\font\belleallurecmgras.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\menu_header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\main_configurar.axml" />
+    <AndroidResource Include="Resources\layout\cadastro2.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\cadastro.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\favoritos_excluir.axml" />
+    <AndroidResource Include="Resources\layout\favoritos.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\mapa.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\quando.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\sobre.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\inicial.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\favoritos_cell.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough1.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough2.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough3.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough5.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough7.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\splash.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\inicial_telefones_cell.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough_header.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\walkthrough_footer.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\inicial_favoritos_cell.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\favoritos_nome.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <None Include="SAMU 192.keystrore" />
+    <AndroidResource Include="Resources\layout\inicial2.axml" />
+    <AndroidResource Include="Resources\drawable\iconmessenger.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-mdpi\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn_paramimchat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-mdpi\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn_outrapessoachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\InformaComunicacao.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-mdpi\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn_ligacaoporvoz.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\noviachat.png">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\naopermitechat.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\strings.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <AndroidResource Include="Resources\values\colors.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\dimens.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\integers.xml" />
+    <AndroidResource Include="Resources\values\arrays.xml" />
+    <AndroidResource Include="Resources\values-v21\styles.xml">
+      <SubType>
+      </SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\logoSAMUhorizontal.png" />
+    <AndroidResource Include="Resources\drawable\trueico.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\trueico.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\trueico.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\trueico.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\trueico.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\trueico.png" />
+    <AndroidResource Include="Resources\values\style.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_phone_black.png" />
+    <AndroidResource Include="Resources\drawable\undraw_confirmed_81ex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAMU192InterfaceService\SAMU192InterfaceService.csproj">
+      <Project>{2BE922B7-C544-4D76-BD9E-B9D684BD4228}</Project>
+      <Name>SAMU192InterfaceService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAPHCore\SAMU192Core.csproj">
+      <Project>{c6e1dfb0-6536-4635-9eb9-f4fb75651675}</Project>
+      <Name>SAMU192Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.GooglePlayServices.Maps.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Maps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.GooglePlayServices.Maps.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Maps.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.GooglePlayServices.Location.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Location.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.GooglePlayServices.Location.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Location.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.Common.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.Common.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.Iid.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.Iid.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.Messaging.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.Messaging.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Annotations.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Annotations.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Annotations.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Annotations.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Runtime.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Runtime.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.Core.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.Core.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Arch.Lifecycle.ViewModel.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Arch.Lifecycle.ViewModel.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Collections.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Collections.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Collections.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Collections.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.CursorAdapter.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CursorAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.CursorAdapter.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CursorAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.DocumentFile.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DocumentFile.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.DocumentFile.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DocumentFile.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Interpolator.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Interpolator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Interpolator.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Interpolator.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.LocalBroadcastManager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.LocalBroadcastManager.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.LocalBroadcastManager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.LocalBroadcastManager.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Print.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Print.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Print.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Print.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.CardView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.CardView.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.CardView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.CardView.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.VersionedParcelable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.VersionedParcelable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.VersionedParcelable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.VersionedParcelable.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Compat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Compat.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.AsyncLayoutInflater.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.AsyncLayoutInflater.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.AsyncLayoutInflater.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.AsyncLayoutInflater.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.CustomView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomView.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.CustomView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomView.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.CoordinaterLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CoordinaterLayout.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.CoordinaterLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CoordinaterLayout.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.DrawerLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DrawerLayout.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.DrawerLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DrawerLayout.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Loader.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Loader.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Loader.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Loader.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.Utils.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.Utils.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Media.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Media.Compat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Media.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Media.Compat.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.SlidingPaneLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SlidingPaneLayout.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.SlidingPaneLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SlidingPaneLayout.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.SwipeRefreshLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SwipeRefreshLayout.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.SwipeRefreshLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SwipeRefreshLayout.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Vector.Drawable.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.ViewPager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.ViewPager.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.ViewPager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.ViewPager.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Core.UI.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.UI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Core.UI.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.UI.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Animated.Vector.Drawable.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Fragment.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Fragment.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Fragment.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Fragment.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Transition.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Transition.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Transition.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Transition.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.AppCompat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.AppCompat.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.RecyclerView.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.RecyclerView.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Design.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Design.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Design.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Design.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Basement.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Tasks.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Tasks.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Base.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Base.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Maps.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Maps.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Maps.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Maps.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.11\build\Xamarin.Build.Download.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Location.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Location.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Location.60.1142.1\build\MonoAndroid80\Xamarin.GooglePlayServices.Location.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.Common.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets" Condition="Exists('..\packages\Xamarin.Firebase.Common.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Common.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.Iid.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets" Condition="Exists('..\packages\Xamarin.Firebase.Iid.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Iid.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.Messaging.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets" Condition="Exists('..\packages\Xamarin.Firebase.Messaging.60.1142.1\build\MonoAndroid80\Xamarin.Firebase.Messaging.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Annotations.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Annotations.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Annotations.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Common.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Runtime.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Core.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Core.Runtime.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Common.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Common.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.Core.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.Core.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.Core.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.Core.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.LiveData.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.LiveData.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.Runtime.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.Runtime.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Arch.Lifecycle.ViewModel.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Lifecycle.ViewModel.1.1.1.3\build\monoandroid90\Xamarin.Android.Arch.Lifecycle.ViewModel.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Collections.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Collections.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Collections.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Collections.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.CursorAdapter.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CursorAdapter.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CursorAdapter.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CursorAdapter.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.DocumentFile.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DocumentFile.targets" Condition="Exists('..\packages\Xamarin.Android.Support.DocumentFile.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DocumentFile.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Interpolator.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Interpolator.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Interpolator.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Interpolator.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.LocalBroadcastManager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.LocalBroadcastManager.targets" Condition="Exists('..\packages\Xamarin.Android.Support.LocalBroadcastManager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.LocalBroadcastManager.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Print.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Print.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Print.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Print.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.CardView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.CardView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.CardView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.CardView.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.VersionedParcelable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.VersionedParcelable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.VersionedParcelable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.VersionedParcelable.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Compat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.AsyncLayoutInflater.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.AsyncLayoutInflater.targets" Condition="Exists('..\packages\Xamarin.Android.Support.AsyncLayoutInflater.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.AsyncLayoutInflater.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.CustomView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CustomView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CustomView.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.CoordinaterLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CoordinaterLayout.targets" Condition="Exists('..\packages\Xamarin.Android.Support.CoordinaterLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.CoordinaterLayout.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.DrawerLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DrawerLayout.targets" Condition="Exists('..\packages\Xamarin.Android.Support.DrawerLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.DrawerLayout.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Loader.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Loader.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Loader.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Loader.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.Utils.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.Utils.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.Utils.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Media.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Media.Compat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Media.Compat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Media.Compat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.SlidingPaneLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SlidingPaneLayout.targets" Condition="Exists('..\packages\Xamarin.Android.Support.SlidingPaneLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SlidingPaneLayout.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.SwipeRefreshLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SwipeRefreshLayout.targets" Condition="Exists('..\packages\Xamarin.Android.Support.SwipeRefreshLayout.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.SwipeRefreshLayout.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Vector.Drawable.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.ViewPager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.ViewPager.targets" Condition="Exists('..\packages\Xamarin.Android.Support.ViewPager.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.ViewPager.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Core.UI.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.UI.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Core.UI.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Core.UI.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Animated.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Fragment.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Fragment.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Fragment.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Fragment.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Transition.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Transition.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Transition.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Transition.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.AppCompat.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.AppCompat.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.RecyclerView.targets" Condition="Exists('..\packages\Xamarin.Android.Support.v7.RecyclerView.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.v7.RecyclerView.targets')" />
+  <Import Project="..\packages\Xamarin.Android.Support.Design.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Design.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Design.28.0.0.3\build\monoandroid90\Xamarin.Android.Support.Design.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

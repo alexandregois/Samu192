@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:id="@+id/walk_footer"
+    android:background="@color/laranja"
+    android:paddingTop="24dp"
+    android:paddingBottom="24dp"
+    android:paddingRight="5dp">
+  <LinearLayout     
+      android:id="@+id/walk_viewpage_iv"
+      android:orientation="horizontal"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:background="@color/laranja">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_1_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page1" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_2_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page2" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"      
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_3_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page3" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"   
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_4_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page4" />
+	<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_5_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page5" />
+	<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/walk_page_6_iv"
+        android:adjustViewBounds="true"
+		android:contentDescription="@string/page6"/>
+  </LinearLayout>
+	<TextView
+		android:text="@string/btn_fechar"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_toRightOf="@id/walk_viewpage_iv"
+		android:id="@+id/walk_fechar_tv"
+		android:textColor="@color/branco"
+		android:fontFamily="@font/montserratregular"
+		android:textSize="15dp"
+		android:textAlignment="viewEnd"
+		android:background="@color/laranja"
+		android:layout_marginTop="5.0dp" />
+</RelativeLayout>

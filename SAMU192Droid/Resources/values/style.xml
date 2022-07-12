@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="Theme.Abertura" parent="android:Theme">
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <style name="MyTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="windowNoTitle">true</item>
+    <item name="windowActionBar">false</item>
+    <!--<item name="colorPrimary">#2196F3</item>-->
+    <item name="colorPrimary">#E85900</item>
+    <!--<item name="colorPrimaryDark">#1976D2</item>-->
+    <item name="colorPrimaryDark">#E85900</item>
+    <item name="colorAccent">#E85900</item>
+    <!--<item name="colorAccent">#0098F7</item>-->
+    <item name="fontFamily">@font/montserratregular</item>
+  </style>
+
+  <style name="MyTheme" parent="MyTheme.Base">
+  </style>
+  
+	<style name="Theme.Custom" parent="@android:style/Theme.DeviceDefault"><item name="android:colorBackground">#ffe05b2d</item><item name="android:windowBackground">?android:attr/colorBackground</item></style>
+	<!--<style name="Theme.Custom" parent="@android:style/Theme.DeviceDefault"><item name="android:colorBackground">#ffe05b2d</item><item name="android:windowBackground">?android:attr/colorBackground</item></style>-->
+
+  <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">    
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowActionBar">true</item>
+  </style>
+
+</resources>

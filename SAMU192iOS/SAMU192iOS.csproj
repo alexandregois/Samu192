@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.props" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{203ED518-19B6-47CA-BEA1-62005A235387}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SAMU192iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>samu192</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Distribution: True Administracao de Informacoes Ltda Epp (DZBL6JMMH5)</CodesignKey>
+    <CodesignProvision>match AppStore com.trueinformationtechnology.samu192</CodesignProvision>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <MtouchSdkVersion>13.7</MtouchSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;__IOS__;__MOBILE__;__UNIFIED__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Distribution: True Administracao de Informacoes Ltda Epp (DZBL6JMMH5)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>match AppStore com.trueinformationtechnology.samu192</CodesignProvision>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchSdkVersion>14.0</MtouchSdkVersion>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>Apple Distribution: True Administracao de Informacoes Ltda Epp (DZBL6JMMH5)</CodesignKey>
+    <CodesignProvision>match AppStore com.trueinformationtechnology.samu192</CodesignProvision>
+    <OptimizePNGs>true</OptimizePNGs>
+    <MtouchDebug>true</MtouchDebug>
+    <BuildIpa>true</BuildIpa>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="FacadeStub\StubAppCenter.cs" />
+    <Compile Include="FacadeStub\StubConexao.cs" />
+    <Compile Include="FacadeStub\StubPushNotifications.cs" />
+    <Compile Include="FacadeStub\StubWalkThrough.cs" />
+    <Compile Include="Implementaions\BackgroundTask.cs" />
+    <Compile Include="Implementaions\NetworkConnectionImpl.cs" />
+    <Compile Include="Implementaions\PushNotificationImpl.cs" />
+    <Compile Include="Resources\Strings.cs" />
+    <Compile Include="ViewControllers\Comum\BaseViewController.cs" />
+    <Compile Include="ViewControllers\Comum\BaseViewController.designer.cs">
+      <DependentUpon>BaseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Comum\ForaDeAreaViewController.cs" />
+    <Compile Include="ViewControllers\Comum\ForaDeAreaViewController.designer.cs">
+      <DependentUpon>ForaDeAreaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Favoritos\FavoritoExcluirViewController.cs" />
+    <Compile Include="ViewControllers\Favoritos\FavoritoExcluirViewController.designer.cs">
+      <DependentUpon>FavoritoExcluirViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Favoritos\FavoritoListaViewController.cs" />
+    <Compile Include="ViewControllers\Favoritos\FavoritoListaViewController.designer.cs">
+      <DependentUpon>FavoritoListaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Photo\CodigoPhotoViewController.cs" />
+    <Compile Include="ViewControllers\Photo\CodigoPhotoViewController.designer.cs">
+      <DependentUpon>CodigoPhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacadeStub\StubWebService.cs" />
+    <Compile Include="Implementaions\StorageProviderImpl.cs" />
+    <Compile Include="FacadeStub\StubCadastro.cs" />
+    <Compile Include="FacadeStub\StubMidia.cs" />
+    <Compile Include="FacadeStub\StubGPS.cs" />
+    <Compile Include="FacadeStub\StubLocalizacao.cs" />
+    <Compile Include="FacadeStub\StubMapa.cs" />
+    <Compile Include="FacadeStub\StubTelefonia.cs" />
+    <Compile Include="FacadeStub\StubUtilidades.cs" />
+    <Compile Include="Implementaions\CameraImpl.cs" />
+    <Compile Include="Implementaions\GPSImpl.cs" />
+    <Compile Include="Implementaions\LeitorCSVImpl.cs" />
+    <Compile Include="Implementaions\MapaImpl.cs" />
+    <Compile Include="Implementaions\TelefoniaImpl.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\Cadastro\CadastroPessoaViewController.cs" />
+    <Compile Include="ViewControllers\Cadastro\CadastroPessoaViewController.designer.cs">
+      <DependentUpon>CadastroPessoaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Photo\CapturarPhotoViewController.cs" />
+    <Compile Include="ViewControllers\Photo\CapturarPhotoViewController.designer.cs">
+      <DependentUpon>CapturarPhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Photo\ConfirmaPhotoViewController.cs" />
+    <Compile Include="ViewControllers\Photo\ConfirmaPhotoViewController.designer.cs">
+      <DependentUpon>ConfirmaPhotoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Favoritos\FavoritosViewController.cs" />
+    <Compile Include="ViewControllers\Favoritos\FavoritosViewController.designer.cs">
+      <DependentUpon>FavoritosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Mapa\MapaViewController.cs" />
+    <Compile Include="ViewControllers\Mapa\MapaViewController.designer.cs">
+      <DependentUpon>MapaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Comum\MenuViewController.cs" />
+    <Compile Include="ViewControllers\Comum\MenuViewController.designer.cs">
+      <DependentUpon>MenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Cadastro\NumeroTelefoneViewController.cs" />
+    <Compile Include="ViewControllers\Cadastro\NumeroTelefoneViewController.designer.cs">
+      <DependentUpon>NumeroTelefoneViewController.cs</DependentUpon>
+    </Compile>
+    <BundleResource Include="Assets\CSV\1.CSV" />
+    <BundleResource Include="Assets\CSV\10.CSV" />
+    <BundleResource Include="Assets\CSV\100.CSV" />
+    <BundleResource Include="Assets\CSV\101.CSV" />
+    <BundleResource Include="Assets\CSV\102.CSV" />
+    <BundleResource Include="Assets\CSV\103.CSV" />
+    <BundleResource Include="Assets\CSV\104.CSV" />
+    <BundleResource Include="Assets\CSV\105.CSV" />
+    <BundleResource Include="Assets\CSV\106.CSV" />
+    <BundleResource Include="Assets\CSV\107.CSV" />
+    <BundleResource Include="Assets\CSV\108.CSV" />
+    <BundleResource Include="Assets\CSV\109.CSV" />
+    <BundleResource Include="Assets\CSV\11.CSV" />
+    <BundleResource Include="Assets\CSV\110.CSV" />
+    <BundleResource Include="Assets\CSV\111.CSV" />
+    <BundleResource Include="Assets\CSV\112.CSV" />
+    <BundleResource Include="Assets\CSV\113.CSV" />
+    <BundleResource Include="Assets\CSV\114.CSV" />
+    <BundleResource Include="Assets\CSV\115.CSV" />
+    <BundleResource Include="Assets\CSV\116.CSV" />
+    <BundleResource Include="Assets\CSV\117.CSV" />
+    <BundleResource Include="Assets\CSV\118.CSV" />
+    <BundleResource Include="Assets\CSV\119.CSV" />
+    <BundleResource Include="Assets\CSV\12.CSV" />
+    <BundleResource Include="Assets\CSV\120.CSV" />
+    <BundleResource Include="Assets\CSV\121.CSV" />
+    <BundleResource Include="Assets\CSV\122.CSV" />
+    <BundleResource Include="Assets\CSV\123.CSV" />
+    <BundleResource Include="Assets\CSV\124.CSV" />
+    <BundleResource Include="Assets\CSV\125.CSV" />
+    <BundleResource Include="Assets\CSV\126.CSV" />
+    <BundleResource Include="Assets\CSV\127.CSV" />
+    <BundleResource Include="Assets\CSV\128.CSV" />
+    <BundleResource Include="Assets\CSV\129.CSV" />
+    <BundleResource Include="Assets\CSV\13.CSV" />
+    <BundleResource Include="Assets\CSV\130.CSV" />
+    <BundleResource Include="Assets\CSV\131.CSV" />
+    <BundleResource Include="Assets\CSV\132.CSV" />
+    <BundleResource Include="Assets\CSV\133.CSV" />
+    <BundleResource Include="Assets\CSV\134.CSV" />
+    <BundleResource Include="Assets\CSV\135.CSV" />
+    <BundleResource Include="Assets\CSV\136.CSV" />
+    <BundleResource Include="Assets\CSV\137.CSV" />
+    <BundleResource Include="Assets\CSV\138.CSV" />
+    <BundleResource Include="Assets\CSV\139.CSV" />
+    <BundleResource Include="Assets\CSV\14.CSV" />
+    <BundleResource Include="Assets\CSV\140.CSV" />
+    <BundleResource Include="Assets\CSV\141.CSV" />
+    <BundleResource Include="Assets\CSV\142.CSV" />
+    <BundleResource Include="Assets\CSV\143.CSV" />
+    <BundleResource Include="Assets\CSV\144.CSV" />
+    <BundleResource Include="Assets\CSV\145.CSV" />
+    <BundleResource Include="Assets\CSV\146.CSV" />
+    <BundleResource Include="Assets\CSV\147.CSV" />
+    <BundleResource Include="Assets\CSV\148.CSV" />
+    <BundleResource Include="Assets\CSV\149.CSV" />
+    <BundleResource Include="Assets\CSV\15.CSV" />
+    <BundleResource Include="Assets\CSV\150.CSV" />
+    <BundleResource Include="Assets\CSV\151.CSV" />
+    <BundleResource Include="Assets\CSV\152.CSV" />
+    <BundleResource Include="Assets\CSV\153.CSV" />
+    <BundleResource Include="Assets\CSV\154.CSV" />
+    <BundleResource Include="Assets\CSV\155.CSV" />
+    <BundleResource Include="Assets\CSV\156.CSV" />
+    <BundleResource Include="Assets\CSV\157.CSV" />
+    <BundleResource Include="Assets\CSV\158.CSV" />
+    <BundleResource Include="Assets\CSV\159.CSV" />
+    <BundleResource Include="Assets\CSV\16.CSV" />
+    <BundleResource Include="Assets\CSV\160.CSV" />
+    <BundleResource Include="Assets\CSV\161.CSV" />
+    <BundleResource Include="Assets\CSV\162.CSV" />
+    <BundleResource Include="Assets\CSV\163.CSV" />
+    <BundleResource Include="Assets\CSV\164.CSV" />
+    <BundleResource Include="Assets\CSV\165.CSV" />
+    <BundleResource Include="Assets\CSV\166.CSV" />
+    <BundleResource Include="Assets\CSV\167.CSV" />
+    <BundleResource Include="Assets\CSV\168.CSV" />
+    <BundleResource Include="Assets\CSV\169.CSV" />
+    <BundleResource Include="Assets\CSV\17.CSV" />
+    <BundleResource Include="Assets\CSV\170.CSV" />
+    <BundleResource Include="Assets\CSV\171.CSV" />
+    <BundleResource Include="Assets\CSV\172.CSV" />
+    <BundleResource Include="Assets\CSV\173.CSV" />
+    <BundleResource Include="Assets\CSV\174.CSV" />
+    <BundleResource Include="Assets\CSV\175.CSV" />
+    <BundleResource Include="Assets\CSV\176.CSV" />
+    <BundleResource Include="Assets\CSV\177.CSV" />
+    <BundleResource Include="Assets\CSV\178.CSV" />
+    <BundleResource Include="Assets\CSV\179.CSV" />
+    <BundleResource Include="Assets\CSV\18.CSV" />
+    <BundleResource Include="Assets\CSV\180.CSV" />
+    <BundleResource Include="Assets\CSV\181.CSV" />
+    <BundleResource Include="Assets\CSV\182.CSV" />
+    <BundleResource Include="Assets\CSV\183.CSV" />
+    <BundleResource Include="Assets\CSV\184.CSV" />
+    <BundleResource Include="Assets\CSV\185.CSV" />
+    <BundleResource Include="Assets\CSV\186.CSV" />
+    <BundleResource Include="Assets\CSV\187.CSV" />
+    <BundleResource Include="Assets\CSV\188.CSV" />
+    <BundleResource Include="Assets\CSV\189.CSV" />
+    <BundleResource Include="Assets\CSV\19.CSV" />
+    <BundleResource Include="Assets\CSV\190.CSV" />
+    <BundleResource Include="Assets\CSV\191.CSV" />
+    <BundleResource Include="Assets\CSV\192.CSV" />
+    <BundleResource Include="Assets\CSV\193.CSV" />
+    <BundleResource Include="Assets\CSV\194.CSV" />
+    <BundleResource Include="Assets\CSV\195.CSV" />
+    <BundleResource Include="Assets\CSV\196.CSV" />
+    <BundleResource Include="Assets\CSV\197.CSV" />
+    <BundleResource Include="Assets\CSV\198.CSV" />
+    <BundleResource Include="Assets\CSV\199.CSV" />
+    <BundleResource Include="Assets\CSV\2.CSV" />
+    <BundleResource Include="Assets\CSV\20.CSV" />
+    <BundleResource Include="Assets\CSV\200.CSV" />
+    <BundleResource Include="Assets\CSV\201.CSV" />
+    <BundleResource Include="Assets\CSV\202.CSV" />
+    <BundleResource Include="Assets\CSV\203.CSV" />
+    <BundleResource Include="Assets\CSV\204.CSV" />
+    <BundleResource Include="Assets\CSV\205.CSV" />
+    <BundleResource Include="Assets\CSV\206.CSV" />
+    <BundleResource Include="Assets\CSV\207.CSV" />
+    <BundleResource Include="Assets\CSV\208.CSV" />
+    <BundleResource Include="Assets\CSV\209.CSV" />
+    <BundleResource Include="Assets\CSV\21.CSV" />
+    <BundleResource Include="Assets\CSV\210.CSV" />
+    <BundleResource Include="Assets\CSV\211.CSV" />
+    <BundleResource Include="Assets\CSV\212.CSV" />
+    <BundleResource Include="Assets\CSV\213.CSV" />
+    <BundleResource Include="Assets\CSV\214.CSV" />
+    <BundleResource Include="Assets\CSV\215.CSV" />
+    <BundleResource Include="Assets\CSV\216.CSV" />
+    <BundleResource Include="Assets\CSV\217.CSV" />
+    <BundleResource Include="Assets\CSV\218.CSV" />
+    <BundleResource Include="Assets\CSV\219.CSV" />
+    <BundleResource Include="Assets\CSV\22.CSV" />
+    <BundleResource Include="Assets\CSV\220.CSV" />
+    <BundleResource Include="Assets\CSV\221.CSV" />
+    <BundleResource Include="Assets\CSV\222.CSV" />
+    <BundleResource Include="Assets\CSV\223.CSV" />
+    <BundleResource Include="Assets\CSV\224.CSV" />
+    <BundleResource Include="Assets\CSV\225.CSV" />
+    <BundleResource Include="Assets\CSV\226.CSV" />
+    <BundleResource Include="Assets\CSV\227.CSV" />
+    <BundleResource Include="Assets\CSV\228.CSV" />
+    <BundleResource Include="Assets\CSV\229.CSV" />
+    <BundleResource Include="Assets\CSV\23.CSV" />
+    <BundleResource Include="Assets\CSV\230.CSV" />
+    <BundleResource Include="Assets\CSV\231.CSV" />
+    <BundleResource Include="Assets\CSV\232.CSV" />
+    <BundleResource Include="Assets\CSV\233.CSV" />
+    <BundleResource Include="Assets\CSV\234.CSV" />
+    <BundleResource Include="Assets\CSV\235.CSV" />
+    <BundleResource Include="Assets\CSV\236.CSV" />
+    <BundleResource Include="Assets\CSV\237.CSV" />
+    <BundleResource Include="Assets\CSV\238.CSV" />
+    <BundleResource Include="Assets\CSV\239.CSV" />
+    <BundleResource Include="Assets\CSV\24.CSV" />
+    <BundleResource Include="Assets\CSV\240.CSV" />
+    <BundleResource Include="Assets\CSV\241.CSV" />
+    <BundleResource Include="Assets\CSV\242.CSV" />
+    <BundleResource Include="Assets\CSV\243.CSV" />
+    <BundleResource Include="Assets\CSV\244.CSV" />
+    <BundleResource Include="Assets\CSV\245.CSV" />
+    <BundleResource Include="Assets\CSV\246.CSV" />
+    <BundleResource Include="Assets\CSV\247.CSV" />
+    <BundleResource Include="Assets\CSV\248.CSV" />
+    <BundleResource Include="Assets\CSV\249.CSV" />
+    <BundleResource Include="Assets\CSV\25.CSV" />
+    <BundleResource Include="Assets\CSV\250.CSV" />
+    <BundleResource Include="Assets\CSV\251.CSV" />
+    <BundleResource Include="Assets\CSV\252.CSV" />
+    <BundleResource Include="Assets\CSV\253.CSV" />
+    <BundleResource Include="Assets\CSV\254.CSV" />
+    <BundleResource Include="Assets\CSV\255.CSV" />
+    <BundleResource Include="Assets\CSV\256.CSV" />
+    <BundleResource Include="Assets\CSV\257.CSV" />
+    <BundleResource Include="Assets\CSV\258.CSV" />
+    <BundleResource Include="Assets\CSV\259.CSV" />
+    <BundleResource Include="Assets\CSV\26.CSV" />
+    <BundleResource Include="Assets\CSV\260.CSV" />
+    <BundleResource Include="Assets\CSV\261.CSV" />
+    <BundleResource Include="Assets\CSV\262.CSV" />
+    <BundleResource Include="Assets\CSV\263.CSV" />
+    <BundleResource Include="Assets\CSV\264.CSV" />
+    <BundleResource Include="Assets\CSV\265.CSV" />
+    <BundleResource Include="Assets\CSV\266.CSV" />
+    <BundleResource Include="Assets\CSV\267.CSV" />
+    <BundleResource Include="Assets\CSV\268.CSV" />
+    <BundleResource Include="Assets\CSV\269.CSV" />
+    <BundleResource Include="Assets\CSV\27.CSV" />
+    <BundleResource Include="Assets\CSV\270.CSV" />
+    <BundleResource Include="Assets\CSV\271.CSV" />
+    <BundleResource Include="Assets\CSV\272.CSV" />
+    <BundleResource Include="Assets\CSV\273.CSV" />
+    <BundleResource Include="Assets\CSV\274.CSV" />
+    <BundleResource Include="Assets\CSV\275.CSV" />
+    <BundleResource Include="Assets\CSV\276.CSV" />
+    <BundleResource Include="Assets\CSV\277.CSV" />
+    <BundleResource Include="Assets\CSV\278.CSV" />
+    <BundleResource Include="Assets\CSV\279.CSV" />
+    <BundleResource Include="Assets\CSV\28.CSV" />
+    <BundleResource Include="Assets\CSV\280.CSV" />
+    <BundleResource Include="Assets\CSV\281.CSV" />
+    <BundleResource Include="Assets\CSV\282.CSV" />
+    <BundleResource Include="Assets\CSV\283.CSV" />
+    <BundleResource Include="Assets\CSV\284.CSV" />
+    <BundleResource Include="Assets\CSV\285.CSV" />
+    <BundleResource Include="Assets\CSV\286.CSV" />
+    <BundleResource Include="Assets\CSV\287.CSV" />
+    <BundleResource Include="Assets\CSV\288.CSV" />
+    <BundleResource Include="Assets\CSV\289.CSV" />
+    <BundleResource Include="Assets\CSV\29.CSV" />
+    <BundleResource Include="Assets\CSV\290.CSV" />
+    <BundleResource Include="Assets\CSV\291.CSV" />
+    <BundleResource Include="Assets\CSV\292.CSV" />
+    <BundleResource Include="Assets\CSV\293.CSV" />
+    <BundleResource Include="Assets\CSV\294.CSV" />
+    <BundleResource Include="Assets\CSV\295.CSV" />
+    <BundleResource Include="Assets\CSV\296.CSV" />
+    <BundleResource Include="Assets\CSV\297.CSV" />
+    <BundleResource Include="Assets\CSV\298.CSV" />
+    <BundleResource Include="Assets\CSV\299.CSV" />
+    <BundleResource Include="Assets\CSV\3.CSV" />
+    <BundleResource Include="Assets\CSV\30.CSV" />
+    <BundleResource Include="Assets\CSV\300.CSV" />
+    <BundleResource Include="Assets\CSV\301.CSV" />
+    <BundleResource Include="Assets\CSV\302.CSV" />
+    <BundleResource Include="Assets\CSV\303.CSV" />
+    <BundleResource Include="Assets\CSV\304.CSV" />
+    <BundleResource Include="Assets\CSV\305.CSV" />
+    <BundleResource Include="Assets\CSV\306.CSV" />
+    <BundleResource Include="Assets\CSV\307.CSV" />
+    <BundleResource Include="Assets\CSV\308.CSV" />
+    <BundleResource Include="Assets\CSV\309.CSV" />
+    <BundleResource Include="Assets\CSV\31.CSV" />
+    <BundleResource Include="Assets\CSV\310.CSV" />
+    <BundleResource Include="Assets\CSV\311.CSV" />
+    <BundleResource Include="Assets\CSV\312.CSV" />
+    <BundleResource Include="Assets\CSV\313.CSV" />
+    <BundleResource Include="Assets\CSV\314.CSV" />
+    <BundleResource Include="Assets\CSV\315.CSV" />
+    <BundleResource Include="Assets\CSV\316.CSV" />
+    <BundleResource Include="Assets\CSV\317.CSV" />
+    <BundleResource Include="Assets\CSV\318.CSV" />
+    <BundleResource Include="Assets\CSV\319.CSV" />
+    <BundleResource Include="Assets\CSV\32.CSV" />
+    <BundleResource Include="Assets\CSV\320.CSV" />
+    <BundleResource Include="Assets\CSV\321.CSV" />
+    <BundleResource Include="Assets\CSV\322.CSV" />
+    <BundleResource Include="Assets\CSV\323.CSV" />
+    <BundleResource Include="Assets\CSV\324.CSV" />
+    <BundleResource Include="Assets\CSV\325.CSV" />
+    <BundleResource Include="Assets\CSV\326.CSV" />
+    <BundleResource Include="Assets\CSV\327.CSV" />
+    <BundleResource Include="Assets\CSV\328.CSV" />
+    <BundleResource Include="Assets\CSV\329.CSV" />
+    <BundleResource Include="Assets\CSV\33.CSV" />
+    <BundleResource Include="Assets\CSV\330.CSV" />
+    <BundleResource Include="Assets\CSV\331.CSV" />
+    <BundleResource Include="Assets\CSV\332.CSV" />
+    <BundleResource Include="Assets\CSV\333.CSV" />
+    <BundleResource Include="Assets\CSV\334.CSV" />
+    <BundleResource Include="Assets\CSV\335.CSV" />
+    <BundleResource Include="Assets\CSV\336.CSV" />
+    <BundleResource Include="Assets\CSV\337.CSV" />
+    <BundleResource Include="Assets\CSV\338.CSV" />
+    <BundleResource Include="Assets\CSV\339.CSV" />
+    <BundleResource Include="Assets\CSV\34.CSV" />
+    <BundleResource Include="Assets\CSV\340.CSV" />
+    <BundleResource Include="Assets\CSV\341.CSV" />
+    <BundleResource Include="Assets\CSV\342.CSV" />
+    <BundleResource Include="Assets\CSV\343.CSV" />
+    <BundleResource Include="Assets\CSV\344.CSV" />
+    <BundleResource Include="Assets\CSV\345.CSV" />
+    <BundleResource Include="Assets\CSV\346.CSV" />
+    <BundleResource Include="Assets\CSV\347.CSV" />
+    <BundleResource Include="Assets\CSV\348.CSV" />
+    <BundleResource Include="Assets\CSV\349.CSV" />
+    <BundleResource Include="Assets\CSV\35.CSV" />
+    <BundleResource Include="Assets\CSV\350.CSV" />
+    <BundleResource Include="Assets\CSV\351.CSV" />
+    <BundleResource Include="Assets\CSV\352.CSV" />
+    <BundleResource Include="Assets\CSV\353.CSV" />
+    <BundleResource Include="Assets\CSV\354.CSV" />
+    <BundleResource Include="Assets\CSV\355.CSV" />
+    <BundleResource Include="Assets\CSV\356.CSV" />
+    <BundleResource Include="Assets\CSV\357.CSV" />
+    <BundleResource Include="Assets\CSV\358.CSV" />
+    <BundleResource Include="Assets\CSV\359.CSV" />
+    <BundleResource Include="Assets\CSV\36.CSV" />
+    <BundleResource Include="Assets\CSV\360.CSV" />
+    <BundleResource Include="Assets\CSV\361.CSV" />
+    <BundleResource Include="Assets\CSV\362.CSV" />
+    <BundleResource Include="Assets\CSV\363.CSV" />
+    <BundleResource Include="Assets\CSV\364.CSV" />
+    <BundleResource Include="Assets\CSV\365.CSV" />
+    <BundleResource Include="Assets\CSV\366.CSV" />
+    <BundleResource Include="Assets\CSV\367.CSV" />
+    <BundleResource Include="Assets\CSV\368.CSV" />
+    <BundleResource Include="Assets\CSV\369.CSV" />
+    <BundleResource Include="Assets\CSV\37.CSV" />
+    <BundleResource Include="Assets\CSV\370.CSV" />
+    <BundleResource Include="Assets\CSV\371.CSV" />
+    <BundleResource Include="Assets\CSV\372.CSV" />
+    <BundleResource Include="Assets\CSV\373.CSV" />
+    <BundleResource Include="Assets\CSV\374.CSV" />
+    <BundleResource Include="Assets\CSV\375.CSV" />
+    <BundleResource Include="Assets\CSV\376.CSV" />
+    <BundleResource Include="Assets\CSV\377.CSV" />
+    <BundleResource Include="Assets\CSV\378.CSV" />
+    <BundleResource Include="Assets\CSV\379.CSV" />
+    <BundleResource Include="Assets\CSV\38.CSV" />
+    <BundleResource Include="Assets\CSV\380.CSV" />
+    <BundleResource Include="Assets\CSV\381.CSV" />
+    <BundleResource Include="Assets\CSV\382.CSV" />
+    <BundleResource Include="Assets\CSV\383.CSV" />
+    <BundleResource Include="Assets\CSV\384.CSV" />
+    <BundleResource Include="Assets\CSV\385.CSV" />
+    <BundleResource Include="Assets\CSV\386.CSV" />
+    <BundleResource Include="Assets\CSV\387.CSV" />
+    <BundleResource Include="Assets\CSV\388.CSV" />
+    <BundleResource Include="Assets\CSV\389.CSV" />
+    <BundleResource Include="Assets\CSV\39.CSV" />
+    <BundleResource Include="Assets\CSV\390.CSV" />
+    <BundleResource Include="Assets\CSV\391.CSV" />
+    <BundleResource Include="Assets\CSV\392.CSV" />
+    <BundleResource Include="Assets\CSV\393.CSV" />
+    <BundleResource Include="Assets\CSV\394.CSV" />
+    <BundleResource Include="Assets\CSV\395.CSV" />
+    <BundleResource Include="Assets\CSV\396.CSV" />
+    <BundleResource Include="Assets\CSV\397.CSV" />
+    <BundleResource Include="Assets\CSV\398.CSV" />
+    <BundleResource Include="Assets\CSV\399.CSV" />
+    <BundleResource Include="Assets\CSV\4.CSV" />
+    <BundleResource Include="Assets\CSV\40.CSV" />
+    <BundleResource Include="Assets\CSV\400.CSV" />
+    <BundleResource Include="Assets\CSV\401.CSV" />
+    <BundleResource Include="Assets\CSV\402.CSV" />
+    <BundleResource Include="Assets\CSV\403.CSV" />
+    <BundleResource Include="Assets\CSV\404.CSV" />
+    <BundleResource Include="Assets\CSV\405.CSV" />
+    <BundleResource Include="Assets\CSV\406.CSV" />
+    <BundleResource Include="Assets\CSV\407.CSV" />
+    <BundleResource Include="Assets\CSV\408.CSV" />
+    <BundleResource Include="Assets\CSV\409.CSV" />
+    <BundleResource Include="Assets\CSV\41.CSV" />
+    <BundleResource Include="Assets\CSV\410.CSV" />
+    <BundleResource Include="Assets\CSV\411.CSV" />
+    <BundleResource Include="Assets\CSV\412.CSV" />
+    <BundleResource Include="Assets\CSV\413.CSV" />
+    <BundleResource Include="Assets\CSV\414.CSV" />
+    <BundleResource Include="Assets\CSV\415.CSV" />
+    <BundleResource Include="Assets\CSV\416.CSV" />
+    <BundleResource Include="Assets\CSV\417.CSV" />
+    <BundleResource Include="Assets\CSV\418.CSV" />
+    <BundleResource Include="Assets\CSV\419.CSV" />
+    <BundleResource Include="Assets\CSV\42.CSV" />
+    <BundleResource Include="Assets\CSV\420.CSV" />
+    <BundleResource Include="Assets\CSV\421.CSV" />
+    <BundleResource Include="Assets\CSV\422.CSV" />
+    <BundleResource Include="Assets\CSV\423.CSV" />
+    <BundleResource Include="Assets\CSV\424.CSV" />
+    <BundleResource Include="Assets\CSV\425.CSV" />
+    <BundleResource Include="Assets\CSV\426.CSV" />
+    <BundleResource Include="Assets\CSV\427.CSV" />
+    <BundleResource Include="Assets\CSV\428.CSV" />
+    <BundleResource Include="Assets\CSV\429.CSV" />
+    <BundleResource Include="Assets\CSV\43.CSV" />
+    <BundleResource Include="Assets\CSV\430.CSV" />
+    <BundleResource Include="Assets\CSV\431.CSV" />
+    <BundleResource Include="Assets\CSV\432.CSV" />
+    <BundleResource Include="Assets\CSV\433.CSV" />
+    <BundleResource Include="Assets\CSV\434.CSV" />
+    <BundleResource Include="Assets\CSV\435.CSV" />
+    <BundleResource Include="Assets\CSV\436.CSV" />
+    <BundleResource Include="Assets\CSV\437.CSV" />
+    <BundleResource Include="Assets\CSV\438.CSV" />
+    <BundleResource Include="Assets\CSV\439.CSV" />
+    <BundleResource Include="Assets\CSV\44.CSV" />
+    <BundleResource Include="Assets\CSV\440.CSV" />
+    <BundleResource Include="Assets\CSV\441.CSV" />
+    <BundleResource Include="Assets\CSV\442.CSV" />
+    <BundleResource Include="Assets\CSV\443.CSV" />
+    <BundleResource Include="Assets\CSV\444.CSV" />
+    <BundleResource Include="Assets\CSV\445.CSV" />
+    <BundleResource Include="Assets\CSV\446.CSV" />
+    <BundleResource Include="Assets\CSV\447.CSV" />
+    <BundleResource Include="Assets\CSV\448.CSV" />
+    <BundleResource Include="Assets\CSV\449.CSV" />
+    <BundleResource Include="Assets\CSV\45.CSV" />
+    <BundleResource Include="Assets\CSV\450.CSV" />
+    <BundleResource Include="Assets\CSV\451.CSV" />
+    <BundleResource Include="Assets\CSV\452.CSV" />
+    <BundleResource Include="Assets\CSV\453.CSV" />
+    <BundleResource Include="Assets\CSV\454.CSV" />
+    <BundleResource Include="Assets\CSV\455.CSV" />
+    <BundleResource Include="Assets\CSV\456.CSV" />
+    <BundleResource Include="Assets\CSV\457.CSV" />
+    <BundleResource Include="Assets\CSV\458.CSV" />
+    <BundleResource Include="Assets\CSV\459.CSV" />
+    <BundleResource Include="Assets\CSV\46.CSV" />
+    <BundleResource Include="Assets\CSV\460.CSV" />
+    <BundleResource Include="Assets\CSV\461.CSV" />
+    <BundleResource Include="Assets\CSV\462.CSV" />
+    <BundleResource Include="Assets\CSV\463.CSV" />
+    <BundleResource Include="Assets\CSV\464.CSV" />
+    <BundleResource Include="Assets\CSV\465.CSV" />
+    <BundleResource Include="Assets\CSV\466.CSV" />
+    <BundleResource Include="Assets\CSV\467.CSV" />
+    <BundleResource Include="Assets\CSV\468.CSV" />
+    <BundleResource Include="Assets\CSV\469.CSV" />
+    <BundleResource Include="Assets\CSV\47.CSV" />
+    <BundleResource Include="Assets\CSV\470.CSV" />
+    <BundleResource Include="Assets\CSV\471.CSV" />
+    <BundleResource Include="Assets\CSV\472.CSV" />
+    <BundleResource Include="Assets\CSV\473.CSV" />
+    <BundleResource Include="Assets\CSV\474.CSV" />
+    <BundleResource Include="Assets\CSV\475.CSV" />
+    <BundleResource Include="Assets\CSV\476.CSV" />
+    <BundleResource Include="Assets\CSV\477.CSV" />
+    <BundleResource Include="Assets\CSV\478.CSV" />
+    <BundleResource Include="Assets\CSV\479.CSV" />
+    <BundleResource Include="Assets\CSV\48.CSV" />
+    <BundleResource Include="Assets\CSV\480.CSV" />
+    <BundleResource Include="Assets\CSV\481.CSV" />
+    <BundleResource Include="Assets\CSV\482.CSV" />
+    <BundleResource Include="Assets\CSV\483.CSV" />
+    <BundleResource Include="Assets\CSV\484.CSV" />
+    <BundleResource Include="Assets\CSV\485.CSV" />
+    <BundleResource Include="Assets\CSV\486.CSV" />
+    <BundleResource Include="Assets\CSV\487.CSV" />
+    <BundleResource Include="Assets\CSV\488.CSV" />
+    <BundleResource Include="Assets\CSV\489.CSV" />
+    <BundleResource Include="Assets\CSV\49.CSV" />
+    <BundleResource Include="Assets\CSV\490.CSV" />
+    <BundleResource Include="Assets\CSV\491.CSV" />
+    <BundleResource Include="Assets\CSV\492.CSV" />
+    <BundleResource Include="Assets\CSV\493.CSV" />
+    <BundleResource Include="Assets\CSV\494.CSV" />
+    <BundleResource Include="Assets\CSV\495.CSV" />
+    <BundleResource Include="Assets\CSV\496.CSV" />
+    <BundleResource Include="Assets\CSV\497.CSV" />
+    <BundleResource Include="Assets\CSV\498.CSV" />
+    <BundleResource Include="Assets\CSV\499.CSV" />
+    <BundleResource Include="Assets\CSV\5.CSV" />
+    <BundleResource Include="Assets\CSV\50.CSV" />
+    <BundleResource Include="Assets\CSV\500.CSV" />
+    <BundleResource Include="Assets\CSV\501.CSV" />
+    <BundleResource Include="Assets\CSV\502.CSV" />
+    <BundleResource Include="Assets\CSV\503.CSV" />
+    <BundleResource Include="Assets\CSV\504.CSV" />
+    <BundleResource Include="Assets\CSV\507.CSV" />
+    <BundleResource Include="Assets\CSV\508.CSV" />
+    <BundleResource Include="Assets\CSV\509.CSV" />
+    <BundleResource Include="Assets\CSV\51.CSV" />
+    <BundleResource Include="Assets\CSV\510.CSV" />
+    <BundleResource Include="Assets\CSV\511.CSV" />
+    <BundleResource Include="Assets\CSV\512.CSV" />
+    <BundleResource Include="Assets\CSV\513.CSV" />
+    <BundleResource Include="Assets\CSV\514.CSV" />
+    <BundleResource Include="Assets\CSV\515.CSV" />
+    <BundleResource Include="Assets\CSV\516.CSV" />
+    <BundleResource Include="Assets\CSV\517.CSV" />
+    <BundleResource Include="Assets\CSV\518.CSV" />
+    <BundleResource Include="Assets\CSV\519.CSV" />
+    <BundleResource Include="Assets\CSV\52.CSV" />
+    <BundleResource Include="Assets\CSV\520.CSV" />
+    <BundleResource Include="Assets\CSV\521.CSV" />
+    <BundleResource Include="Assets\CSV\522.CSV" />
+    <BundleResource Include="Assets\CSV\523.CSV" />
+    <BundleResource Include="Assets\CSV\524.CSV" />
+    <BundleResource Include="Assets\CSV\525.CSV" />
+    <BundleResource Include="Assets\CSV\526.CSV" />
+    <BundleResource Include="Assets\CSV\527.CSV" />
+    <BundleResource Include="Assets\CSV\528.CSV" />
+    <BundleResource Include="Assets\CSV\529.CSV" />
+    <BundleResource Include="Assets\CSV\53.CSV" />
+    <BundleResource Include="Assets\CSV\530.CSV" />
+    <BundleResource Include="Assets\CSV\531.CSV" />
+    <BundleResource Include="Assets\CSV\532.CSV" />
+    <BundleResource Include="Assets\CSV\54.CSV" />
+    <BundleResource Include="Assets\CSV\55.CSV" />
+    <BundleResource Include="Assets\CSV\56.CSV" />
+    <BundleResource Include="Assets\CSV\57.CSV" />
+    <BundleResource Include="Assets\CSV\58.CSV" />
+    <BundleResource Include="Assets\CSV\59.CSV" />
+    <BundleResource Include="Assets\CSV\6.CSV" />
+    <BundleResource Include="Assets\CSV\60.CSV" />
+    <BundleResource Include="Assets\CSV\61.CSV" />
+    <BundleResource Include="Assets\CSV\62.CSV" />
+    <BundleResource Include="Assets\CSV\63.CSV" />
+    <BundleResource Include="Assets\CSV\64.CSV" />
+    <BundleResource Include="Assets\CSV\65.CSV" />
+    <BundleResource Include="Assets\CSV\66.CSV" />
+    <BundleResource Include="Assets\CSV\67.CSV" />
+    <BundleResource Include="Assets\CSV\68.CSV" />
+    <BundleResource Include="Assets\CSV\69.CSV" />
+    <BundleResource Include="Assets\CSV\7.CSV" />
+    <BundleResource Include="Assets\CSV\70.CSV" />
+    <BundleResource Include="Assets\CSV\71.CSV" />
+    <BundleResource Include="Assets\CSV\72.CSV" />
+    <BundleResource Include="Assets\CSV\73.CSV" />
+    <BundleResource Include="Assets\CSV\74.CSV" />
+    <BundleResource Include="Assets\CSV\75.CSV" />
+    <BundleResource Include="Assets\CSV\76.CSV" />
+    <BundleResource Include="Assets\CSV\77.CSV" />
+    <BundleResource Include="Assets\CSV\78.CSV" />
+    <BundleResource Include="Assets\CSV\79.CSV" />
+    <BundleResource Include="Assets\CSV\8.CSV" />
+    <BundleResource Include="Assets\CSV\80.CSV" />
+    <BundleResource Include="Assets\CSV\81.CSV" />
+    <BundleResource Include="Assets\CSV\82.CSV" />
+    <BundleResource Include="Assets\CSV\83.CSV" />
+    <BundleResource Include="Assets\CSV\84.CSV" />
+    <BundleResource Include="Assets\CSV\85.CSV" />
+    <BundleResource Include="Assets\CSV\86.CSV" />
+    <BundleResource Include="Assets\CSV\87.CSV" />
+    <BundleResource Include="Assets\CSV\88.CSV" />
+    <BundleResource Include="Assets\CSV\89.CSV" />
+    <BundleResource Include="Assets\CSV\9.CSV" />
+    <BundleResource Include="Assets\CSV\90.CSV" />
+    <BundleResource Include="Assets\CSV\91.CSV" />
+    <BundleResource Include="Assets\CSV\92.CSV" />
+    <BundleResource Include="Assets\CSV\93.CSV" />
+    <BundleResource Include="Assets\CSV\94.CSV" />
+    <BundleResource Include="Assets\CSV\95.CSV" />
+    <BundleResource Include="Assets\CSV\96.CSV" />
+    <BundleResource Include="Assets\CSV\97.CSV" />
+    <BundleResource Include="Assets\CSV\98.CSV" />
+    <BundleResource Include="Assets\CSV\99.CSV" />
+    <BundleResource Include="Assets\CSV\MAPEAMENTO.CSV" />
+    <Compile Include="ViewControllers\Comum\PrincipalViewController.cs" />
+    <Compile Include="ViewControllers\Comum\PrincipalViewController.designer.cs">
+      <DependentUpon>PrincipalViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Comum\RootViewController.cs" />
+    <Compile Include="ViewControllers\Sobre\QuandoAcionarViewController.cs" />
+    <Compile Include="ViewControllers\Sobre\QuandoAcionarViewController.designer.cs">
+      <DependentUpon>QuandoAcionarViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Sobre\SobreViewController.cs" />
+    <Compile Include="ViewControllers\Sobre\SobreViewController.designer.cs">
+      <DependentUpon>SobreViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Utils.cs" />
+    <Compile Include="ViewControllers\WalkThrough\TermoViewController.cs" />
+    <Compile Include="ViewControllers\WalkThrough\TermoViewController.designer.cs">
+      <DependentUpon>TermoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\WalkThrough\WalkThroughViewController.cs" />
+    <Compile Include="ViewControllers\WalkThrough\WalkThroughViewController.designer.cs">
+      <DependentUpon>WalkThroughViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\WalkThrough\WelcomeViewController.cs" />
+    <Compile Include="ViewControllers\WalkThrough\WelcomeViewController.designer.cs">
+      <DependentUpon>WelcomeViewController.cs</DependentUpon>
+    </Compile>
+    <None Include="Entitlements.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <InterfaceDefinition Include="ViewControllers\Comum\ViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Mapa\MapaViewController.xib" />
+    <InterfaceDefinition Include="MainStoryboard.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="ViewControllers\Comum\PrincipalViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Cadastro\NumeroTelefoneViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Cadastro\CadastroPessoaViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\WalkThrough\WalkThroughViewController.xib" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <InterfaceDefinition Include="ViewControllers\Sobre\SobreViewController.xib" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <InterfaceDefinition Include="ViewControllers\Favoritos\FavoritosViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Photo\ConfirmaPhotoViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Photo\CapturarPhotoViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\WalkThrough\TermoViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\WalkThrough\WelcomeViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Favoritos\FavoritoListaViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Favoritos\FavoritoExcluirViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Sobre\QuandoAcionarViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Comum\ForaDeAreaViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\Comum\MensagemViewController.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Firebase.Analytics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Analytics.4.0.5.1\lib\Xamarin.iOS10\Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.CloudMessaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.CloudMessaging.2.0.8.1\lib\Xamarin.iOS10\Firebase.CloudMessaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.Core.4.0.13.1\lib\Xamarin.iOS10\Firebase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.InstanceID, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.8\lib\Xamarin.iOS10\Firebase.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Google.iOS.Core.3.1.0.1\lib\Xamarin.iOS10\Google.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.InstanceID, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Google.iOS.InstanceID.1.2.1.11\lib\Xamarin.iOS10\Google.InstanceID.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Analytics.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Analytics.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Analytics.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.Crashes.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.Crashes.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AppCenter.iOS.Bindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AppCenter.4.0.0\lib\Xamarin.iOS10\Microsoft.AppCenter.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="SidebarNavigation, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SidebarNavigation.2.0.0\lib\xamarinios10\SidebarNavigation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Landscape%402x~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Landscape~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-72%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Small-50%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Spotlight-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icon-Spotlight-40%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Resources\iTunesArtwork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="Resources\iTunesArtwork%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\currentlocation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\currentlocation%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\about.png" />
+    <BundleResource Include="Resources\Images\call.png" />
+    <BundleResource Include="Resources\Images\button_delete.png" />
+    <BundleResource Include="Resources\Images\horizontal google play.png" />
+    <BundleResource Include="Resources\Images\info.png" />
+    <BundleResource Include="Resources\Images\left-arrow.png" />
+    <BundleResource Include="Resources\Images\menu.png" />
+    <BundleResource Include="Resources\Images\phone-call.png" />
+    <BundleResource Include="Resources\Images\phone-receiver.png" />
+    <BundleResource Include="Resources\Images\photo-camera.png" />
+    <BundleResource Include="Resources\Images\star.png" />
+    <BundleResource Include="Resources\Images\arrow.png" />
+    <BundleResource Include="Resources\Images\botaoDelete.png" />
+    <BundleResource Include="Resources\Images\delete.png" />
+    <BundleResource Include="Resources\Images\check.png" />
+    <Content Include="Resources\Images\True JPG Alta.bmp" />
+    <BundleResource Include="Resources\Images\undraw_account_490v.png" />
+    <BundleResource Include="Resources\Images\undraw_address_udes.png" />
+    <BundleResource Include="Resources\Images\undraw_cloud_sync_2aph.png" />
+    <BundleResource Include="Resources\Images\undraw_confirmed_81ex.png" />
+    <BundleResource Include="Resources\Images\undraw_destanation1_h3vq.png" />
+    <BundleResource Include="Resources\Images\undraw_live_collaboration_2r4y.png" />
+    <BundleResource Include="Resources\Images\use.jpg" />
+    <BundleResource Include="Resources\Images\users.png" />
+    <BundleResource Include="Resources\Images\vertivical google play.png" />
+    <BundleResource Include="Resources\Images\undraw_favorites.png" />
+    <BundleResource Include="Resources\Images\undraw_selfie1_kpqf.png" />
+    <BundleResource Include="Resources\Images\true.png" />
+    <BundleResource Include="Resources\Images\undraw_ligar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\about.imageset\about_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\about.imageset\about_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\about.imageset\about_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-1201.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-401.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-402.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-581.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-801.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow.imageset\arrow_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow.imageset\arrow_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow.imageset\arrow_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\botaoDelete.imageset\delete_button_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\botaoDelete.imageset\delete_button_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\botaoDelete.imageset\delete_button_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\call.imageset\call_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\call.imageset\call_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\call.imageset\call_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\check.imageset\check_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\check.imageset\check_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\check.imageset\check_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\currentlocation.imageset\currentlocation_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\currentlocation.imageset\currentlocation_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\currentlocation.imageset\currentlocation_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\delete.imageset\delete_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\delete.imageset\delete_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\delete.imageset\delete_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\about.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\call.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\delete.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\check.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\botaoDelete.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\arrow.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\currentlocation.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\info.imageset\info_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\info.imageset\info_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\info.imageset\info_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-568h@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Landscape@2x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Landscape~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Portrait@2x~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default-Portrait~ipad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Default@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneCall.imageset\phone-call_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneCall.imageset\phone-call_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneCall.imageset\phone-call_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneReceiver.imageset\phone-receiver_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneReceiver.imageset\phone-receiver_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneReceiver.imageset\phone-receiver_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photoCamera.imageset\photo_camera_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photoCamera.imageset\photo_camera_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photoCamera.imageset\photo_camera_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\star.imageset\star_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\star.imageset\star_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\star.imageset\star_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\users.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\star.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\photoCamera.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\info.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneCall.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\phoneReceiver.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\users.imageset\users_1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\users.imageset\users_2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\users.imageset\users_3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAMU192InterfaceService\SAMU192InterfaceService.csproj">
+      <Project>{2be922b7-c544-4d76-bd9e-b9d684bd4228}</Project>
+      <Name>SAMU192InterfaceService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAPHCore\SAMU192Core.csproj">
+      <Project>{c6e1dfb0-6536-4635-9eb9-f4fb75651675}</Project>
+      <Name>SAMU192Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Google.iOS.Core.3.1.0.1\build\Xamarin.Google.iOS.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Google.iOS.Core.3.1.0.1\build\Xamarin.Google.iOS.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Google.iOS.InstanceID.1.2.1.11\build\Xamarin.Google.iOS.InstanceID.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Google.iOS.InstanceID.1.2.1.11\build\Xamarin.Google.iOS.InstanceID.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.iOS.Analytics.4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.iOS.Analytics.4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.iOS.CloudMessaging.2.0.8.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.iOS.CloudMessaging.2.0.8.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.iOS.Core.4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.iOS.Core.4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.props'))" />
+    <Error Condition="!Exists('..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.targets'))" />
+  </Target>
+  <Import Project="..\packages\Xamarin.Google.iOS.Core.3.1.0.1\build\Xamarin.Google.iOS.Core.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.Core.3.1.0.1\build\Xamarin.Google.iOS.Core.targets')" />
+  <Import Project="..\packages\Xamarin.Google.iOS.InstanceID.1.2.1.11\build\Xamarin.Google.iOS.InstanceID.targets" Condition="Exists('..\packages\Xamarin.Google.iOS.InstanceID.1.2.1.11\build\Xamarin.Google.iOS.InstanceID.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Analytics.4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Analytics.4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.CloudMessaging.2.0.8.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.CloudMessaging.2.0.8.1\build\Xamarin.Firebase.iOS.CloudMessaging.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.Core.4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.Core.4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets')" />
+  <Import Project="..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets" Condition="Exists('..\packages\Xamarin.Firebase.iOS.InstanceID.2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets')" />
+  <Import Project="..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.6\build\Xamarin.Build.Download.targets')" />
+</Project>

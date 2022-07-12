@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cinza"
+    android:id="@+id/main_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="58.5dp"
+        android:id="@+id/main_content2"
+        android:background="@color/laranja">
+        <TextView
+            android:text="@string/favoritos_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1"
+            android:fontFamily="@font/montserratbold"
+            android:textStyle="bold"
+            android:textColor="@color/branco"
+            android:layout_marginTop="12dp"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:layout_marginBottom="4dp" />
+    </LinearLayout>
+	    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_margin="16dp"
+            android:background="@color/branco" >
+			 <LinearLayout
+				 android:orientation="horizontal"
+				 android:layout_width="match_parent"
+				 android:layout_height="30.0dp"
+				 android:id="@+id/linearLayout1"
+			     android:background="@color/branco" >
+		            <TextView
+						 android:text="Casa"
+                         android:textAppearance="?android:attr/textAppearanceLarge"
+                         android:layout_width="match_parent"
+				         android:layout_height="wrap_content"
+				         android:layout_weight="1"
+                         android:id="@+id/textView1"
+                         android:textColor="@color/laranja"
+                         android:backgroundTint="@color/branco"
+                         android:fontFamily="@font/montserratbold"
+                         android:textStyle="bold"
+                         android:textSize="18dp"
+                         android:layout_marginTop="6dp"
+				         android:layout_marginBottom="6dp"
+				         android:layout_marginLeft="12dp"
+				         android:layout_marginRight="6dp"
+                         android:lineSpacingExtra="2dp" />
+					<ImageView
+                         android:src="@drawable/ic_delete_laranja"
+                         android:layout_width="wrap_content"
+				         android:layout_height="wrap_content"
+                         android:id="@+id/imageView2" />
+			 </LinearLayout>
+            <TextView
+                android:text="Rua Ferreira Viana, 800 Bairro Petrópolis - Porto Alegre/RS"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                android:textColor="@color/preto"
+                android:backgroundTint="@color/branco"
+                android:fontFamily="@font/montserratregular"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:layout_marginLeft="12dp"
+			    android:layout_marginRight="6dp"
+			    android:layout_marginBottom="6dp"
+			    android:lineSpacingExtra="2dp"
+			    android:layout_marginTop="5dp"  />
+            <TextView
+                android:text="@string/fav_referencia"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                android:textColor="@color/preto"
+                android:backgroundTint="@color/branco"
+                android:fontFamily="@font/montserratbold"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginRight="6dp"
+		        android:layout_marginLeft="12dp"
+		        android:layout_marginBottom="6dp" />
+            <TextView
+                android:text="Em frente ao Petrópolis Tênis Clube"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                android:textColor="@color/preto"
+                android:backgroundTint="@color/branco"
+                android:fontFamily="@font/montserratregular"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginRight="6dp"
+		        android:layout_marginLeft="12dp"
+		        android:layout_marginBottom="6dp"/>
+        </LinearLayout>
+</LinearLayout>

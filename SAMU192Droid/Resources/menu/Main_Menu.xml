@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <group android:checkableBehavior="single">
+    <item
+      android:id="@+id/nav_chamar_samu"
+      android:icon="@drawable/ic_phone_black"
+      android:title="Chamar o SAMU 192" />
+    <item
+      android:id="@+id/nav_cadastro"
+      android:icon="@drawable/ic_person_add_black"
+      android:title="Cadastro" />
+    <item
+      android:id="@+id/nav_favoritos"
+      android:icon="@drawable/ic_favorite_black"
+      android:title="Favoritos" />
+    <item
+      android:id="@+id/nav_quando_acionar_samu"
+      android:icon="@drawable/ic_help_black"
+      android:title="Quando acionar o SAMU?" />
+    <item
+      android:id="@+id/nav_sobre"
+      android:icon="@drawable/ic_info_black"   
+      android:title="Sobre" />
+  </group>
+</menu>

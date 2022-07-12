@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/branco">
+	<android.support.v7.widget.SearchView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="top"
+		android:background="@color/laranja"
+		android:id="@+id/mapa_sv"
+		android:layout_marginTop="2.0dp" />
+	<LinearLayout
+		android:orientation="vertical"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:background="@color/laranja">
+		<TextView
+			android:text="@string/legenda_endereco"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:fontFamily="@font/montserratregular"
+			android:textColor="@color/branco"
+			android:textSize="13dp"
+			android:textStyle="normal"
+			android:id="@+id/legenda_endereco_tv"
+			android:layout_marginBottom="5.0dp"
+			android:gravity="center" />
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:background="@color/laranja"
+		android:layout_marginTop="2.0dp">
+		<TextView
+			android:text="@string/complemento"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="4.5"
+			android:fontFamily="@font/montserratbold"
+			android:textColor="@color/branco"
+			android:textSize="15dp"
+			android:textStyle="bold"
+			android:id="@+id/complemento_tv"
+			android:layout_marginLeft="7dp" />
+		<ImageView
+			android:src="@drawable/ic_arrow_forward"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="6.0"
+			android:layout_marginTop="8dp"
+			android:tint="@color/branco"
+			android:id="@+id/imgComplemento" />
+		<EditText
+			android:inputType="text"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="3.0"
+			android:id="@+id/complemento_et"
+			android:layout_marginRight="7dp"
+			android:hint="@string/complemento_et"
+			android:textColorHint="@color/branco"
+			android:fontFamily="@font/montserratlight"
+			android:textColor="@color/branco"
+			android:backgroundTint="@color/branco"
+			android:textSize="16dp" />
+	</LinearLayout>
+	</LinearLayout>
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<fragment
+			android:id="@+id/mapa_map"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			class="com.google.android.gms.maps.MapFragment" />
+		<LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/loading_msg_ll"
+            android:layout_marginLeft="8.0dp"
+            android:layout_marginRight="8.0dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="   Aguarde..."
+                android:textSize="20dp"
+                android:textColor="@color/laranja"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:layout_toEndOf="@+id/loader" />
+            <ProgressBar
+                android:id="@+id/loader"
+                android:progressTint="@color/laranja"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+		<ImageView
+			android:id="@+id/pin"
+			android:layout_width="wrap_content"
+			android:layout_height="80dp"
+			android:layout_gravity="center"
+			android:baselineAlignBottom="true"
+			android:src="@drawable/pinMap" />
+		<Button
+			android:text="@string/btnselecionar"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/mapa_cmd"
+			android:textAllCaps="false"
+			android:fontFamily="@font/montserratregular"
+			android:textStyle="normal"
+			android:textSize="18dp"
+			android:layout_marginLeft="60dp"
+			android:layout_marginRight="60dp"
+			android:layout_marginBottom="20dp"
+			android:layout_gravity="center|bottom"
+			android:background="@color/laranja"
+			android:textColor="@color/branco"
+			android:drawableLeft="@drawable/ic_check"
+			android:paddingRight="8dp"/>
+	</FrameLayout>
+</LinearLayout>

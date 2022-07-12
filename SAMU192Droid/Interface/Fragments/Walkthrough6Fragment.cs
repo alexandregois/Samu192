@@ -1,0 +1,23 @@
+﻿using Android.OS;
+using Android.Views;
+
+namespace SAMU192Droid.Interface.Fragments
+{
+    public class Walkthrough6Fragment : BaseWalkthroughFragment
+    {
+        public Walkthrough6Fragment()
+        {
+            TAG = "Walkthrough6Fragment";
+        }
+
+        public override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+        }
+
+        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+    }
+}

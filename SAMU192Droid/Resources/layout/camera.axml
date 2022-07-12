@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:backgroundTint="@color/branco">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:backgroundTint="@color/branco"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp">
+        <ImageView
+            android:src="@drawable/undraw_selfie1_kpqf"
+            android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+            android:id="@+id/foto_iv"
+            android:adjustViewBounds="true"
+			android:contentDescription="@string/img_foto"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:backgroundTint="@color/branco">
+        <TextView
+            android:text="@string/foto_reenviar"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+			android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:id="@+id/reenviar_tv"
+            android:textColor="@color/preto"
+            android:backgroundTint="@color/branco"
+            android:fontFamily="@font/montserratregular"
+            android:textStyle="normal"
+            android:textSize="17dp"
+			android:textAlignment="center"
+            android:lines="2"
+            android:layout_marginTop="15dp" />
+        <ProgressBar
+            android:id="@+id/envio_progressbar"
+            android:layout_width="match_parent"
+			android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+			android:progressTint="@color/laranja" />
+        <Button
+			android:text="@string/foto_capturar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/capturar_cmd" 
+			android:textAllCaps="false"
+			android:fontFamily="@font/montserratregular"
+			android:textStyle="normal"
+			android:textSize="18dp"
+			android:layout_marginLeft="60dp"
+			android:background="@color/laranja"
+			android:textColor="@color/branco"
+			android:layout_marginRight="60dp"
+			android:layout_marginTop="20dp" />
+    </LinearLayout>
+</LinearLayout>

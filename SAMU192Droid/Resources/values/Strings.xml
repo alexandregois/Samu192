@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="btnLocalizar">Pesquisar</string>
+	<string name="btnFoto">Tirar Foto</string>
+	<string name="app_name">App2</string>
+	<string name="foto_capturar">Capturar foto</string>
+	<string name="foto_reenviar">Problemas ao enviar foto. Deseja reenviá-la?</string>
+	<string name="ApplicationName">Chamar 192</string>
+	<string name="open_drawer">Abrir menu</string>
+	<string name="close_drawer">Close drawer</string>
+	<string name="planet_prompt">Escolha um nome</string>
+	<string name="escolhaqueixa">Escolha uma queixa</string>
+	<string name="logradouro">Logradouro</string>
+	<string name="numero">Número</string>
+	<!--<string name="complemento">Complemento</string>-->
+	<string name="legenda_endereco">Certifique-se que a cidade informada está correta.</string>
+	<string name="bairro">Bairro</string>
+	<string name="cidade">Cidade</string>
+	<string name="ForaExpl">Você está fora da área de cobertura deste Aplicativo. Seu telefone discará para o número 192, porém nenhuma informação sua será repassada para o SAMU.</string>
+	<string name="configurar">O seu telefone apenas discará para o 192. Configure o Aplicativo para termos mais informações na hora do seu chamado e assim otimizarmos o atendimento.</string>
+	<string name="cadastro">Lorem ipsum dolor sit amet, consectetaur adipisicing elit. Aenean commodo ligula.</string>
+	<string name="cadastro_phone">Informe aqui os números das linhas de celular instaladas neste telefone.</string>
+	<string name="cadastro2">O preenchimento dessas informações são opcionais, porém são importantes para agilizar o atendimento.</string>
+
+	<string name="informa_naochatcomunicacao">A Central de Regulação do SAMU competente dessa localização, não recebe chamados de comunicação por escrito (via chat).</string>
+	<string name="informa_naochatcomunicacao2">Por favor, efetue a ligação por voz.</string>
+
+	<string name="informa_comunicacao">A comunicação por escrito é um contato via chat, por esse motivo o atendimento pode ser mais lento que um contato por ligação de voz.</string>
+	<string name="informa_comunicacao2">Só utilize essa opção se for realmente necessário.</string>
+
+	<string name="bemvindo">Lorem ipsum dolor sit amet, consectetaur adipisicing elit.</string>
+	<string name="termo">
+		Estes termos e condições gerais de uso aplica-se às atividades relativas ao aplicativo denominado CHAMAR 192, desenvolvido pela empresa NGS Suporte em Informática Ltda., registrada sob o CNPJ n. 07.348.205/0001-01, com sede na cidade de Porto Alegre, no endereço na Avenida Montenegro, 145, Bairro Petrópolis – CEP: 90460-160, que, neste instrumento é designada como TRUE;
+		\n\nO aplicativo CHAMAR 192 foi desenvolvido com o intuito de disponibilizar a comunicação, de forma ágil e segura, de usuários necessitados do serviço prestado pelo SAMU com a Central de Regulação de Urgências, entregando a possibilidade de cadastro de informações de saúde do paciente, envio de imagens, arquivos, visualização da movimentação das equipes e aberturas de ocorrências para atendimento de urgências e emergências.
+		\n\nPara ter acesso aos serviços disponibilizados pelo aplicativo CHAMAR 192, os usuários deverão tomar conhecimento das regras que compõem o presente instrumento, as quais ficarão disponíveis para consulta, no menu “Sobre”, no próprio aplicativo.
+		\n\nAo fazer uso do aplicativo CHAMAR 192, o usuário aceita integralmente o presente termo e compromete-se a observar as normas aqui descritas, sob risco de aplicação das penalidades cabíveis. Antes de iniciar qualquer navegação no aplicativo, o usuário deverá cientificar-se de eventuais modificações ou atualizações ocorridas nestes termos.
+		\n\nCaso não concorde com quaisquer das regras aqui descritas, o usuário deve, imediatamente, abster-se de utilizar o serviço. Se for de seu interesse, poderá, ainda, entrar em contato com o serviço de atendimento ao cliente, para apresentar-lhe as suas ressalvas.
+		\n
+		\n1. DA NAVEGAÇÃO
+		\nA TRUE compromete-se a utilizar todas as soluções técnicas à sua disposição para permitir o acesso ao serviço 24 (vinte e quatro) horas por dia, 7 (sete) dias por semana. Entretanto, poderá, a qualquer momento, interromper, limitar ou suspender o acesso ao aplicativo ou a algumas de suas páginas, a fim de realizar atualizações, modificações de conteúdo ou qualquer outra ação julgada necessária para o seu bom funcionamento. Os presentes termos e condições gerais de uso se aplicam a todas as extensões do aplicativo em redes sociais ou em comunidades, tanto as já existentes, quanto aquelas ainda a serem implementadas.
+		\n\n2. DO DESENVOLVIMENTO DO APLICATIVO
+		\nPara a boa gestão, a TRUE poderá, a qualquer momento:
+		\na) suspender, interromper ou limitar o acesso a todo ou a parte do aplicativo a uma categoria específica de usuários;
+		\nb) remover toda informação que possa perturbar o funcionamento do aplicativo ou que estejam em conflito com normas de Direito brasileiro ou do Direito internacional;
+		\nc) suspender a disponibilização dos serviços, a fim de realizar atualizações e modificações;
+		\nd) interromper o desenvolvimento de novas versões utilizando critérios de avaliação internos e não contestáveis;
+		\ne) a TRUE poderá suspender temporariamente ou tornar indisponível para sempre o aplicativo, utilizando critérios internos e não discutíveis;
+		\n\n3. DO CADASTRO
+		\nOs serviços disponibilizados apenas poderão ser acessados por pessoas plenamente capazes e cientes de que qualquer ato realizado por usuário que venha a gerar perdas ou danos ao serviço do SAMU gerará a responsabilização perante a Lei, sendo passível de aplicação de penalidades tais como prisão e ressarcimento de valores, em acordo com o Código de Processo Civil e Código de Processo Penal do Brasil.
+		\nO usuário poderá, a qualquer tempo e sem necessidade de justificativa requerer o cancelamento de seu cadastro junto ao aplicativo. Para tanto deverá enviar um e-mail para o serviço de suporte da TRUE.
+		\n\n4. DAS RESPONSABILIDADES
+		\nA TRUE se responsabilizará pelos defeitos ou vícios encontrados nos serviços prestados pelo aplicativo, desde que a causa do defeito e/ou vício tenha sido provocada por ela. Defeitos ou vícios técnicos ou operacionais originados no próprio sistema do usuário não serão de responsabilidade da TRUE.
+		\nEm hipótese alguma a TRUE será responsável por qualquer dando causado ao usuário, pois o aplicativo é apenas um meio de comunicação entre o usuário e a Central de Regulação. O fato de a ligação não completar, de as informações não estarem disponíveis na tela do atendente, bem como o não envio de um recurso de atendimento ou o envio de um recurso de atendimento em prazo considerado não satisfatório pelo usuário, não são justificativas para dano de qualquer espécie contra a TRUE.
+		\nO usuário é responsável pela correta utilização do aplicativo e dos serviços por ele oferecidos. É responsável também pelo cumprimento das normas e regras de utilização, contidas neste documento, bem como normas de Direito Nacional e Internacional.
+		\n\n5. DOS DIREITOS AUTORAIS
+		\nA estrutura do aplicativo, bem como os textos, os gráficos, as imagens, as fotografias, os sons, os vídeos e as demais aplicações informáticas que o compõem são de propriedade da TRUE e são protegidas pela legislação brasileira e internacional referente à propriedade intelectual.
+		\nQualquer representação, reprodução, adaptação ou exploração parcial ou total dos conteúdos, marcas e serviços propostos pelo aplicativo, por qualquer meio que seja, sem autorização prévia, expressa e escrita do desenvolvedor, é estritamente vedada, podendo-se recorrer às medidas cíveis e penais cabíveis. O acesso não gera para o usuário qualquer direito de propriedade intelectual relativo a elementos do aplicativo, os quais restam sob a propriedade exclusiva da TRUE.
+		\n\n6. DA POLÍTICA DE PRIVACIDADE
+		\nTodos os dados pessoais fornecidos pelo usuário no momento de seu cadastro ou que venham a ser solicitados posteriormente, a este título, permanecerão sigilosos e não serão repassados a quaisquer parceiros do aplicativo, exceto quando essas informações forem indispensáveis para o processo de atendimento do SAMU.
+		\nA TRUE poderá transmitir os dados pessoais a terceiros quando o usuário permiti-lo expressamente ou quando presentes as hipóteses legais previstas no Direito brasileiro, tais como a requisição judicial.
+		\nÉ de responsabilidade da TRUE a garantia de confidencialidade dos dados pessoais fornecidos pelos usuários, devendo proteger o aplicativo contra tentativas de violações ou acessos clandestinos à sua base de dados.
+		\n\n7. DO SUPORTE TÉCNICO
+		\nEm caso de dúvidas, sugestões ou problemas com a utilização do aplicativo CHAMAR 192, o usuário poderá contatar diretamente o seu serviço de atendimento, através do endereço de e-mail: suporte@true.com.br bem como do telefone: BR +55 (51) 3327-6060.
+		\n\n8. DAS SANÇÕES
+		\nSem prejuízo das demais medidas legais cabíveis, a TRUE poderá, a qualquer momento, advertir, suspender ou cancelar o cadastro do usuário:
+		\na) que descumprir quaisquer dos dispositivos contidos no presente instrumento; b) que descumprir os seus deveres de usuário; c) que praticar atos fraudulentos ou dolosos; d) que fornecer qualquer informação incorreta; e) cujo comportamento constitua ou possa vir a importar ofensa ou dano a terceiro ou ao próprio aplicativo.
+		\n\n9. DAS ALTERAÇÕES
+		\nA TRUE se reserva o direito de modificar, a qualquer momento e sem qualquer aviso prévio, o aplicativo e os serviços, bem como o presente termo, especialmente para adaptá-los às evoluções de tecnologia, seja pela disponibilização de novas funcionalidades, seja pela supressão ou modificação daquelas já existentes.
+		\nO usuário que utilizar o serviço, após realizadas modificações nos termos e condições gerais, demonstra a sua concordância com as novas normas. Última atualização deste documento: 10/01/2019
+		\n\n10. DO FORO
+		\nPara a solução das controvérsias decorrentes do presente instrumento, será aplicado integralmente o Direito brasileiro e, os eventuais litígios deverão ser apresentados no foro da comarca da cidade de Porto Alegre, Rio Grande do Sul – BR.\n
+	</string>
+	<string name="ativegps">A informação do GPS será enviada para o SAMU para facilitar a sua localização.</string>
+	<string name="complete">A informação do cadastro será enviada para o SAMU para agilizar o seu atendimento.</string>
+	<string name="ligar">Enquanto o aplicativo realiza a ligação de voz tentaremos enviar seus dados informados para o SAMU.</string>
+	<string name="favoritos">Informe os endereços mais frequentes para facilitar a sua localização e agilizar o seu atendimento.</string>
+	<string name="regiao">Verifique se a sua localização é uma região de atendimento coberta por este aplicativo no menu "Sobre".</string>
+	<string name="use">Somente acione o SAMU em situações que envolvam risco de morte.</string>
+
+	<string name="abrir_favorito">Deseja cadastrar endereços Favoritos agora?</string>
+
+	<string name="mapa_title">Localização</string>
+	<string name="chamar_title">Chamar o SAMU 192</string>
+	<string name="walkthrough_title">Bem vindo</string>
+	<string name="alerta">Alerta</string>
+
+	<string name="cadastro_title">Cadastro</string>
+	<string name="favoritos_title">Favoritos</string>
+	<string name="favoritos_nome_title">Nome do Favorito</string>
+	<string name="favoritos_nomelocal_title">Dê um nome para o local favorito.</string>
+	<string name="favoritos_nome">Isso irá facilitar na hora de procurar pelo local adicionado.</string>
+	<string name="nome_local">Nome do local (exemplo: casa, trabalho)</string>
+	<string name="referencia">Referência (exemplo: no lado da praça)</string>
+	<string name="codigo_foto_title">Código de Confirmação</string>
+	<string name="quando_title">Quando acionar</string>
+	<string name="quando">
+		- Na ocorrência de problemas cardio-respiratórios;
+		\n- Intoxicação exógena e envenenamento;
+		\n- Queimaduras graves;
+		\n- Na ocorrência de maus tratos;
+		\n- Trabalhos de parto em que haja risco de morte da mãe ou do feto;
+		\n- Em tentativas de suicídio;
+		\n- Crises hipertensivas e dores no peito de aparecimento súbito;
+		\n- Quando houver acidentes/traumas com vítimas;
+		\n- Afogamentos;
+		\n- Choque elétrico;
+		\n- Acidentes com produtos perigosos;
+		\n- Suspeita de Infarto ou AVC (alteração súbita na fala, perda de força em um lado do corpo e desvio da comissura labial são os sintomas mais comuns);
+		\n- Agressão por arma de fogo ou arma branca;
+		\n- Soterramento, Desabamento;
+		\n- Crises Convulsivas;
+		\n- Transferência inter-hospitalar de doentes graves;
+		\n- Outras situações consideradas de urgência ou emergência, com risco de morte, sequela ou sofrimento intenso.\n 
+		\nQUANDO NÃO CHAMAR O SAMU 192\n
+		\n- Febre prolongada;
+		\n- Dores crônicas;
+		\n- Vômito e diarreia;
+		\n- Levar pacientes para consulta médica ou para realizar exames;
+		\n- Transporte de óbito;
+		\n- Dor de dente;
+		\n- Transferência sem regulação médica prévia;
+		\n- Trocas de sonda;
+		\n- Corte com pouco sangramento,
+		\n- Entorses;
+		\n- Cólicas renais;
+		\n- Transportes inter-hospitalares de pacientes de convênio;
+		\n- Todas as demais situações onde não se caracterize urgência ou emergência médica.
+		\n- Nestes casos e em todos os casos sem caracterização de urgência ou emergência, o paciente poderá ser encaminhado ao posto de saúde ou então as Unidades de Pronto Atendimento (UPAs) mais próximas.\n
+		\nMas em caso de dúvida, ligue para o SAMU 192.\n
+		\nFonte:
+		\n http://bvsms.saude.gov.br/bvs/saudelegis/gm/2002/prt2048_05_11_2002.html \n
+		\nConforme orientado pela portaria PORTARIA Nº 2048, DE 5 DE NOVEMBRO DE 2002\n
+	</string>
+	<string name = "sobre_title" >Sobre</string>
+	<string name="sobre">
+		Este aplicativo tem como objetivo agilizar o atendimento pelas Centrais de Regulação do Serviço de Atendimento Móvel SAMU no território brasileiro.\n
+		\n O aplicativo utiliza as informações cadastradas e os dados de GPS para indicar ao SAMU a localização do solicitante.\n
+		\n As Centrais de Regulação SAMU que utilizam o True SAPH ® recebem automaticamente as informações previamente cadastradas.  Para as demais cidades que possuem cobertura do SAMU e que não utilizam a solução True SAPH ® , o aplicativo realiza somente a ligação para a Central de Regulação de Urgências e Emergências da região.
+	</string>
+	<string name="sexo_prompt">Sexo</string>
+	<string-array name="sexo_array">
+		<item>Masculino</item>
+		<item>Feminino</item>
+	</string-array>
+	<string-array name="Queixas">
+		<item></item>
+		<item>AVC</item>
+		<item>Acidente de transito</item>
+		<item>Atropelamento</item>
+		<item>Infarto</item>
+	</string-array>
+	<!--<string name="open_drawer">abrir menu</string>
+  <string name="close_drawer">fechar</string>-->
+
+	<!-- SVG definitions, here for reuse -->
+	<string name="ic_done_all">m35.93164,13.41406l-2.83,-2.83l-12.68,12.69l2.83,2.83l12.68,-12.69zm8.49,-2.83l-21.18,21.17l-8.34,-8.34l-2.83,2.83l11.17,11.17l24,-24l-2.82,-2.83zm-43.66,15.66l11.17,11.17l2.83,-2.83l-11.17,-11.17l-2.83,2.83z</string>
+	<string name="ic_done">m30.29297,24.62671l-2.83,-2.83l-12.68,12.69l2.83,2.83l12.68,-12.69zm8.49,-14.04265l-21.18,21.17l-8.34,-8.34l-2.83,2.83l11.17,11.17l24,-24l-2.82,-2.83zm-32.38493,15.61453l11.17,11.17l2.83,-2.83l-11.17,-11.16999l-2.83,2.83z</string>
+	<string name="cadastro_titlephone">Precisamos saber seus números</string>
+	<string name="chat_titulo">Chamar 192</string>
+	<string name="btnavancar">Avançar</string>
+	<string name="btnsalvar">Salvar</string>
+	<string name="btnok">Ok</string>
+	<string name="btnconfirmar">Confirmar</string>
+	<string name="lista_favoritos_vazia">Não há favoritos cadastrados</string>
+	<string name="sobre_true">www.true.com.br</string>
+	<string name="fav_referencia">Referência</string>
+	<string name="walk_use">Use com sabedoria</string>
+	<string name="btnwalk_entendido">Entendido</string>
+	<string name="walk_bemvindo">Bem-Vindo ao Aplicativo CHAMAR 192</string>
+	<string name="walk_termos">Primeiramente precisamos que você aceite os Termos de Uso</string>
+	<string name="btnwalk_bemvindo">Visualizar Termos de Uso</string>
+	<string name="walk_ative">Ative seu GPS</string>
+	<string name="walk_cadastro">Complete seu cadastro</string>
+	<string name="walk_regiao">Região de atendimento</string>
+	<string name="walk_ligar">Fazer Ligação</string>
+	<string name="fora_cobertura">Fora da Área de cobertura</string>
+	<string name="btnmais">Saiba Mais</string>
+	<string name="chamado_info">Certifique-se que o número que será utilizado para discar está correto.</string>
+	<string name="onde_estou">Onde Estou</string>
+	<string name="queixa">Queixa (opcional)</string>
+	<string name="queixa_dig">Principal motivo que leva a acionar o SAMU.</string>
+	<string name="txt_trotes">Seja consciente, não passe trotes</string>
+	<string name="btn_trotes">Clique aqui e saiba como utilizar os serviços do SAMU 192 corretamente.</string>
+	<string name="btn_fechar">Fechar</string>
+	<string name="cadastro_complete">Complete seu cadastro</string>
+
+	<string name="informa_comunicacaotitulo">Comunicação por escrito</string>
+	<string name="informa_naochat">Não recebe comunicação por escrito</string>
+
+	<string name="walk_favortios">Cadastre Favoritos</string>
+	<string name="btnwalk_usar">Começar a usar</string>
+	<string name="fotocod_title">Código de confirmação</string>
+	<string name="fotocod_text">Digite o código informado pelo atendente</string>
+	<string name="foto_problema">Problemas ao enviar foto. Deseja reenviá-la?</string>
+	<string name="btncapturar">Capturar foto</string>
+	<string name="regiao_atendimento">
+		Verifique se a sua localização é uma região de atendimento coberta por este aplicativo.\n
+		\nSe estiver fora da região de atendimento, seu telefone discará para o número 192, porém nenhuma informação sua cadastrada nesse aplicativo será repassada para o SAMU.\n
+		\nPara verificar as regiões atendidas por este aplicativo clique no botão abaixo:
+	</string>
+	<string name="ddd">DDD</string>
+	<string name="ddd2">DDD 2</string>
+	<string name="ddd3">DDD 3</string>
+	<string name="ddd4">DDD 4</string>
+	<string name="celular1">Número de Celular 1</string>
+	<string name="celular2">Número de Celular 2</string>
+	<string name="celular3">Número de Celular 3</string>
+	<string name="celular4">Número de Celular 4</string>
+	<string name="cadastro_nome">Nome Completo</string>
+	<string name="cadastro_data">Data de Nascimento</string>
+	<string name="cadastro_historico">Histórico (diabetes, marca-passo, etc.)</string>
+	<string name="cadastro_sexo">Sexo</string>
+	<string name="btnconfigurar">Configurar Aplicativo</string>
+	<string name="configurar_title">O seu Aplicativo ainda não foi configurado</string>
+	<string name="endereco">CASA - Av. Baltazar de Oliveira Garcia, 234 - Jardim Planalto - Porto Alegre/RS</string>
+	<string name="onde_selecione">Selecione a sua localização</string>
+	<string name="btnselecionar">Selecionar</string>
+	<string name="btnexcluir">excluir</string>
+	<string name="btneditar">editar</string>
+	<string name="btngps">GPS</string>
+	<string name="btnmapa">Mapa</string>
+	<string name="btnfavoritos">Favoritos</string>
+	<string name="btnadicionar">Adicionar Novo</string>
+	<string name="sobre_dev">Desenvolvido por</string>
+	<string name="btnsaibamais">Saiba mais</string>
+	<string name="img_walk1">
+		Ilustração do rosto de um menino de camisa vermelha e de uma menina de camisa vermelha,
+		cada um dentro de um círculo que se conecta em linhas pontilhadas, em duas telas
+		que simulam com listras cinza um termo de uso
+	</string>
+	<string name="img_walk2">
+		Ilustração de um celular grande, simulando um mapa na tela, e um rapaz com camisa azul e
+		bermuda verde, em cima de uma escada, segurando na sua mão o pino de localização. O rapaz está encaixando o pino em uma localização no mapa do celular,
+		e junto tem uma moça, em pé, de camisa verde e calça azul, observando o mapa do celular
+	</string>
+	<string name="img_walk3">
+		Ilustração de uma tela com listras simulando um formulário de cadastro, com uma pequena
+		tela sobressaindo, com uma ilustração em laranja simulando uma
+		foto, e pequenas listras simulando um texto de informação dos dados da pessoa
+	</string>
+	<string name="img_walk4">
+		Ilustração de uma tela simulando um mapa no celular, com um pino de localização, e outra ilustração de um celular,
+		com a tela simulando uma lista, e uma pequena tela sobressaindo, com um ícone de confirmação, e listras, simulando a seleção de uma
+		das opções da lista
+	</string>
+	<string name="img_walk5">
+		Ilustração de uma mão segurando um celular, com a tela de fundo laranja, e com um ícone branco de telefone. Esse celular
+		se conecta em linhas pontilhadas, até dois balões de conversas de cores laranjas, e uma mesa com
+		computadores, com um rapaz sentado a frente desses computadores, com um fone para atender ligação, simulando uma
+		central de atendimento
+	</string>
+	<string name="img_walk6">
+		Ilustração de duas telas, uma simulando um mapa com um pino de localização, como se fosse as regiões de atendimento, e
+		outra tela com listras, simulando um texto, como se fosse a tela do Sobre do aplicativo
+	</string>
+	<string name="img_walk7">
+		Ilustração de uma mão segurando um celular, com a tela de cor laranja, e com um ícone branco de confirmação num
+		círculo verde
+	</string>
+	<string name="img_foto">
+		Ilustração de uma mão segurando um celular, onde a sua tela é a ilustração de uma moça com uma blusa na cor laranja, e no fundo uma paisagem
+		de prédios. Essa tela está simulando a câmera do celular
+	</string>
+	<string name="img_cadastro">
+		Ilustração de uma mão segurando um celular, com a tela de cor laranja, e com um ícone branco de confirmação num
+		círculo verde, que se conecta em linha pontilhadas, até uma ilustração que simula um servidor
+	</string>
+	<string name="sexo_spn">Selecione o seu sexo</string>
+	<string name="btn_add">Adicionar novo favorito</string>
+	<string name="btn_ligar">Ligar para SAMU 192</string>
+	<string name="btn_paramim">Chamar SAMU 192 para mim</string>
+	<string name="btn_outrapessoa">Chamar SAMU 192 para outra pessoa</string>
+	<string name="btn_enviarfoto">Enviar foto para SAMU 192</string>
+	<string name="complemento_et">Digite o complemento</string>
+	<string name="complemento">Complemento</string>
+	<string name="logo_samu">logotipo do SAMU 192</string>
+	<string name="logo_true">True Information Technology</string>
+	<string name="page1">Mover para tela 1</string>
+	<string name="page2">Mover para tela 2</string>
+	<string name="page3">Mover para tela 3</string>
+	<string name="page4">Mover para tela 4</string>
+	<string name="page5">Mover para tela 5</string>
+	<string name="page6">Mover para tela 6. Final</string>
+</resources>

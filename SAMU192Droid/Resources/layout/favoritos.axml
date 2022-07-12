@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cinza">
+	<TextView
+        android:text="@string/lista_favoritos_vazia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/favoritos_vazia_tvw"
+        android:textAlignment="center"
+        android:textColor="@color/cinza_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserratbold" />
+    <ListView
+        android:id="@+id/favoritos_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+	<Button
+		android:id="@+id/favoritos_adicionar_cmd"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|right"
+		android:layout_marginBottom="40dp"
+		android:drawableLeft="@drawable/ic_add_white"
+		android:layout_marginRight="20dp"
+		android:background="@color/laranja"
+		android:textColor="@color/branco"
+		android:fontFamily="@font/montserratregular"
+		android:textStyle="normal"
+		android:textSize="16dp"
+		android:textAllCaps="false"
+		android:text="@string/btnadicionar"
+		android:paddingRight="8dp"
+		android:contentDescription="@string/btn_add"/>
+</FrameLayout>

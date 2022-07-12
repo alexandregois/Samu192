@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<color name="transparent">#0000</color>
+	<color name="fundo">#fff</color>
+	<color name="branco">#fff</color>
+	<color name="preto">#000</color>
+	<color name="vermelho">#f00</color>
+	<color name="vermelho_escuro">#a51118</color>
+	<color name="verde">#0f0</color>
+	<color name="azul">#00f</color>
+	<color name="azul_escuro">#01008c</color>
+	<color name="amarelo">#ff0</color>
+	<color name="ciano">#0ff</color>
+	<color name="magenta">#f0f</color>
+	<color name="laranja">#e05b2d</color>
+	<color name="laranja_claro">#e06e2d</color>
+	<color name="laranja_escuro">#9f4809</color>
+	<color name="cinza">#f8f8f8</color>
+	<color name="cinza_escuro">#ccc</color>
+	<color name="cinza_black">#9b9b9b</color>
+	<color name="cinza_claro">#dbdbdb</color>
+	<color name="corDado">#000</color>
+	<color name="avisoBkg">#ffee00</color>
+	<color name="avisoBkg2">#ffaacc</color>
+	<color name="avisoBkg3">#ff11ff</color>
+	<color name="aviso">#000000</color>
+	<color name="fundochat">#f4e0d9</color>
+
+</resources>

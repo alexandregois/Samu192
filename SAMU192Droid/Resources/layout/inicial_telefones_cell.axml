@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/main_telefones_cell_ll"
+    android:layout_margin="0dp"
+    android:background="@color/branco">
+  <!--<TextView
+      android:text=""
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/main_telefones_cell_1_tv"
+      android:textColor="@color/laranja"
+      android:background="@color/branco"
+      android:fontFamily="@font/montserratbold"
+      android:textStyle="bold"
+      android:textSize="22dp"
+      android:layout_margin="12dp"
+      android:lineSpacingExtra="4dp" />
+  <TextView
+      android:text=""
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/main_telefones_cell_2_tv"
+      android:textColor="@color/laranja"
+      android:background="@color/branco"
+      android:fontFamily="@font/montserratbold"
+      android:textStyle="bold"
+      android:textSize="22dp"
+      android:layout_margin="12dp"
+      android:lineSpacingExtra="4dp" />
+  <TextView
+      android:text=""
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/main_telefones_cell_3_tv"
+      android:textColor="@color/laranja"
+      android:background="@color/branco"
+      android:fontFamily="@font/montserratbold"
+      android:textStyle="bold"
+      android:textSize="22dp"
+      android:layout_margin="12dp"
+      android:lineSpacingExtra="4dp" />
+  <TextView
+      android:text=""
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/main_telefones_cell_4_tv"
+      android:textColor="@color/laranja"
+      android:background="@color/branco"
+      android:fontFamily="@font/montserratbold"
+      android:textStyle="bold"
+      android:textSize="22dp"
+      android:layout_margin="12dp"
+      android:lineSpacingExtra="4dp" />-->
+</LinearLayout>

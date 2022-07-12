@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="51.0dp"
+    android:paddingTop="26dp">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/laranja">
+    <ImageView
+        android:id="@+id/t2_iv"
+        android:src="@drawable/topo_walktrhough_left"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginLeft="35.0dp"
+        android:adjustViewBounds="true"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:id="@+id/t0_iv"
+        android:src="@drawable/topo_walktrhough_center"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:adjustViewBounds="true"
+        android:layout_toLeftOf="@+id/t1_iv"
+        android:layout_toRightOf="@+id/t2_iv"
+        android:scaleType="fitXY"
+        android:background="@color/amarelo"/>
+    <ImageView
+        android:id="@+id/t1_iv"
+        android:src="@drawable/topo_walktrhough_right"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:adjustViewBounds="true"
+        android:layout_marginRight="35.0dp"
+        android:layout_alignParentEnd="true" />
+  </RelativeLayout >
+</LinearLayout >

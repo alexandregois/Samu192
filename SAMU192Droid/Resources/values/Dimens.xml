@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <dimen name="margem_esquerda">20dp</dimen>
+  <dimen name="margem_direita">20dp</dimen>
+  <dimen name="margem_topo">20dp</dimen>
+  <dimen name="margem_base">20dp</dimen>
+  <dimen name="margem_endereco_esquerda">4dp</dimen>
+  <dimen name="margem_endereco_direita">4dp</dimen>
+</resources>
