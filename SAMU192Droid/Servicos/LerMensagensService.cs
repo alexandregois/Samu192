@@ -70,12 +70,17 @@ namespace SAMU192Droid.Servicos
 
             string result = StubWebService.RetornaConsultaParametrizacao(dados);
 
-            var resultChat = StubWebService.bus
+            if (result != null)
+            {
+                string resultChat = StubWebService.BuscaMensagens(dados);
 
-
-            Intent i = new Intent(this, typeof(ChatActivity));
-            i.AddFlags(ActivityFlags.NewTask);
-            this.ApplicationContext.StartActivity(i);
+                if (resultChat != null)
+                {
+                    Intent i = new Intent(this, typeof(ChatActivity));
+                    i.AddFlags(ActivityFlags.NewTask);
+                    this.ApplicationContext.StartActivity(i);
+                }
+            }
 
         }
 

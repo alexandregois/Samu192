@@ -42,6 +42,11 @@ namespace SAMU192Droid.FacadeStub
             return FacadeWebService.RetornaConsultaParametrizacao(dados);
         }
 
+        public static string BuscaMensagens(string[] dados)
+        {
+            return FacadeWebService.BuscaMensagens(dados);
+        }
+
         public static SolicitarAtendimentoDTO MontaPacote(bool outraPessoa, string queixa, CadastroDTO cadastro, EnderecoDTO endereco)
         {
             var pacote = FacadeWebService.MontaPacote(1, outraPessoa, queixa, cadastro, endereco);
