@@ -64,11 +64,15 @@ namespace SAMU192Droid.Servicos
 
         public void OpenChat()
         {
+
             string[] dados = new string[22];
             dados[0] = "DCConsultarParametrizacaoV1";
 
             string result = StubWebService.RetornaConsultaParametrizacao(dados);
-            
+
+            var resultChat = StubWebService.bus
+
+
             Intent i = new Intent(this, typeof(ChatActivity));
             i.AddFlags(ActivityFlags.NewTask);
             this.ApplicationContext.StartActivity(i);

@@ -21,6 +21,7 @@ namespace SAMU192Core.Facades
             solicitarAutorizacaoMidiaCallBack = _solicitarAutorizacaoMidiaCallBack;
         }
 
+
         public static string RetornaConsultaParametrizacao(string[] dados)
         {
             string result = String.Empty;
@@ -37,6 +38,30 @@ namespace SAMU192Core.Facades
                     foreach (var servidor in servidores)
                     {
                         result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).RetornaConsultaParametrizacao(dados);
+                    }
+                }
+            }
+            //solicitarAtendimentoCallBack?.Invoke();
+
+            return result;
+        }
+
+        public static string BuscaMensagens(string[] dados)
+        {
+            string result = String.Empty;
+
+            if (dados != null)
+            {
+                List<ServidorDTO> servidores = null;
+                var coord = FacadeGPS.GetLastLocation();
+                if (coord != null)
+                {
+                    servidores = FacadeLocalizacao.Localizar(coord);
+
+                    //TODO: Servidores devem estar em CACHE?
+                    foreach (var servidor in servidores)
+                    {
+                        result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).BuscaMensagens(dados);
                     }
                 }
             }
