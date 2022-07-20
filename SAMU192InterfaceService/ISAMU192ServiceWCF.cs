@@ -17,6 +17,9 @@ namespace SAMU192InterfaceService
         string BuscarMensagens(string[] dados);
 
         [OperationContract]
-        string ConsultaParametrizacao(string[] dados);
+        string EnviarMensagens(string[] dados);
+
+        [OperationContract]
+        string ConsultarParametrizacao(string[] dados);
     }
 }

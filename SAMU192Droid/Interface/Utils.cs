@@ -12,6 +12,8 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using Java.Lang;
+using SAMU192Droid.Interface.Activities;
+using SAMU192Droid.Interface.Fragments;
 
 namespace SAMU192Droid.Interface
 {
@@ -393,6 +395,7 @@ namespace SAMU192Droid.Interface
                     inputMethodManager.HideSoftInputFromWindow(activityAux.CurrentFocus.WindowToken, 0);
                 }
             }
+
         }
 
         internal class Mascara : Java.Lang.Object, ITextWatcher

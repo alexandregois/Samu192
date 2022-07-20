@@ -1,6 +1,7 @@
 ﻿Imports System.ServiceModel
 Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
+Imports SAMU192InterfaceService
 Imports SAMU192InterfaceService.DataContracts
 Imports SAPHBO
 
@@ -22,8 +23,13 @@ Imports SAPHBO
 
             Dim copia = New DCSolicitarAutorizacaoMidiaV1(dados)
 
-            Assert.IsFalse(BOMisc.Mudou(original.Identificador, original.Identificador))
+            Assert.IsFalse(BOMisc.Mudou(original.Identificador, copia.Identificador))
             Assert.IsTrue(dados(0) = DCSolicitarAutorizacaoMidiaV1.VERSAO)
+
+            Dim cliente As ISAMU192ServiceWCF = Parametros.CriaCanal()
+
+            Assert.IsTrue(cliente.EnviarDados(copia.Dados))
+
 
         Catch ex As Exception
             Assert.Fail(ex.Message)

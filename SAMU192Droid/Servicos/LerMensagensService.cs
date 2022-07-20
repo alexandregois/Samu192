@@ -64,22 +64,28 @@ namespace SAMU192Droid.Servicos
 
         public void OpenChat()
         {
-
-            string[] dados = new string[22];
-            dados[0] = "DCConsultarParametrizacaoV1";
-
-            string result = StubWebService.RetornaConsultaParametrizacao(dados);
-
-            if (result != null)
+            try
             {
-                string resultChat = StubWebService.BuscaMensagens(dados);
+                string[] dados = { "DCConsultarParametrizacaoV1" };
 
-                if (resultChat != null)
+                string result = StubWebService.RetornaConsultaParametrizacao(dados);
+
+                if (result != null)
                 {
-                    Intent i = new Intent(this, typeof(ChatActivity));
-                    i.AddFlags(ActivityFlags.NewTask);
-                    this.ApplicationContext.StartActivity(i);
+                    string resultChat = StubWebService.BuscaMensagens(dados);
+
+                    if (resultChat != null)
+                    {
+                        Intent i = new Intent(this, typeof(ChatActivity));
+                        i.AddFlags(ActivityFlags.NewTask);
+                        this.ApplicationContext.StartActivity(i);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                //throw;
             }
 
         }
@@ -90,7 +96,7 @@ namespace SAMU192Droid.Servicos
             {
                 //Start
 
-                OpenChat();
+                //OpenChat();
 
             }
             catch (Exception e)

@@ -18,46 +18,27 @@ Public Class EnviaMensagemV1
             Throw New ApplicationException("Chamada inválida a DCEnviarMensagemV1")
         End If
 
-        Dim appConversaCompletada As APP192.BOAPPConversaCompletada = APP192.BOAPPConversaCompletada.CarregaArray(New APP192.FiltroAppConversaCompletada With {.FcmRegistration = _dados.FCMRegistration})?.FirstOrDefault()
+        'Recebimento mensagem só se o chamado estiver aberto
+        Dim appChamado As APP192.BOAPPChamado = APP192.BOAPPChamado.CarregaArray(New APP192.FiltroAPPChamado With {.Identificador = _dados.Identificador, .ChamadoAberto = True})?.OrderByDescending(Function(f) f.CodAppChamado).FirstOrDefault()
 
-        If appConversaCompletada IsNot Nothing Then
-            Dim conversaMensagem As New BOConversaMensagem With {
-                .CodConversa = appConversaCompletada.CodConversa,
-                .Sentido = 1,
-                .HorarioRegistro = _dados.HorarioRegistro.GetValueOrDefault(),
-                .HorarioEnviada = DateTime.Now(),
-                .HorarioRecebida = DateTime.Now(),
-                .Mensagem = _dados.Mensagem.GetValueOrDefault(),
-                .Acao = 0,
-                .Erros = 0
-            }
+        If appChamado IsNot Nothing Then
+            Dim conversaMensagem As New APP192.BOConversaMensagem With {
+                    .CodChamado = appChamado.CodChamado,
+                    .Sentido = 1,
+                    .HorarioRegistro = _dados.HorarioRegistro.GetValueOrDefault(),
+                    .HorarioEnviada = DateTime.Now(),
+                    .HorarioRecebida = DateTime.Now(),
+                    .Mensagem = _dados.Mensagem.GetValueOrDefault(),
+                    .Acao = 0,
+                    .Erros = 0
+                }
 
             conversaMensagem.Salva()
 
-            Dim conversa As New BOConversa
-            conversa.Carrega(appConversaCompletada.CodConversa.Value)
-
-            If conversa IsNot Nothing Then
-                Dim andamento As New BOAndamento
-                Dim reserva As BOChamadoTicket.Reserva = BOChamadoTicket.ExisteReservaChamado(conversa.CodChamado.Value)
-
-                'Não deve estar reservado (aberto por um regulador)
-                'Deve estar na lista da Andamentos
-                'Não pode ter uma conversa atrelada no momento
-                If reserva Is Nothing AndAlso andamento.CarregaAK1(conversa.CodChamado.Value) AndAlso andamento IsNot Nothing AndAlso andamento.CodConversa Is Nothing Then
-                    andamento.CodConversa = conversa.CodConversa
-
-                    andamento.Salva()
-                End If
-
-                andamento = Nothing
-                reserva = Nothing
-            End If
-
             Return True
-        Else
-            Return False
         End If
+
+        Return False
 
     End Function
 End Class

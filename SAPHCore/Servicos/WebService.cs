@@ -22,7 +22,7 @@ namespace SAMU192Core.Servicos
         {
             get
             {
-                return new SAMU192ConnectorWCF(servidor.Endereco, servidor.Usuario, servidor.Senha, SERVICE_OPEN_TIMEOUT_SECONDS, SERVICE_CLOSE_TIMEOUT_SECONDS, SERVICE_SEND_TIMEOUT_SECONDS, SERVICE_RECEIVE_TIMEOUT_SECONDS); 
+                return new SAMU192ConnectorWCF(servidor.Endereco, servidor.Usuario, servidor.Senha, SERVICE_OPEN_TIMEOUT_SECONDS, SERVICE_CLOSE_TIMEOUT_SECONDS, SERVICE_SEND_TIMEOUT_SECONDS, SERVICE_RECEIVE_TIMEOUT_SECONDS);
             }
         }
 
@@ -67,9 +67,10 @@ namespace SAMU192Core.Servicos
         internal string RetornaConsultaParametrizacao(string[] dados)
         {
             ValidaConexao();
+
             try
             {
-                string result = ServiceConnector.RetornaConsultaParametrizacao(dados);
+                string result = ServiceConnector.ConsultarParametrizacao(dados);
 
                 return result;
             }
@@ -80,12 +81,12 @@ namespace SAMU192Core.Servicos
             }
         }
 
-        internal string BuscaMensagens(string[] dados)
+        internal string BuscarMensagens(string[] dados)
         {
             ValidaConexao();
             try
             {
-                string result = ServiceConnector.BuscaMensagens(dados);
+                string result = ServiceConnector.BuscarMensagens(dados);
 
                 return result;
             }
@@ -96,6 +97,21 @@ namespace SAMU192Core.Servicos
             }
         }
 
+        internal string EnviarMensagens(string[] dados)
+        {
+            ValidaConexao();
+            try
+            {
+                string result = ServiceConnector.EnviarMensagens(dados);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandler.LancarExcecoesConexao(ex);
+                throw ex;
+            }
+        }
 
         private void ValidaConexao()
         {

@@ -7,7 +7,7 @@ namespace SAMU192InterfaceService.DataContracts
         enum Colunas
         {
             Versao = 0,
-            FCMRegistration = 1,
+            Identificador = 1,
             HorarioRegistro = 2,
             Mensagem = 3
         }
@@ -28,8 +28,8 @@ namespace SAMU192InterfaceService.DataContracts
             if (dados[(int)Colunas.Versao] != VERSAO)
                 throw new ApplicationException("Envio de Mensagem: Versão incorreta de dados!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.FCMRegistration]))
-                throw new ApplicationException("Envio de Mensagem: FCM não informado!");
+            if (string.IsNullOrEmpty(dados[(int)Colunas.Identificador]))
+                throw new ApplicationException("Envio de Mensagem: Identificador não informado!");
 
             if (string.IsNullOrEmpty(dados[(int)Colunas.HorarioRegistro]))
                 throw new ApplicationException("Envio de Mensagem: Horário de registro da mensagem não informado!");
@@ -37,12 +37,12 @@ namespace SAMU192InterfaceService.DataContracts
             if (string.IsNullOrEmpty(dados[(int)Colunas.Mensagem]))
                 throw new ApplicationException("Envio de Mensagem: Mensagem não informada!");
 
-            FCMRegistration = dados[(int)Colunas.FCMRegistration];
+            Identificador = dados[(int)Colunas.Identificador];
             HorarioRegistroStr = dados[(int)Colunas.HorarioRegistro];
             Mensagem = dados[(int)Colunas.Mensagem];
         }
 
-        public string FCMRegistration { get; set; }
+        public string Identificador { get; set; }
         public string Mensagem { get; set; }
         public DateTime? HorarioRegistro { get; set; }
         public string HorarioRegistroStr
@@ -79,7 +79,7 @@ namespace SAMU192InterfaceService.DataContracts
                 string[] resp = new string[NUM_COLUNAS];
 
                 resp[(int)Colunas.Versao] = VERSAO;
-                resp[(int)Colunas.FCMRegistration] = FCMRegistration;
+                resp[(int)Colunas.Identificador] = Identificador;
                 resp[(int)Colunas.HorarioRegistro] = HorarioRegistroStr;
                 resp[(int)Colunas.Mensagem] = Mensagem;
 

@@ -5,7 +5,7 @@ using SAMU192Droid.FacadeStub;
 
 namespace SAMU192Droid.Servicos
 {
-    [Service]
+    [Service(Exported = false)]
     [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseIIDService : FirebaseInstanceIdService
     {

@@ -14,6 +14,7 @@ using Android;
 using Android.Content.PM;
 using SAMU192Core.Utils;
 using Microsoft.AppCenter.Analytics;
+using Android.Content;
 
 namespace SAMU192Droid.Interface.Fragments
 {
@@ -54,13 +55,17 @@ namespace SAMU192Droid.Interface.Fragments
         Color LARANJA_ESCURO;
         #endregion
 
+        bool validaSolicitacaoChat;
+
+        int resultPermitChat;
+
         CadastroDTO cadastro;
-        SolicitarAtendimentoDTO PACOTE;
+        SolicitarAtendimentoChatDTO PACOTE;
         string PLACE_HOLDER_QUEIXA = "Principal motivo que leva a acionar o SAMU.", QUEIXA = string.Empty;
         MainActivity activityAux;
         object phoneManager;
         public static bool emLigacao = false;
-        bool paraOutraPessoa = false, gpsSelecionado = false, mapaSelecionado = false, favoritosSelecionado = false, podePedirAutorizacaoGPS = true, 
+        bool paraOutraPessoa = false, gpsSelecionado = false, mapaSelecionado = false, favoritosSelecionado = false, podePedirAutorizacaoGPS = true,
              pedidoAutorizacaoGPSRealizado = false, gpsPermitido = true;
 
         EnderecoDTO enderecoCriadoUsuario, enderecoGPS;
@@ -97,7 +102,7 @@ namespace SAMU192Droid.Interface.Fragments
             ivCadastroEditar.ImportantForAccessibility =
             progressBar.ImportantForAccessibility = ImportantForAccessibility.No;
             //ultimoButtonSelecionado.ImportantForAccessibility = ImportantForAccessibility.NoHideDescendants;
-            lLlOndeEstouCell.ForEach(o=> o.ImportantForAccessibility = ImportantForAccessibility.No);
+            lLlOndeEstouCell.ForEach(o => o.ImportantForAccessibility = ImportantForAccessibility.No);
         }
 
         public override void ShowDescendantsForAccessibility()
@@ -136,14 +141,16 @@ namespace SAMU192Droid.Interface.Fragments
         {
             try
             {
+
                 base.OnCreate(savedInstanceState);
                 activityAux = (MainActivity)this.Activity;
                 phoneManager = activityAux.GetSystemService("phone");
                 Utils.Interface.FechaTeclado(Activity);
+
             }
             catch (ValidationException vex)
             {
-                activityAux.RunOnUiThread(() => 
+                activityAux.RunOnUiThread(() =>
                 {
                     Utils.Mensagem.Erro(vex);
                 });
@@ -163,7 +170,7 @@ namespace SAMU192Droid.Interface.Fragments
             {
                 view = inflater.Inflate(Resource.Layout.inicial2, null);
                 LoadScreenControls();
-                LoadStubFacades();                
+                LoadStubFacades();
 
                 cadastro = StubCadastro.RecuperaCadastro();
                 if (!StubCadastro.ExisteCadastro(cadastro))
@@ -174,6 +181,19 @@ namespace SAMU192Droid.Interface.Fragments
                 }
                 LoadControlValues();
                 Utils.Interface.FechaTeclado(Activity);
+
+
+                //Verifica Chat existente
+                resultPermitChat = RetornaConsultaParametrizacao();
+
+                if (resultPermitChat == 2)
+                {
+                    //Abre a Activity do Chat
+                    Intent i = new Intent(this.Context, typeof(ChatActivity));
+                    i.AddFlags(ActivityFlags.NewTask);
+                    this.Context.ApplicationContext.StartActivity(i);
+                }
+
             }
             catch (Exception ex)
             {
@@ -255,7 +275,7 @@ namespace SAMU192Droid.Interface.Fragments
                 StubAppCenter.AppAnalytic(Enums.AnalyticsType.GPS_Pedido_Permissao.Value, this.Tag);
             }
 
-            if (gpsPermitido)  
+            if (gpsPermitido)
             {
                 StubGPS.Carrega(this.Activity, AtualizaDadosGPS, null);
                 VisibilidadeForaDaArea(false);
@@ -293,7 +313,7 @@ namespace SAMU192Droid.Interface.Fragments
                 LARANJA = Utils.Interface.Cores.GetByID(Resource.Color.laranja, this.Activity.ApplicationContext);
                 LARANJA_ESCURO = Utils.Interface.Cores.GetByID(Resource.Color.laranja_escuro, this.Activity.ApplicationContext);
 
-                
+
                 cmdChamar192_ligar = view.FindViewById<ImageButton>(Resource.Id.chamar192_cmd_ligar);
                 cmdChamar192_ligar.Visibility = ViewStates.Visible;
                 cmdChamar192_ligar.Click += chamar192_cmd_ligar_Click;
@@ -323,7 +343,7 @@ namespace SAMU192Droid.Interface.Fragments
                 lLlOndeEstouCell = new List<LinearLayout>();
                 main_chamado_favoritos_ondeestou_tv = (TextView)main_chamado_favoritos_ll.FindViewById(Resource.Id.main_chamado_favoritos_ondeestou_tv);
                 progressBar = main_chamado_favoritos_ll.FindViewById<ProgressBar>(Resource.Id.main_chamado_progressbar);
-                
+
                 cmdMapa = (Button)view.FindViewById(Resource.Id.main_mapa_cmd);
                 cmdMapa.Click += CmdMapa_Click;
 
@@ -335,7 +355,7 @@ namespace SAMU192Droid.Interface.Fragments
 
                 cmdFavoritos = (Button)view.FindViewById(Resource.Id.main_favoritos_cmd);
                 cmdFavoritos.Click += CmdSelecionar_Click;
-                              
+
                 main_chamado_queixa_et = view.FindViewById<EditText>(Resource.Id.main_chamado_queixa_et);
                 main_chamado_queixa_et.SetRawInputType(Android.Text.InputTypes.ClassText);
                 main_chamado_queixa_et.SetImeActionLabel("Feito", Android.Views.InputMethods.ImeAction.Done);
@@ -491,7 +511,7 @@ namespace SAMU192Droid.Interface.Fragments
                 var mapaFragment = new MapaFragment();
                 mapaFragment.EnderecoCriadoUsuario = EnderecoCriadoUsuario;
                 mapaFragment.ModoSelecao = true;
-                mapaFragment.After_Select = () => 
+                mapaFragment.After_Select = () =>
                 {
                     try
                     {
@@ -519,10 +539,10 @@ namespace SAMU192Droid.Interface.Fragments
             {
                 SelecionaButtonEdereco(cmdFavoritos);
                 var favoritosFragment = new FavoritosFragment();
-                favoritosFragment.After_Select = () => 
+                favoritosFragment.After_Select = () =>
                 {
                     try
-                    { 
+                    {
                         CarregaEnderecos();
                         activityAux.SupportActionBar?.SetTitle(Utils.Interface.LastTitleResourceId());
                         this.ShowDescendantsForAccessibility();
@@ -538,7 +558,7 @@ namespace SAMU192Droid.Interface.Fragments
             }
             catch (Exception ex)
             {
-                Utils.Mensagem.Erro(ex); 
+                Utils.Mensagem.Erro(ex);
             }
         }
 
@@ -587,22 +607,41 @@ namespace SAMU192Droid.Interface.Fragments
             ultimoButtonSelecionado = button;
         }
 
+        private int RetornaConsultaParametrizacao()
+        {
+            var jsonResult = StubWebService.RetornaConsultaParametrizacao(StubUtilidades.MontaPacotePermiteChat());
+
+            var result = StubUtilidades.DeserializaPacote(jsonResult, false);
+
+            return Convert.ToInt32(result[1]);
+        }
+
         private void LigarEnviarPacote(bool outraPessoa)
         {
             try
             {
-                //paraOutraPessoa = outraPessoa;
-                //QUEIXA = (main_chamado_queixa_et.Text == PLACE_HOLDER_QUEIXA ? string.Empty : main_chamado_queixa_et.Text);
 
-                //Dispara assíncrono o envio de pacote e efetua a ligação.
-                BackgroundTask bgPacote = new BackgroundTask(activityAux, false, PreExecute_Pacote, RunInBackGround_Pacote, PostExecute_Pacote, OnCancel_Pacote, OnError_Pacote, OnValidationException_Pacote, "Enviando dados. Aguarde...", 30000, this.View);
-                bgPacote.Execute();
+                
+                if (resultPermitChat == 1)
+                {
 
-                Utils.Interface.EmpilharFragment((MainActivity)Activity, Resource.Id.tabFrameLayout1, new ChatFragment(), Resource.String.cadastro_title, ChatFragment.TAG);
+                    //paraOutraPessoa = outraPessoa;
+                    QUEIXA = (main_chamado_queixa_et.Text == PLACE_HOLDER_QUEIXA ? string.Empty : main_chamado_queixa_et.Text);
 
-                //Efetua ligação
-                //StubTelefonia.FazerLigacao(activityAux);
+                    //Dispara assíncrono o envio de pacote e efetua a ligação.
+                    BackgroundTask bgPacote = new BackgroundTask(activityAux, false, PreExecute_Pacote, RunInBackGround_Pacote, PostExecute_Pacote, OnCancel_Pacote, OnError_Pacote, OnValidationException_Pacote, "Enviando dados. Aguarde...", 30000, this.View);
+                    bgPacote.Execute();
 
+                    if (validaSolicitacaoChat == true)
+                    {
+                        //Abre a Activity do Chat
+                        Intent i = new Intent(this.Context, typeof(ChatActivity));
+                        i.AddFlags(ActivityFlags.NewTask);
+                        this.Context.ApplicationContext.StartActivity(i);
+                    }
+
+                }
+                
             }
             catch (ValidationException vex)
             {
@@ -617,16 +656,18 @@ namespace SAMU192Droid.Interface.Fragments
 
         private void RunInBackGround_Pacote(System.Threading.CancellationToken ct)
         {
-            StubWebService.SolicitarAtendimento(PACOTE);
+            validaSolicitacaoChat = StubWebService.SolicitarAtendimentoChat(PACOTE);
         }
 
         private void PreExecute_Pacote()
-        {            
-            PACOTE = StubWebService.MontaPacote(paraOutraPessoa, QUEIXA, cadastro, EnderecoCriadoUsuario ?? EnderecoGPS);
+        {
+            PACOTE = StubWebService.MontaPacoteChat(paraOutraPessoa, QUEIXA, cadastro, EnderecoCriadoUsuario ?? EnderecoGPS);
         }
 
         private void PostExecute_Pacote()
-        { }
+        {
+
+        }
 
         private void OnCancel_Pacote()
         {
@@ -685,7 +726,8 @@ namespace SAMU192Droid.Interface.Fragments
 
         internal void LiberarBotaoFoto_Callback(ServidorDTO servidor)
         {
-            activityAux.RunOnUiThread(() => { 
+            activityAux.RunOnUiThread(() =>
+            {
                 try
                 {
                     StubWebService.Servidor = servidor;
@@ -694,7 +736,7 @@ namespace SAMU192Droid.Interface.Fragments
                         StubUtilidades.DesligaServico();
                         VisibilidadeBotoesTelefone(false);
                     }
-                    
+
                     HabilitaBotaoFoto();
                 }
                 catch (Exception ex)
@@ -815,7 +857,7 @@ namespace SAMU192Droid.Interface.Fragments
             {
                 StubAppCenter.AppAnalytic(Enums.AnalyticsType.Foto_Click.Value, this.Tag);
                 StubUtilidades.SetFromMenu(true);
-                Utils.Interface.IniciaNovaActivity((MainActivity)activityAux, typeof(CameraActivity), 0, (MainActivity) (Utils.VersaoAndroid.QualquerLollipop ? this.Activity : this.Context));
+                Utils.Interface.IniciaNovaActivity((MainActivity)activityAux, typeof(CameraActivity), 0, (MainActivity)(Utils.VersaoAndroid.QualquerLollipop ? this.Activity : this.Context));
             }
             catch (Exception ex)
             {
@@ -840,10 +882,10 @@ namespace SAMU192Droid.Interface.Fragments
         private void VisibilidadeForaDaArea(bool show)
         {
             //cmdChamar192_paramim.Visibility =
-                cmdChat192_paraoutrapessoa.Visibility = main_chamado_queixa.Visibility = main_chamado_favoritos_ll.Visibility = main_chamado_user_ll_ll.Visibility = main_seja_ll.Visibility = !show ? ViewStates.Visible : ViewStates.Gone;
+            cmdChat192_paraoutrapessoa.Visibility = main_chamado_queixa.Visibility = main_chamado_favoritos_ll.Visibility = main_chamado_user_ll_ll.Visibility = main_seja_ll.Visibility = !show ? ViewStates.Visible : ViewStates.Gone;
 
             //cmdChamar192_ligar.Visibility =
-                main_fora_ll.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
+            main_fora_ll.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
             llTelefones.Visibility = show ? ViewStates.Gone : ViewStates.Visible;
             main_chamado_user_info_tv.Visibility = show ? ViewStates.Gone : ViewStates.Visible;
             if (show) StubAppCenter.AppAnalytic(Enums.AnalyticsType.ForaDeArea.Value, this.Tag);
@@ -871,7 +913,7 @@ namespace SAMU192Droid.Interface.Fragments
             cmdChamar192_ligar.Visibility
                 =
                 cmdChat192_paramim.Visibility = cmdChat192_paraoutrapessoa.Visibility = show ? ViewStates.Visible : ViewStates.Gone;
-         
+
         }
     }
 }

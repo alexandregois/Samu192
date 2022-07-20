@@ -6,14 +6,14 @@ using SAMU192Droid.FacadeStub;
 
 namespace SAMU192Droid.Servicos
 {
-    [Service]
+    [Service(Exported = false)]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     {
         const string TAG = "MyFirebaseMessagingService";
         public override void OnMessageReceived(RemoteMessage message)
         {
-            StubPushNotifications.ReceberMensagem(message, this);
+           // StubPushNotifications.ReceberMensagem(message, this);
         }
 
     }

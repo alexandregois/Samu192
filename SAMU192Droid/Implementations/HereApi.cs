@@ -63,7 +63,7 @@ namespace SAMU192Droid.Implementations
         }
         public async Task<EnderecoDTO> ReverterCoordenada(CoordenadaDTO coordenada, object args)
         {
-            var result = ProcessaGeocodeReverso(Requisicao(URLRevGeocode(coordenada.Latitude, coordenada.Longitude)));
+            var result = ProcessaGeocodeReverso(Requisicao(URLRevGeocode(coordenada.Latitude, coordenada.Longitude)), coordenada);
             if (result.Endereco != null)
             {
                 result.Endereco.Coordenada = coordenada;
@@ -71,6 +71,7 @@ namespace SAMU192Droid.Implementations
             }
             return result.Endereco;
         }
+
         public async Task<EnderecoDTO> ReverterEndereco(string enderecoLegivel, object args)
         {
             if (!enderecoLegivel.ToLower().Trim().EndsWith("Brasil"))
@@ -78,6 +79,7 @@ namespace SAMU192Droid.Implementations
             var result = ProcessaGeocode(Requisicao(URLGeocode(enderecoLegivel)));
             return result.Endereco;
         }
+
         public object ConfigurarMapa(object view = null)
         {
             if (oMap == null) return null;
@@ -103,11 +105,13 @@ namespace SAMU192Droid.Implementations
         }
         private string URLGeocode(string enderecoLegivel)
         {
-            return String.Format(GEOCODEHERE_URL_API, AppID, AppCode, enderecoLegivel);
+            string result = String.Format(GEOCODEHERE_URL_API, AppID, AppCode, enderecoLegivel);
+            return result;
         }
         private string URLRevGeocode(double lat, double lng)
         {
-            return string.Format(GEOCODEHERE_URL_API_REV, AppID, AppCode, lat.ToString().Replace(",", "."), lng.ToString().Replace(",", "."), GEOCODEHERE_DISTANCIA_REV);
+            string result = string.Format(GEOCODEHERE_URL_API_REV, AppID, AppCode, lat.ToString().Replace(",", "."), lng.ToString().Replace(",", "."), GEOCODEHERE_DISTANCIA_REV);
+            return result;
         }
         private string Requisicao(string url)
         {
@@ -132,7 +136,7 @@ namespace SAMU192Droid.Implementations
                     if (!view.HasValues || !view[0]["Result"].HasValues)
                         return new GeoCodingResult() { Qualidade = eQualidadeGeocode.Descohecido };
                     else
-                        return ProcessaResultadosGeocode(view[0], string.Empty);
+                        return ProcessaResultadosGeocode(view[0], string.Empty, null);
                 }
             }
             catch (Exception ex)
@@ -141,7 +145,7 @@ namespace SAMU192Droid.Implementations
                 //return new GeoCodingResult() { Erro = "Resposta do GeocodeHere com formatação inválida ou desconhecida!" };
             }
         }
-        private GeoCodingResult ProcessaGeocodeReverso(string json)
+        private GeoCodingResult ProcessaGeocodeReverso(string json, CoordenadaDTO coordenada)
         {
             try
             {
@@ -161,9 +165,9 @@ namespace SAMU192Droid.Implementations
                         return new GeoCodingResult() { Qualidade = eQualidadeGeocode.Descohecido };
                     else
                     {
-                        GeoCodingResult resp = ProcessaResultadosGeocode(view[0], "houseNumber");
+                        GeoCodingResult resp = ProcessaResultadosGeocode(view[0], "houseNumber", null);
                         if (resp.Qualidade == eQualidadeGeocode.Descohecido || resp.Qualidade == eQualidadeGeocode.Impreciso)
-                            return ProcessaResultadosGeocode(view[0], string.Empty);
+                            return ProcessaResultadosGeocode(view[0], string.Empty, null);
                         else
                             return resp;
                     }
@@ -175,7 +179,7 @@ namespace SAMU192Droid.Implementations
                 //return new GeoCodingResult() { Erro = "Resposta do GeocodeHere com formatação inválida ou desconhecida!" };
             }
         }
-        private GeoCodingResult ProcessaResultadosGeocode(JToken view, string matchLevelEsperado)
+        private GeoCodingResult ProcessaResultadosGeocode(JToken view, string matchLevelEsperado, CoordenadaDTO coordenadaParam)
         {
             foreach (JToken result in view["Result"])
             {
@@ -187,6 +191,7 @@ namespace SAMU192Droid.Implementations
                         eQualidadeGeocode qualidade = eQualidadeGeocode.Exato;
                         CoordenadaDTO coordenada = null;
                         GisLimites limites = null;
+
                         JToken ponto = result["Location"]["NavigationPosition"];
                         if (ponto != null)
                         {
@@ -197,6 +202,21 @@ namespace SAMU192Droid.Implementations
                             limites = new GisLimites() { x1 = longitude, x2 = longitude, y1 = latitude, y2 = latitude };
                             qualidade = DefineQualidade(result.Value<String>("MatchLevel"), result["MatchQuality"]);
                         }
+                        else
+                        {
+                            if (coordenadaParam != null)
+                            {
+                                coordenada = new CoordenadaDTO() { Latitude = coordenadaParam.Latitude, Longitude = coordenadaParam.Longitude };
+                                limites = new GisLimites() { x1 = coordenadaParam.Longitude, x2 = coordenadaParam.Longitude, y1 = coordenadaParam.Latitude, y2 = coordenadaParam.Latitude };
+                                qualidade = DefineQualidade(result.Value<String>("MatchLevel"), result["MatchQuality"]);
+                            }
+
+                        }
+
+//#if DEBUG
+//                        coordenada = new CoordenadaDTO() { Latitude = -29.1668707, Longitude = -51.1801015 };
+//#endif
+
                         EnderecoDTO endereco = new EnderecoDTO()
                         {
                             Coordenada = coordenada,

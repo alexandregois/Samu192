@@ -21,17 +21,25 @@ Public Class ConsultaParametrizacaoV1
 
         Dim oParametroBoolean As Boolean?
 
-        Dim DCConsultarParametrizacaoV1 As New DCConsultarParametrizacaoV1.Parametrizacao
+        Dim resp As New DCConsultarParametrizacaoV1.Parametrizacao
 
-        oParametroBoolean = BOParametro.ExtraiValorBoolean(eParametros.PermiteAtendimentoChat)
-
-        If oParametroBoolean IsNot Nothing AndAlso oParametroBoolean.HasValue Then
-            DCConsultarParametrizacaoV1.PermiteAtendimentoChat = IIf(oParametroBoolean.Value, True, False)
+        If String.IsNullOrWhiteSpace(_dados.Identificador) Then
+            Throw New ApplicationException("DCConsultarParametrizacaoV1 identificador não informado.")
         End If
 
-        Dim retorno As String = JsonConvert.SerializeObject(DCConsultarParametrizacaoV1)
+        oParametroBoolean = BOParametro.ExtraiValorBoolean(eParametros.APP192PermiteAtendimentoChat).GetValueOrDefault(False)
+        If oParametroBoolean Then
+            If APP192.BOAPP192.EmAtendimentoChat(_dados.Identificador) Then
+                resp.PermiteAtendimentoChat = DCConsultarParametrizacaoV1.Parametrizacao.eSituacaoAtendimentoChat.EmAtendimento
+            Else
+                resp.PermiteAtendimentoChat = DCConsultarParametrizacaoV1.Parametrizacao.eSituacaoAtendimentoChat.Permitido
+            End If
+        Else
+            resp.PermiteAtendimentoChat = DCConsultarParametrizacaoV1.Parametrizacao.eSituacaoAtendimentoChat.NaoPermitido
+        End If
 
-        Return retorno
+        Return JsonConvert.SerializeObject(resp)
 
     End Function
+
 End Class

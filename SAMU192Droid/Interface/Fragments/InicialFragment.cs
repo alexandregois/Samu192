@@ -681,6 +681,7 @@ namespace SAMU192Droid.Interface.Fragments
                     }
                     
                     HabilitaBotaoFoto();
+
                 }
                 catch (Exception ex)
                 {
@@ -694,7 +695,11 @@ namespace SAMU192Droid.Interface.Fragments
             activityAux.RunOnUiThread(() =>
             {
                 bool habilita = StubWebService.Servidor != null;
+#if DEBUG
+                habilita = true;
+#endif
                 VisibilidadeTirarFoto(habilita);
+
             });
         }
 

@@ -20,11 +20,13 @@ Public Class BuscaMensagemV1
         End If
 
         Dim retorno As String = String.Empty 'New List(Of BOConversaMensagem)
-        Dim appConversaCompletada As APP192.BOAPPConversaCompletada = APP192.BOAPPConversaCompletada.CarregaArray(New APP192.FiltroAppConversaCompletada With {.FcmRegistration = _dados.FCMRegistration})?.FirstOrDefault()
 
-        If appConversaCompletada IsNot Nothing AndAlso appConversaCompletada.CodConversa.HasValue Then
+        'Buscar as conversas só do chamado mais novo que esteja aberto
+        Dim appChamado As APP192.BOAPPChamado = APP192.BOAPPChamado.CarregaArray(New APP192.FiltroAPPChamado With {.Identificador = _dados.Identificador, .ChamadoAberto = True})?.OrderByDescending(Function(f) f.CodAppChamado).FirstOrDefault()
+
+        If appChamado IsNot Nothing Then
 #Region "Filtro"
-            Dim filtro As New FiltroConversaMensagem With {.CodConversa = appConversaCompletada.CodConversa.Value}
+            Dim filtro As New APP192.FiltroConversaMensagem With {.CodChamado = appChamado.CodChamado.Value}
 
             If _dados.Sentido IsNot Nothing AndAlso _dados.Sentido.HasValue Then
                 filtro.Sentido = _dados.Sentido.Value
@@ -50,43 +52,34 @@ Public Class BuscaMensagemV1
             If _dados.HorarioLidaF IsNot Nothing AndAlso _dados.HorarioLidaF.HasValue Then
                 filtro.HorarioLidaF = _dados.HorarioLidaF.Value
             End If
-            If _dados.Acao IsNot Nothing AndAlso _dados.Acao.HasValue Then
-                filtro.Acao = _dados.Acao.Value
+            If _dados.Timestamp IsNot Nothing AndAlso _dados.Timestamp.HasValue Then
+                filtro.Timestamp = _dados.Timestamp.Value
             End If
-            If _dados.AcaoI IsNot Nothing AndAlso _dados.AcaoI.HasValue Then
-                filtro.AcaoI = _dados.AcaoI.Value
+            If _dados.TimestampI IsNot Nothing AndAlso _dados.TimestampI.HasValue Then
+                filtro.TimestampI = _dados.TimestampI.Value
             End If
-            If _dados.AcaoF IsNot Nothing AndAlso _dados.AcaoF.HasValue Then
-                filtro.AcaoF = _dados.AcaoF.Value
-            End If
-            If _dados.Erros IsNot Nothing AndAlso _dados.Erros.HasValue Then
-                filtro.Erros = _dados.Erros.Value
-            End If
-            If _dados.ErrosI IsNot Nothing AndAlso _dados.ErrosI.HasValue Then
-                filtro.ErrosI = _dados.ErrosI.Value
-            End If
-            If _dados.ErrosF IsNot Nothing AndAlso _dados.ErrosF.HasValue Then
-                filtro.ErrosF = _dados.ErrosF.Value
+            If _dados.TimestampF IsNot Nothing AndAlso _dados.TimestampF.HasValue Then
+                filtro.TimestampF = _dados.TimestampF.Value
             End If
 
             'BOUtil.EventMsg(String.Concat("Filtro: ", JsonConvert.SerializeObject(filtro)), EventLogEntryType.Warning, BOUtil.eEventID.APPService_BuscarMensagens)
 #End Region
 
-            Dim conversaMensagemList As List(Of BOConversaMensagem) = BOConversaMensagem.CarregaArray(filtro, _dados.NMaxReg, _dados.OrderByAsc)
+            Dim conversaMensagemList As List(Of APP192.BOConversaMensagem) = APP192.BOConversaMensagem.CarregaArray(filtro, _dados.NMaxReg, _dados.OrderByAsc)
 
             If conversaMensagemList IsNot Nothing AndAlso conversaMensagemList.Any() Then
                 Dim oConversaMensagemRetornoList As New List(Of Object)
 
                 'BOUtil.EventMsg(String.Concat("conversaMensagemList 012 Count: ", JsonConvert.SerializeObject(conversaMensagemList.Count)), EventLogEntryType.Warning, BOUtil.eEventID.APPService_BuscarMensagens)
 
-                For Each oConversaMensagemTemp As BOConversaMensagem In conversaMensagemList
-                    Dim conversaMensagem As New BOConversaMensagem With {
-                        .CodConversaMensagem = IIf(oConversaMensagemTemp.CodConversaMensagem IsNot Nothing AndAlso oConversaMensagemTemp.CodConversaMensagem.HasValue, oConversaMensagemTemp.CodConversaMensagem.Value, Nothing),
-                        .CodConversa = IIf(oConversaMensagemTemp.CodConversa IsNot Nothing AndAlso oConversaMensagemTemp.CodConversa.HasValue, oConversaMensagemTemp.CodConversa.Value, Nothing),
-                        .Sentido = IIf(oConversaMensagemTemp.Sentido IsNot Nothing AndAlso oConversaMensagemTemp.Sentido.HasValue, oConversaMensagemTemp.Sentido.Value, Nothing),
-                        .HorarioRegistro = IIf(oConversaMensagemTemp.HorarioRegistro IsNot Nothing AndAlso oConversaMensagemTemp.HorarioRegistro.HasValue, oConversaMensagemTemp.HorarioRegistro.Value, Nothing),
-                        .Mensagem = oConversaMensagemTemp.Mensagem
-                    }
+                For Each oConversaMensagemTemp As APP192.BOConversaMensagem In conversaMensagemList
+                    Dim conversaMensagem As New APP192.BOConversaMensagem With {
+                            .CodConversaMensagem = oConversaMensagemTemp.CodConversaMensagem.Value,
+                            .CodChamado = oConversaMensagemTemp.CodChamado.Value,
+                            .Sentido = oConversaMensagemTemp.Sentido.Value,
+                            .HorarioRegistro = oConversaMensagemTemp.HorarioRegistro.Value,
+                            .Mensagem = oConversaMensagemTemp.Mensagem
+                        }
 
                     If oConversaMensagemTemp.HorarioEnviada IsNot Nothing AndAlso oConversaMensagemTemp.HorarioEnviada.HasValue Then
                         conversaMensagem.HorarioEnviada = oConversaMensagemTemp.HorarioEnviada.Value
@@ -101,15 +94,15 @@ Public Class BuscaMensagemV1
                     End If
 
                     Dim o As Object = New With {
-                        Key .CodConversaMensagem = conversaMensagem.CodConversaMensagem,
-                        Key .CodConversa = conversaMensagem.CodConversa,
-                        Key .Sentido = conversaMensagem.Sentido,
-                        Key .HorarioRegistro = conversaMensagem.HorarioRegistro,
-                        Key .HorarioEnviada = conversaMensagem.HorarioEnviada,
-                        Key .HorarioRecebida = conversaMensagem.HorarioRecebida,
-                        Key .HorarioLida = conversaMensagem.HorarioLida,
-                        Key .Mensagem = conversaMensagem.Mensagem
-                    }
+                            Key .CodConversaMensagem = conversaMensagem.CodConversaMensagem,
+                            Key .CodChamado = conversaMensagem.CodChamado,
+                            Key .Sentido = conversaMensagem.Sentido,
+                            Key .HorarioRegistro = conversaMensagem.HorarioRegistro,
+                            Key .HorarioEnviada = conversaMensagem.HorarioEnviada,
+                            Key .HorarioRecebida = conversaMensagem.HorarioRecebida,
+                            Key .HorarioLida = conversaMensagem.HorarioLida,
+                            Key .Mensagem = conversaMensagem.Mensagem
+                        }
 
                     oConversaMensagemRetornoList.Add(o)
                 Next

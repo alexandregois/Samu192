@@ -7,7 +7,7 @@ namespace SAMU192InterfaceService.DataContracts
         enum Colunas
         {
             Versao = 0,
-            FCMRegistration = 1,
+            Identificador = 1,
             NMaxReg = 2,
             OrderByAsc = 3,
             Sentido = 4,
@@ -18,15 +18,12 @@ namespace SAMU192InterfaceService.DataContracts
             HorarioLida = 9,
             HorarioLidaI = 10,
             HorarioLidaF = 11,
-            Acao = 12,
-            AcaoI = 13,
-            AcaoF = 14,
-            Erros = 15,
-            ErrosI = 16,
-            ErrosF = 17
+            Timestamp = 12,
+            TimestampI = 13,
+            TimestampF = 14
         }
 
-        const int NUM_COLUNAS = 18;
+        const int NUM_COLUNAS = 15;
         public const string VERSAO = "DCBuscarMensagemV1";
 
         public DCBuscarMensagemV1()
@@ -42,10 +39,10 @@ namespace SAMU192InterfaceService.DataContracts
             if (dados[(int)Colunas.Versao] != VERSAO)
                 throw new ApplicationException("Busca de Mensagem: Versão incorreta de dados!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.FCMRegistration]))
-                throw new ApplicationException("Busca de Mensagem: FCM não informado!");
+            if (string.IsNullOrEmpty(dados[(int)Colunas.Identificador]))
+                throw new ApplicationException("Busca de Mensagem: Identificador não informado!");
 
-            FCMRegistration = dados[(int)Colunas.FCMRegistration];
+            Identificador = dados[(int)Colunas.Identificador];
             NMaxRegStr = dados[(int)Colunas.NMaxReg];
             OrderByAscStr = dados[(int)Colunas.OrderByAsc];
             SentidoStr = dados[(int)Colunas.Sentido];
@@ -56,15 +53,12 @@ namespace SAMU192InterfaceService.DataContracts
             HorarioLidaStr = dados[(int)Colunas.HorarioLida];
             HorarioLidaIStr = dados[(int)Colunas.HorarioLidaI];
             HorarioLidaFStr = dados[(int)Colunas.HorarioLidaF];
-            AcaoStr = dados[(int)Colunas.Acao];
-            AcaoIStr = dados[(int)Colunas.AcaoI];
-            AcaoFStr = dados[(int)Colunas.AcaoF];
-            ErrosStr = dados[(int)Colunas.Erros];
-            ErrosIStr = dados[(int)Colunas.ErrosI];
-            ErrosFStr = dados[(int)Colunas.ErrosF];
+            TimestampStr = dados[(int)Colunas.Timestamp];
+            TimestampIStr = dados[(int)Colunas.TimestampI];
+            TimestampFStr = dados[(int)Colunas.TimestampF];
         }
 
-        public string FCMRegistration { get; set; }
+        public string Identificador { get; set; }
 
         public int? NMaxReg { get; set; }
         public string NMaxRegStr
@@ -336,14 +330,14 @@ namespace SAMU192InterfaceService.DataContracts
             }
         }
 
-        public int? Acao { get; set; }
-        public string AcaoStr
+        public int? Timestamp { get; set; }
+        public string TimestampStr
         {
             get
             {
-                if (Acao.HasValue)
+                if (Timestamp.HasValue)
                 {
-                    return Acao.Value.ToString();
+                    return Timestamp.Value.ToString();
                 }
                 else
                     return string.Empty;
@@ -354,24 +348,24 @@ namespace SAMU192InterfaceService.DataContracts
                 {
                     if (int.TryParse(value, out int aux))
                     {
-                        Acao = aux;
+                        Timestamp = aux;
                     }
                     else
                         throw new ApplicationException("Ação deve ser um número inteiro.");
                 }
                 else
-                    Acao = null;
+                    Timestamp = null;
             }
         }
 
-        public int? AcaoI { get; set; }
-        public string AcaoIStr
+        public int? TimestampI { get; set; }
+        public string TimestampIStr
         {
             get
             {
-                if (AcaoI.HasValue)
+                if (TimestampI.HasValue)
                 {
-                    return AcaoI.Value.ToString();
+                    return TimestampI.Value.ToString();
                 }
                 else
                     return string.Empty;
@@ -382,24 +376,24 @@ namespace SAMU192InterfaceService.DataContracts
                 {
                     if (int.TryParse(value, out int aux))
                     {
-                        AcaoI = aux;
+                        TimestampI = aux;
                     }
                     else
                         throw new ApplicationException("Ação Inicial deve ser um número inteiro.");
                 }
                 else
-                    AcaoI = null;
+                    TimestampI = null;
             }
         }
 
-        public int? AcaoF { get; set; }
-        public string AcaoFStr
+        public int? TimestampF { get; set; }
+        public string TimestampFStr
         {
             get
             {
-                if (AcaoF.HasValue)
+                if (TimestampF.HasValue)
                 {
-                    return AcaoF.Value.ToString();
+                    return TimestampF.Value.ToString();
                 }
                 else
                     return string.Empty;
@@ -410,97 +404,13 @@ namespace SAMU192InterfaceService.DataContracts
                 {
                     if (int.TryParse(value, out int aux))
                     {
-                        AcaoF = aux;
+                        TimestampF = aux;
                     }
                     else
                         throw new ApplicationException("Ação Final deve ser um número inteiro.");
                 }
                 else
-                    AcaoF = null;
-            }
-        }
-
-        public int? Erros { get; set; }
-        public string ErrosStr
-        {
-            get
-            {
-                if (Erros.HasValue)
-                {
-                    return Erros.Value.ToString();
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    if (int.TryParse(value, out int aux))
-                    {
-                        Erros = aux;
-                    }
-                    else
-                        throw new ApplicationException("Erros deve ser um número inteiro.");
-                }
-                else
-                    Erros = null;
-            }
-        }
-
-        public int? ErrosI { get; set; }
-        public string ErrosIStr
-        {
-            get
-            {
-                if (ErrosI.HasValue)
-                {
-                    return ErrosI.Value.ToString();
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    if (int.TryParse(value, out int aux))
-                    {
-                        ErrosI = aux;
-                    }
-                    else
-                        throw new ApplicationException("Erros Inicial deve ser um número inteiro.");
-                }
-                else
-                    ErrosI = null;
-            }
-        }
-
-        public int? ErrosF { get; set; }
-        public string ErrosFStr
-        {
-            get
-            {
-                if (ErrosF.HasValue)
-                {
-                    return ErrosF.Value.ToString();
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    if (int.TryParse(value, out int aux))
-                    {
-                        ErrosF = aux;
-                    }
-                    else
-                        throw new ApplicationException("Erros Final deve ser um número inteiro.");
-                }
-                else
-                    ErrosF = null;
+                    TimestampF = null;
             }
         }
 
@@ -511,7 +421,7 @@ namespace SAMU192InterfaceService.DataContracts
                 string[] resp = new string[NUM_COLUNAS];
 
                 resp[(int)Colunas.Versao] = VERSAO;
-                resp[(int)Colunas.FCMRegistration] = FCMRegistration;
+                resp[(int)Colunas.Identificador] = Identificador;
                 resp[(int)Colunas.NMaxReg] = NMaxRegStr;
                 resp[(int)Colunas.OrderByAsc] = OrderByAscStr;
                 resp[(int)Colunas.Sentido] = SentidoStr;
@@ -522,12 +432,9 @@ namespace SAMU192InterfaceService.DataContracts
                 resp[(int)Colunas.HorarioLida] = HorarioLidaStr;
                 resp[(int)Colunas.HorarioLidaI] = HorarioLidaIStr;
                 resp[(int)Colunas.HorarioLidaF] = HorarioLidaFStr;
-                resp[(int)Colunas.Acao] = AcaoStr;
-                resp[(int)Colunas.AcaoI] = AcaoIStr;
-                resp[(int)Colunas.AcaoF] = AcaoFStr;
-                resp[(int)Colunas.Erros] = ErrosStr;
-                resp[(int)Colunas.ErrosI] = ErrosIStr;
-                resp[(int)Colunas.ErrosF] = ErrosFStr;
+                resp[(int)Colunas.Timestamp] = TimestampStr;
+                resp[(int)Colunas.TimestampI] = TimestampIStr;
+                resp[(int)Colunas.TimestampF] = TimestampFStr;
 
                 return resp;
             }

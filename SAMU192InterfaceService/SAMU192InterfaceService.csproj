@@ -47,6 +47,7 @@
     <Compile Include="DataContracts\DCBuscarMensagemV1.cs" />
     <Compile Include="DataContracts\DCConsultarParametrizacaoV1.cs" />
     <Compile Include="DataContracts\DCEnviarMensagemV1.cs" />
+    <Compile Include="DataContracts\DCSolicitarAtendimentoChatV1.cs" />
     <Compile Include="DataContracts\DCSolicitarAutorizacaoMidiaV1.cs" />
     <Compile Include="DataContracts\DCEnviarMidiaV1.cs" />
     <Compile Include="DataContracts\DCSolicitarAtendimentoV1.cs" />

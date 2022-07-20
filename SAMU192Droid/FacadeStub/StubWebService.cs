@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Linq;
+using Android.App;
+using Android.Content;
 using SAMU192Core.DTO;
 using SAMU192Core.Facades;
 using SAMU192InterfaceService.Utils;
@@ -37,6 +41,11 @@ namespace SAMU192Droid.FacadeStub
             FacadeWebService.SolicitarAtendimento(dados);
         }
 
+        public static bool SolicitarAtendimentoChat(SolicitarAtendimentoChatDTO dados)
+        {
+            return FacadeWebService.SolicitarAtendimentoChat(dados);
+        }
+
         public static string RetornaConsultaParametrizacao(string[] dados)
         {
             return FacadeWebService.RetornaConsultaParametrizacao(dados);
@@ -44,12 +53,29 @@ namespace SAMU192Droid.FacadeStub
 
         public static string BuscaMensagens(string[] dados)
         {
-            return FacadeWebService.BuscaMensagens(dados);
+            return FacadeWebService.BuscarMensagens(dados);
+        }
+
+        public static string EnviarMensagens(string[] dados)
+        {
+            return FacadeWebService.EnviarMensagens(dados);
         }
 
         public static SolicitarAtendimentoDTO MontaPacote(bool outraPessoa, string queixa, CadastroDTO cadastro, EnderecoDTO endereco)
         {
+
             var pacote = FacadeWebService.MontaPacote(1, outraPessoa, queixa, cadastro, endereco);
+
+            return pacote;
+        }
+
+        public static SolicitarAtendimentoChatDTO MontaPacoteChat(bool outraPessoa, string queixa, CadastroDTO cadastro, EnderecoDTO endereco)
+        {
+
+            var pacote = FacadeWebService.MontaPacoteChat(1, outraPessoa, queixa, cadastro, endereco);
+
+            //StubUtilidades.MontaPacoteShared(pacote);
+
             return pacote;
         }
 

@@ -1,39 +1,36 @@
 {
   "project_info": {
-    "project_number": "54947293552",
-    "firebase_url": "https://samu192true.firebaseio.com",
-    "project_id": "samu192true",
-    "storage_bucket": "samu192true.appspot.com"
+    "project_number": "718270713014",
+    "project_id": "samu192-dev",
+    "storage_bucket": "samu192-dev.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:54947293552:android:fdfb694137693383",
+        "mobilesdk_app_id": "1:718270713014:android:2e8a44288fa2b357652a17",
         "android_client_info": {
-          "package_name": "com.trueinformationtechnology.samu192"
+          "package_name": "com.trueinformationtechnology.samu192dev"
         }
       },
       "oauth_client": [
         {
-          "client_id": "54947293552-0bef7sc3tli8imfg2acjiisujf2scpge.apps.googleusercontent.com",
+          "client_id": "718270713014-l42jaicf562pmj6lf96hbn4em5t3rtem.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAeESeJ-VbFLyiqNMSz2foocEO3zJMVTNM"
+          "current_key": "AIzaSyDxsKSXbeLsRHhjzYyfnA8N3qzDdgL4s90"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718270713014-l42jaicf562pmj6lf96hbn4em5t3rtem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

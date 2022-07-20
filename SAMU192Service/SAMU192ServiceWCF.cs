@@ -39,7 +39,12 @@ namespace SAMU192Service
             throw new NotImplementedException();
         }
 
-        public string ConsultaParametrizacao(string[] dados)
+        public string EnviarMensagens(string[] dados)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ConsultarParametrizacao(string[] dados)
         {
             throw new NotImplementedException();
         }

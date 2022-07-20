@@ -1,39 +1,38 @@
 ﻿using System;
-using System.Diagnostics;
 using static SAMU192InterfaceService.Utils.Enums;
 
 namespace SAMU192InterfaceService.DataContracts
 {
     public class DCSolicitarAtendimentoV1
     {
+
         enum Colunas
         {
-            Versao = 0,
-            Telefone1 = 1,
-            Telefone2 = 2,
-            Nome = 3,
-            Sexo = 4,
-            DataNascimento = 5,
-            OutraPessoa = 6,
-            UF = 7,
-            Cidade = 8,
-            Bairro = 9,
-            Logradouro = 10,
-            Numero = 11,
-            Complemento = 12,
-            Referencia = 13,
-            Latitude = 14,
-            Longitude = 15,
-            Queixa = 16,
-            LatitudeApp = 17,
-            LongitudeApp = 18,
-            Sistema = 19,
-            Identificador = 20,
-            FCMRegistration = 21,
-            SolicitacaoPorConversa = 22
+            versao = 0,
+            telefone1 = 1,
+            telefone2 = 2,
+            nome = 3,
+            sexo = 4,
+            dataNascimento = 5,
+            outraPessoa = 6,
+            uf = 7,
+            cidade = 8,
+            bairro = 9,
+            logradouro = 10,
+            numero = 11,
+            complemento = 12,
+            referencia = 13,
+            latitude = 14,
+            longitude = 15,
+            queixa = 16,
+            latitudeApp = 17,
+            longitudeApp = 18,
+            sistema = 19,
+            identificador = 20,
+            FCMRegistration = 21
         }
 
-        const int NUM_COLUNAS = 23;
+        const int NUM_COLUNAS = 22;
         public const string VERSAO = "DCSolicitarAtendimentoV1";
 
         public DCSolicitarAtendimentoV1()
@@ -43,44 +42,43 @@ namespace SAMU192InterfaceService.DataContracts
 
         public DCSolicitarAtendimentoV1(string[] dados)
         {
+
             if (dados.Length != NUM_COLUNAS)
                 throw new ApplicationException("Solicitação de atendimento: Quantidade incorreta de informações!");
 
-            if (dados[(int)Colunas.Versao] != VERSAO)
+            if (dados[(int)Colunas.versao] != VERSAO)
                 throw new ApplicationException("Solicitação de atendimento: Versão incorreta de informações!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.Identificador]))
+            if (string.IsNullOrEmpty(dados[(int)Colunas.identificador]))
                 throw new ApplicationException("Solicitação de atendimento: Identificador do dispositivo não informado!");
 
             if (string.IsNullOrEmpty(dados[(int)Colunas.FCMRegistration]))
                 throw new ApplicationException("Solicitação de atendimento: Registro FCM não informado!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.SolicitacaoPorConversa]))
-                throw new ApplicationException("Solicitação de atendimento: Solicitação por conversa não informado!");
-
-            Telefone1 = dados[(int)Colunas.Telefone1];
-            Telefone2 = dados[(int)Colunas.Telefone2];
-            Nome = dados[(int)Colunas.Nome];
-            Sexo = dados[(int)Colunas.Sexo];
-            DataNascimentoStr = dados[(int)Colunas.DataNascimento];
-            OutraPessoaStr = dados[(int)Colunas.OutraPessoa];
-            UF = dados[(int)Colunas.UF];
-            Cidade = dados[(int)Colunas.Cidade];
-            Bairro = dados[(int)Colunas.Bairro];
-            Logradouro = dados[(int)Colunas.Logradouro];
-            Numero = dados[(int)Colunas.Numero];
-            Complemento = dados[(int)Colunas.Complemento];
-            Referencia = dados[(int)Colunas.Referencia];
-            LatitudeStr = dados[(int)Colunas.Latitude];
-            LongitudeStr = dados[(int)Colunas.Longitude];
-            Queixa = dados[(int)Colunas.Queixa];
-            LatitudeAppStr = dados[(int)Colunas.LatitudeApp];
-            LongitudeAppStr = dados[(int)Colunas.LongitudeApp];
-            SistemaStr = dados[(int)Colunas.Sistema];
-            Identificador = dados[(int)Colunas.Identificador];
+            Identificador = dados[(int)Colunas.identificador];
+            Bairro = dados[(int)Colunas.bairro];
+            Cidade = dados[(int)Colunas.cidade];
+            Complemento = dados[(int)Colunas.complemento];
+            DataNascimentoStr = dados[(int)Colunas.dataNascimento];
             FCMRegistration = dados[(int)Colunas.FCMRegistration];
-            SolicitacaoPorConversaStr = dados[(int)Colunas.SolicitacaoPorConversa];
+            LatitudeStr = dados[(int)Colunas.latitude];
+            LatitudeAppStr = dados[(int)Colunas.latitudeApp];
+            Logradouro = dados[(int)Colunas.logradouro];
+            LongitudeStr = dados[(int)Colunas.longitude];
+            LongitudeAppStr = dados[(int)Colunas.longitudeApp];
+            Nome = dados[(int)Colunas.nome];
+            Numero = dados[(int)Colunas.numero];
+            OutraPessoaStr = dados[(int)Colunas.outraPessoa];
+            Queixa = dados[(int)Colunas.queixa];
+            Referencia = dados[(int)Colunas.referencia];
+            Sexo = dados[(int)Colunas.sexo];
+            SistemaStr = dados[(int)Colunas.sistema];
+            Telefone1 = dados[(int)Colunas.telefone1];
+            Telefone2 = dados[(int)Colunas.telefone2];
+            UF = dados[(int)Colunas.uf];
+
         }
+
 
         public string Identificador { get; set; }
         public string Bairro { get; set; }
@@ -118,8 +116,8 @@ namespace SAMU192InterfaceService.DataContracts
             }
         }
         public string FCMRegistration { get; set; }
-        public double? Latitude { get; set; }
-        public double? LatitudeApp { get; set; }
+        public Double? Latitude { get; set; }
+        public Double? LatitudeApp { get; set; }
         public string LatitudeAppStr
         {
             get
@@ -183,8 +181,8 @@ namespace SAMU192InterfaceService.DataContracts
             }
         }
         public string Logradouro { get; set; }
-        public double? Longitude { get; set; }
-        public double? LongitudeApp { get; set; }
+        public Double? Longitude { get; set; }
+        public Double? LongitudeApp { get; set; }
         public string LongitudeAppStr
         {
             get
@@ -308,62 +306,38 @@ namespace SAMU192InterfaceService.DataContracts
         public string Telefone1 { get; set; }
         public string Telefone2 { get; set; }
         public string UF { get; set; }
-        public bool? SolicitacaoPorConversa { get; set; }
-        public string SolicitacaoPorConversaStr
-        {
-            get
-            {
-                if (SolicitacaoPorConversa.HasValue)
-                {
-                    return SolicitacaoPorConversa.Value ? "1" : "0";
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                SolicitacaoPorConversa = null;
-
-                if (int.TryParse(value, out int auxInt) && (auxInt == 0 || auxInt == 1))
-                {
-                    SolicitacaoPorConversa = (auxInt == 1);
-                }
-                else
-                    throw new ApplicationException("SolicitacaoPorConversa deve ser 0 ou 1.");
-            }
-        }
         public string[] Dados
         {
             get
             {
                 string[] resp = new string[NUM_COLUNAS];
 
-                resp[(int)Colunas.Identificador] = Identificador;
-                resp[(int)Colunas.Bairro] = Bairro;
-                resp[(int)Colunas.Cidade] = Cidade;
-                resp[(int)Colunas.Complemento] = Complemento;
-                resp[(int)Colunas.DataNascimento] = DataNascimentoStr;
+                resp[(int)Colunas.identificador] = Identificador;
+                resp[(int)Colunas.bairro] = Bairro;
+                resp[(int)Colunas.cidade] = Cidade;
+                resp[(int)Colunas.complemento] = Complemento;
+                resp[(int)Colunas.dataNascimento] = DataNascimentoStr;
                 resp[(int)Colunas.FCMRegistration] = FCMRegistration;
-                resp[(int)Colunas.Latitude] = LatitudeStr;
-                resp[(int)Colunas.LatitudeApp] = LatitudeAppStr;
-                resp[(int)Colunas.Logradouro] = Logradouro;
-                resp[(int)Colunas.Longitude] = LongitudeStr;
-                resp[(int)Colunas.LongitudeApp] = LongitudeAppStr;
-                resp[(int)Colunas.Nome] = Nome;
-                resp[(int)Colunas.Numero] = Numero;
-                resp[(int)Colunas.OutraPessoa] = OutraPessoaStr;
-                resp[(int)Colunas.Queixa] = Queixa;
-                resp[(int)Colunas.Referencia] = Referencia;
-                resp[(int)Colunas.Sexo] = Sexo;
-                resp[(int)Colunas.Sistema] = SistemaStr;
-                resp[(int)Colunas.Telefone1] = Telefone1;
-                resp[(int)Colunas.Telefone2] = Telefone2;
-                resp[(int)Colunas.UF] = UF;
-                resp[(int)Colunas.Versao] = VERSAO;
-                resp[(int)Colunas.SolicitacaoPorConversa] = SolicitacaoPorConversaStr;
+                resp[(int)Colunas.latitude] = LatitudeStr;
+                resp[(int)Colunas.latitudeApp] = LatitudeAppStr;
+                resp[(int)Colunas.logradouro] = Logradouro;
+                resp[(int)Colunas.longitude] = LongitudeStr;
+                resp[(int)Colunas.longitudeApp] = LongitudeAppStr;
+                resp[(int)Colunas.nome] = Nome;
+                resp[(int)Colunas.numero] = Numero;
+                resp[(int)Colunas.outraPessoa] = OutraPessoaStr;
+                resp[(int)Colunas.queixa] = Queixa;
+                resp[(int)Colunas.referencia] = Referencia;
+                resp[(int)Colunas.sexo] = Sexo;
+                resp[(int)Colunas.sistema] = SistemaStr;
+                resp[(int)Colunas.telefone1] = Telefone1;
+                resp[(int)Colunas.telefone2] = Telefone2;
+                resp[(int)Colunas.uf] = UF;
+                resp[(int)Colunas.versao] = VERSAO;
 
                 return resp;
             }
         }
+
     }
 }

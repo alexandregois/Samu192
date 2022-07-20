@@ -26,11 +26,15 @@ Public Class AtualizaMensagemV1
 
         Dim appConversaCompletada As APP192.BOAPPConversaCompletada = APP192.BOAPPConversaCompletada.CarregaArray(New APP192.FiltroAppConversaCompletada With {.FcmRegistration = _dados.FCMRegistration})?.FirstOrDefault()
 
-        If appConversaCompletada IsNot Nothing AndAlso appConversaCompletada.CodConversa.HasValue Then
-            Dim conversaMensagem As New BOConversaMensagem
+        If appConversaCompletada IsNot Nothing Then
+            Dim conversaMensagem As New APP192.BOConversaMensagem
             conversaMensagem.Carrega(_dados.CodConversaMensagem.Value)
 
-            If conversaMensagem IsNot Nothing AndAlso conversaMensagem.CodConversa.Equals(appConversaCompletada.CodConversa.Value) Then
+            If conversaMensagem IsNot Nothing Then
+                If conversaMensagem.HorarioEnviada Is Nothing AndAlso _dados.HorarioRecebida IsNot Nothing AndAlso _dados.HorarioRecebida.HasValue Then
+                    conversaMensagem.HorarioEnviada = _dados.HorarioRecebida.Value
+                End If
+
                 If conversaMensagem.HorarioRecebida Is Nothing AndAlso _dados.HorarioRecebida IsNot Nothing AndAlso _dados.HorarioRecebida.HasValue Then
                     conversaMensagem.HorarioRecebida = _dados.HorarioRecebida.Value
                 End If

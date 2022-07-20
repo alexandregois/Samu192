@@ -8,6 +8,13 @@
             Connected = 1
         }
 
+        public enum BuscarMensagens
+        {
+            MensagensNovas = 0,
+            MensagensNaoLidas = 1,
+            MensagensRecebidas = 2
+        }
+
         public enum FileName
         {
             Indefinido = 0,

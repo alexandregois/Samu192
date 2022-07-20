@@ -3,11 +3,11 @@ Imports SAMU192InterfaceService
 
 Public Class Parametros
 
-    'Public Const SERVICE_URI As String = "http://localhost:8733/Design_Time_Addresses/TRUE_SAPH_APP_WCF/Service1/"
-    Public Const SERVICE_URI As String = "http://localhost:30043/TRUE_SAPH_APP_WCF/Service1/" 'RPNETO
-    'Public Const SERVICE_URI As String = "http://interno.true.com.br:30043/TRUE_SAPH_APP_WCF/Service1/" 'RPNETO
-    Public Const SERVICE_USERNAME As String = "unimedpoa.ws" 'TRUE
-    Public Const SERVICE_PASSWORD As String = "D25mes06" 'TRUE
+    Public Const SERVICE_URI As String = "http://localhost:8733/Design_Time_Addresses/TRUE_SAPH_APP_WCF/Service1/"
+    'Public Const SERVICE_URI As String = "http://localhost:30043/TRUE_SAPH_APP_WCF/Service1/" 'RPNETO
+    'Public Const SERVICE_URI As String = "https://truesaphpoa-hml.true.com.br/TRUESAPHAPPWCF/"
+    Public Const SERVICE_USERNAME As String = "saphapp.ws" 'TRUE
+    Public Const SERVICE_PASSWORD As String = "cr3d3nci@l teste samu app" 'TRUE
 
     Public Shared Function CriaCanal() As ISAMU192ServiceWCF
 

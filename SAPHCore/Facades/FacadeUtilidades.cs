@@ -6,6 +6,8 @@ using System.Globalization;
 using System.Threading;
 using SAMU192Core.DTO;
 using SAMU192Core.Interfaces;
+using SAMU192Core.Utils;
+using Newtonsoft.Json;
 
 namespace SAMU192Core.Facades
 {
@@ -68,6 +70,115 @@ namespace SAMU192Core.Facades
                 result += x * (long)Math.Pow(n, m--);
             }
             return result;
+        }
+
+        public static string[] DeserializaPacote(String s, bool isObjeto)
+        {
+            String[] retorno;
+
+            if (isObjeto == true)
+            {
+                var Json = JsonConvert.DeserializeObject<List<object>>(s);
+                retorno = Json.Select(x => x.ToString()).ToArray();
+            }
+            else
+            {
+                var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(s);
+                retorno = new string[2];
+                foreach (KeyValuePair<string, string> chave in result)
+                {
+                    retorno[0] = chave.Key;
+                    retorno[1] = chave.Value;
+                }
+                
+            }
+
+            return retorno;
+        }
+
+        public static String[] MontaPacoteBuscaMensagem(Enums.BuscarMensagens buscarMensagens, DateTime data)
+        {
+            String[] retorno = new string[18];
+
+            switch (buscarMensagens)
+            {
+                case Enums.BuscarMensagens.MensagensNovas:
+                    {
+                        retorno = new string[15];
+                        retorno[0] = "DCBuscarMensagemV1";
+                        retorno[1] = FacadeUtilidades.RecuperaInstanceID().ToString();
+                        retorno[2] = "5";
+                        retorno[3] = "1";
+                        retorno[4] = "2";
+                        retorno[5] = null;
+                        retorno[6] = null;
+                        retorno[7] = null;
+                        retorno[8] = null;
+                        retorno[9] = null;
+                        retorno[10] = null;
+                        retorno[11] = null;
+                        retorno[12] = null;
+                        retorno[13] = null;
+                        retorno[14] = null;
+
+                        break;
+                    }
+                case Enums.BuscarMensagens.MensagensNaoLidas:
+                    {
+                        retorno = new string[15];
+                        retorno[0] = "DCBuscarMensagemV1";
+                        retorno[1] = FacadeUtilidades.RecuperaInstanceID().ToString();
+                        retorno[2] = "5";
+                        retorno[3] = "1";
+                        retorno[4] = "1";
+                        retorno[5] = "";
+                        retorno[6] = "";
+                        retorno[7] = "";
+                        retorno[8] = "";
+                        retorno[9] = "";
+                        retorno[10] = "";
+                        retorno[11] = "";
+                        retorno[12] = "";
+                        retorno[13] = "";
+                        retorno[14] = "";
+
+                        break;
+                    }
+                case Enums.BuscarMensagens.MensagensRecebidas:
+                    {
+                        retorno = new string[15];
+                        retorno[0] = "DCBuscarMensagemV1";
+                        retorno[1] = FacadeUtilidades.RecuperaInstanceID().ToString();
+                        retorno[2] = "5";
+                        retorno[3] = "1";
+                        retorno[4] = "1";
+                        retorno[5] = "";
+                        retorno[6] = "";
+                        retorno[7] = "";
+                        retorno[8] = "";
+                        retorno[9] = "";
+                        retorno[10] = "";
+                        retorno[11] = "";
+                        retorno[12] = "";
+                        retorno[13] = "";
+                        retorno[14] = "";
+
+                        break;
+                    }
+                default: break;
+            }
+
+            return retorno;
+        }
+
+        public static String[] MontaPacotePermiteChat()
+        {
+            String[] retorno = new string[2];
+
+            retorno[0] = "DCConsultarParametrizacaoV1";
+            retorno[1] = FacadeUtilidades.RecuperaInstanceID().ToString();
+
+            return retorno;
         }
 
         public static string Gerar(DateTime dtNow)

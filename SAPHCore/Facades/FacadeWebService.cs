@@ -21,7 +21,6 @@ namespace SAMU192Core.Facades
             solicitarAutorizacaoMidiaCallBack = _solicitarAutorizacaoMidiaCallBack;
         }
 
-
         public static string RetornaConsultaParametrizacao(string[] dados)
         {
             string result = String.Empty;
@@ -30,6 +29,15 @@ namespace SAMU192Core.Facades
             {
                 List<ServidorDTO> servidores = null;
                 var coord = FacadeGPS.GetLastLocation();
+
+
+#if DEBUG
+                CoordenadaDTO Coordenadas = new CoordenadaDTO();
+                Coordenadas.Latitude = -29.1668707;
+                Coordenadas.Longitude = -51.1801015;
+                coord = Coordenadas;
+#endif
+
                 if (coord != null)
                 {
                     servidores = FacadeLocalizacao.Localizar(coord);
@@ -39,6 +47,7 @@ namespace SAMU192Core.Facades
                     {
                         result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).RetornaConsultaParametrizacao(dados);
                     }
+
                 }
             }
             //solicitarAtendimentoCallBack?.Invoke();
@@ -46,7 +55,7 @@ namespace SAMU192Core.Facades
             return result;
         }
 
-        public static string BuscaMensagens(string[] dados)
+        public static string EnviarMensagens(string[] dados)
         {
             string result = String.Empty;
 
@@ -61,7 +70,7 @@ namespace SAMU192Core.Facades
                     //TODO: Servidores devem estar em CACHE?
                     foreach (var servidor in servidores)
                     {
-                        result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).BuscaMensagens(dados);
+                        result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).EnviarMensagens(dados);
                     }
                 }
             }
@@ -70,6 +79,36 @@ namespace SAMU192Core.Facades
             return result;
         }
 
+        public static string BuscarMensagens(string[] dados)
+        {
+            string result = String.Empty;
+
+            if (dados != null)
+            {
+                List<ServidorDTO> servidores = null;
+                var coord = FacadeGPS.GetLastLocation();
+
+#if DEBUG
+                CoordenadaDTO Coordenadas = new CoordenadaDTO();
+                Coordenadas.Latitude = -29.1668707;
+                Coordenadas.Longitude = -51.1801015;
+                coord = Coordenadas;
+#endif
+
+                if (coord != null)
+                {
+                    servidores = FacadeLocalizacao.Localizar(coord);
+
+                    //TODO: Servidores devem estar em CACHE?
+                    foreach (var servidor in servidores)
+                    {
+                        result = new WebService(servidor, FacadeConexao.GetNetworkConnection()).BuscarMensagens(dados);
+                    }
+                }
+            }
+
+            return result;
+        }
 
         public static void SolicitarAtendimento(SolicitarAtendimentoDTO solicitacao)
         {
@@ -90,6 +129,31 @@ namespace SAMU192Core.Facades
             }
             solicitarAtendimentoCallBack?.Invoke();
         }
+
+        public static bool SolicitarAtendimentoChat(SolicitarAtendimentoChatDTO solicitacao)
+        {
+            bool validaRecebido = false;
+
+            if (solicitacao != null)
+            {
+                List<ServidorDTO> servidores = null;
+                var coord = FacadeGPS.GetLastLocation();
+                if (coord != null)
+                {
+                    servidores = FacadeLocalizacao.Localizar(coord);
+
+                    //TODO: Servidores devem estar em CACHE?
+                    foreach (var servidor in servidores)
+                    {
+                        validaRecebido = new WebService(servidor, FacadeConexao.GetNetworkConnection()).EnviarDados(solicitacao.Solicitacao.Dados);
+                    }
+                }
+            }
+            solicitarAtendimentoCallBack?.Invoke();
+
+            return validaRecebido;
+        }
+
 
         public static void SolicitarAutorizacaoMidia(SolicitarAutorizacaoMidiaDTO solicitacao)
         {
@@ -224,6 +288,65 @@ namespace SAMU192Core.Facades
 
             return solicitarAtendimento;
         }
+
+        public static SolicitarAtendimentoChatDTO MontaPacoteChat(int sistema, bool outraPessoa, string queixa, CadastroDTO cadastro, EnderecoDTO endereco)
+        {
+            //Endereço
+            var solicitarAtendimento = new SolicitarAtendimentoChatDTO();
+            if (endereco != null)
+            {
+                solicitarAtendimento.Logradouro = endereco.Logradouro;
+                solicitarAtendimento.Numero = endereco.Numero;
+                solicitarAtendimento.Complemento = endereco.Complemento;
+                solicitarAtendimento.Bairro = endereco.Bairro;
+                solicitarAtendimento.Cidade = endereco.Cidade;
+                solicitarAtendimento.UF = endereco.Estado;
+                solicitarAtendimento.Referencia = endereco.Referencia;
+                solicitarAtendimento.Latitude = endereco.Coordenada.Latitude;
+                solicitarAtendimento.Longitude = endereco.Coordenada.Longitude;
+            }
+
+            //Coordenada Real do Smartphone
+            CoordenadaDTO coordenada = FacadeGPS.GetLastLocation();
+
+
+//#if DEBUG
+//            coordenada.Latitude = -29.1668707;
+//            coordenada.Longitude = -51.1801015;
+//#endif
+
+
+
+            if (coordenada != null)
+            {
+                solicitarAtendimento.LatitudeApp = coordenada.Latitude;
+                solicitarAtendimento.LongitudeApp = coordenada.Longitude;
+            }
+
+            //Cadastro Pessoa
+            solicitarAtendimento.Nome = cadastro.Nome;
+            solicitarAtendimento.DataNascimento = cadastro.DtNasc;
+            solicitarAtendimento.Sexo = cadastro.Sexo.ToString();
+
+            //Dados complementares
+            solicitarAtendimento.OutraPessoa = outraPessoa;
+            solicitarAtendimento.Queixa = queixa;
+
+            //Telefone(s)
+            solicitarAtendimento.Telefone1 = cadastro.Telefones.Length > 0 ? cadastro.Telefones[0].Ddd + cadastro.Telefones[0].Numero : string.Empty;
+            solicitarAtendimento.Telefone2 = cadastro.Telefones.Length > 1 ? cadastro.Telefones[1].Ddd + cadastro.Telefones[1].Numero : string.Empty;
+
+            //Identificação do Smartphone
+            string identificador = FacadeUtilidades.RecuperaInstanceID();
+            solicitarAtendimento.Sistema = sistema;
+            solicitarAtendimento.Identificador = identificador;
+
+            //FCM
+            solicitarAtendimento.FCMRegistration = FacadePushNotifications.Token();
+
+            return solicitarAtendimento;
+        }
+
 
         public static SolicitarAutorizacaoMidiaDTO MontaSolicitacaoMidia()
         {

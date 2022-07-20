@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.trueinformationtechnology.samu192" android:versionName="1.0.0.26" android:installLocation="preferExternal" android:versionCode="10026">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.trueinformationtechnology.samu192dev" android:versionName="1.0.0.26" android:installLocation="preferExternal" android:versionCode="10026">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
 	<application android:label="Chamar 192" android:icon="@drawable/trueico" android:theme="@style/MyTheme" android:largeHeap="true" android:supportsRtl="true" android:hardwareAccelerated="false" android:allowBackup="false" android:fullBackupContent="false">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDAtUnFrnj5Iwem2oaj7wsJ-0EUXhCiZ4g" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@drawable/iconmessenger" />
+    <meta-data android:name="com.google.firebase.messaging.default_notification_color" android:resource="@color/vermelho" />
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths2" />
 		</provider>
@@ -19,7 +21,7 @@
 				<action android:name="android.intent.action.REBOOT" />
 				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 			</intent-filter>
-		</receiver>
+		</receiver>   
 		<!--<receiver android:name="com.trueinformationtechnology.samu192.AlarmReceiver" android:enabled="true" android:exported="false" >
 			<intent-filter>
 				<category android:name="android.intent.category.DEFAULT" />
@@ -56,4 +58,5 @@
 	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 </manifest>

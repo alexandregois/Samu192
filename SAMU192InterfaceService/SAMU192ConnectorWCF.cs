@@ -34,18 +34,26 @@ namespace SAMU192InterfaceService
             return result;
         }
 
-        public string RetornaConsultaParametrizacao(string[] dados)
+        public string ConsultarParametrizacao(string[] dados)
         {
             var ts = GetTransactionService();
-            string result = ts.ConsultaParametrizacao(dados);
+            string result = ts.ConsultarParametrizacao(dados);
 
             return result;
         }
 
-        public string BuscaMensagens(string[] dados)
+        public string BuscarMensagens(string[] dados)
         {
             var ts = GetTransactionService();
             string result = ts.BuscarMensagens(dados);
+
+            return result;
+        }
+
+        public string EnviarMensagens(string[] dados)
+        {
+            var ts = GetTransactionService();
+            string result = ts.EnviarMensagens(dados);
 
             return result;
         }

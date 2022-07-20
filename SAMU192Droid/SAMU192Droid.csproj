@@ -838,6 +838,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <GoogleServicesJson Include="google-services.json" />
+    <None Include="google-services.json.prod" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -1007,6 +1008,24 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable\iconmessenger_blue.png" />
     <AndroidResource Include="Resources\drawable\send.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\ic_messaging.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
     <Content Include="Resources\font\sourcebelleallurecmgras.xml">
       <SubType>Designer</SubType>
     </Content>

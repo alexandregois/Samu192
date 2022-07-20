@@ -41,11 +41,18 @@ namespace SAMU192InterfaceService
                 return (string)base.EndInvoke("BuscarMensagens", _args, base.BeginInvoke("BuscarMensagens", _args, null, new object()));
             }
 
-            public string ConsultaParametrizacao(string[] dados)
+            public string ConsultarParametrizacao(string[] dados)
             {
                 object[] _args = new object[1];
                 _args[0] = dados;
-                return (string)base.EndInvoke("ConsultaParametrizacao", _args, base.BeginInvoke("ConsultaParametrizacao", _args, null, new object()));
+                return (string)base.EndInvoke("ConsultarParametrizacao", _args, base.BeginInvoke("ConsultarParametrizacao", _args, null, new object()));
+            }
+
+            public string EnviarMensagens(string[] dados)
+            {
+                object[] _args = new object[1];
+                _args[0] = dados;
+                return (string)base.EndInvoke("EnviarMensagens", _args, base.BeginInvoke("EnviarMensagens", _args, null, new object()));
             }
         }
 
@@ -68,9 +75,14 @@ namespace SAMU192InterfaceService
             return base.Channel.BuscarMensagens(dados);
         }
 
-        public string ConsultaParametrizacao(string[] dados)
+        public string EnviarMensagens(string[] dados)
         {
-            return base.Channel.ConsultaParametrizacao(dados);
+            return base.Channel.EnviarMensagens(dados);
+        }
+
+        public string ConsultarParametrizacao(string[] dados)
+        {
+            return base.Channel.ConsultarParametrizacao(dados);
         }
     }
 }

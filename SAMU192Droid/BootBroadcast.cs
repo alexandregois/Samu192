@@ -23,7 +23,7 @@ namespace SAMU192Droid
 			i.AddFlags(ActivityFlags.NewTask);
 			context.StartActivity(i);
 
-			//MainActivity.SetAlarmForBackgroundServices(context);
+			MainActivity.SetAlarmForBackgroundServices(context);
 		}
 	}
 }

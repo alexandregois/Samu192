@@ -14,7 +14,8 @@ using SAMU192Droid.Servicos;
 
 namespace SAMU192Droid.Interface.Activities
 {
-    [Activity(Label = "CHAMAR 192", Icon = "@drawable/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleInstance, MainLauncher = false,
+    [Activity(Label = "CHAMAR 192", Icon = "@drawable/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleInstance, MainLauncher = false, 
+        Exported = true,
      //Configurações para suprimir evento OnCreate quando telefone é rotacionado
      ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     internal class MainActivity : BaseActivity
@@ -24,6 +25,9 @@ namespace SAMU192Droid.Interface.Activities
         EnderecoDTO enderecoCriadoUsuario;
         const string TAG = "MainActivity";
         public static bool IsActive = true;
+
+        internal static readonly string CHANNEL_ID = "my_notification_channel";
+        internal static readonly int NOTIFICATION_ID = 100;
 
         internal EnderecoDTO EnderecoCriadoUsuario {
             get => enderecoCriadoUsuario;
@@ -60,8 +64,14 @@ namespace SAMU192Droid.Interface.Activities
                 navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
                 navigationView.Menu.SetGroupCheckable(0, false, true);
 
+                // verifica se Google Play Services está disponível
+                StubPushNotifications.ServicoDisponivel(this);
+                
                 if (string.IsNullOrEmpty(StubUtilidades.RecuperaInstanceID()))
                     StubUtilidades.SalvaInstanceID(FirebaseInstanceId.Instance.Id);
+
+                //aplicativos em execução no Android 8.0 (nível de API 26) ou superior devem criar um canal de notificação para publicar suas notificações
+                CreateNotificationChannel();
 
                 StubWalkThrough.SelectFragmentOnMainActivity(this);
                 
@@ -76,6 +86,28 @@ namespace SAMU192Droid.Interface.Activities
             {
                 Utils.Mensagem.Erro(ex);
             }
+        }
+
+        void CreateNotificationChannel()
+        {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+            {
+                // Notification channels are new in API 26 (and not a part of the
+                // support library). There is no need to create a notification
+                // channel on older versions of Android.
+                return;
+            }
+
+            var channel = new NotificationChannel(CHANNEL_ID,
+                                                  "FCM Notifications SAMU 192",
+                                                  NotificationImportance.Default)
+            {
+
+                Description = "Firebase Cloud Messages appear in this channel"
+            };
+
+            var notificationManager = (NotificationManager)GetSystemService(Android.Content.Context.NotificationService);
+            notificationManager.CreateNotificationChannel(channel);
         }
 
         private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
@@ -152,5 +184,6 @@ namespace SAMU192Droid.Interface.Activities
                 alarmManager.SetRepeating(AlarmType.ElapsedRealtimeWakeup, SystemClock.ElapsedRealtime(), 15000, pendingIntent);
             }
         }
+
     }    
 }

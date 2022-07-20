@@ -39,6 +39,24 @@ namespace SAMU192Core.DTO
 
         public override string ToString()
         {
+            if (endereco.Nome == null)
+                endereco.Nome = "";
+            if (endereco.Referencia == null)
+                endereco.Referencia = "";
+
+            if (endereco.Logradouro == null)
+                endereco.Logradouro = "";
+            if (endereco.Numero == null)
+                endereco.Numero = "";
+            if (endereco.Complemento == null)
+                endereco.Complemento = "";
+            if (endereco.Bairro == null)
+                endereco.Bairro = "";
+            if (endereco.Cidade == null)
+                endereco.Cidade = "";
+            if (endereco.Estado == null)
+                endereco.Estado = "";
+
             return string.Format("{0}{1}{2}{3}{4}{5}",
                 endereco.Logradouro,
                 string.IsNullOrEmpty(endereco.Numero) ? "" : ", " + endereco.Numero,

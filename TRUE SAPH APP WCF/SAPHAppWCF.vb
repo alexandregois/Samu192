@@ -48,6 +48,30 @@ Public Class SAPHAppWCF
 
     End Function
 
+    Public Function EnviarMensagens(dados As String()) As String Implements ISAMU192ServiceWCF.EnviarMensagens
+
+        Dim retorno As String = String.Empty
+
+        Try
+
+            AjustesIniciais()
+
+            Dim info As IOperacaoAPP192 = DecifraObjeto(dados)
+
+            If info IsNot Nothing Then
+                Return info.Processar()
+            Else
+                'BOUtil.EventMsg("Objeto não identificado", EventLogEntryType.Error, BOUtil.eEventID.APPService_BuscarMensagens)
+            End If
+
+        Catch ex As Exception
+            'BOUtil.EventMsg(ex.ToString, EventLogEntryType.Error, BOUtil.eEventID.APPService_BuscarMensagens)
+        End Try
+
+        Return retorno
+
+    End Function
+
     Public Function BuscarMensagens(dados As String()) As String Implements ISAMU192ServiceWCF.BuscarMensagens
 
         Dim retorno As String = String.Empty
@@ -72,7 +96,7 @@ Public Class SAPHAppWCF
 
     End Function
 
-    Public Function ConsultaParametrizacao(dados As String()) As String Implements ISAMU192ServiceWCF.ConsultaParametrizacao
+    Public Function ConsultaParametrizacao(dados As String()) As String Implements ISAMU192ServiceWCF.ConsultarParametrizacao
 
         Dim retorno As String = String.Empty
 
@@ -107,6 +131,8 @@ Public Class SAPHAppWCF
                 Return New SolicitacaoMidiaV1(New DCEnviarMidiaV1(dados))
             Case DCSolicitarAtendimentoV1.VERSAO
                 Return New SolicitacaoAtendimentoV1(New DCSolicitarAtendimentoV1(dados))
+            Case DCSolicitarAtendimentoChatV1.VERSAO
+                Return New SolicitacaoAtendimentoChatV1(New DCSolicitarAtendimentoChatV1(dados))
             Case DCSolicitarAutorizacaoMidiaV1.VERSAO
                 Return New SolicitacaoAutorizacaoMidiaV1(New DCSolicitarAutorizacaoMidiaV1(dados))
             Case DCEnviarMensagemV1.VERSAO
@@ -133,7 +159,7 @@ Public Class SAPHAppWCF
             Try
                 BOUtil.EventSource = "TRUE SAPH APP WCF"
                 Dim pathExe As String = Path.GetDirectoryName(New Uri(System.Reflection.Assembly.GetExecutingAssembly().CodeBase).LocalPath)
-                arquivo = Path.Combine(pathExe, "language\language.resources")
+                arquivo = Path.Combine(pathExe, "language\language.xml")
                 TrueML.ML.Inicializa(arquivo)
                 BOUtil.InicializaBancos()
                 _conexaoInicializada = True

@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using SAMU192Droid.FacadeStub;
 using System;
 
 namespace SAMU192Droid.Interface.Fragments
@@ -20,7 +21,7 @@ namespace SAMU192Droid.Interface.Fragments
 
         public override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
+            //base.OnCreate(savedInstanceState);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -41,7 +42,9 @@ namespace SAMU192Droid.Interface.Fragments
 
         private void Btn_sendmessage_Click(object sender, EventArgs e)
         {
-            
+            string[] dados = null;
+
+            FacadeStub.StubWebService.EnviarMensagens(dados);
         }
 
         public override void ShowDescendantsForAccessibility()
