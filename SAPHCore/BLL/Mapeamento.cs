@@ -19,6 +19,7 @@ namespace SAMU192Core.BLL
         internal List<Area> areas;
         internal List<Quadrante> quadrantes;
 
+
         internal List<Servidor> ServidoresDaCoordenada(Coordenada ponto)
         {
             Dictionary<int, Servidor> resp = new Dictionary<int, Servidor>();
@@ -81,6 +82,8 @@ namespace SAMU192Core.BLL
         const char cArea = 'a';
         const char cQuadrante = 'q';
 
+        const char cPeso = 'y';
+
         internal string GeraStringArquivo()
         {
             StringBuilder sb = new StringBuilder();
@@ -90,6 +93,7 @@ namespace SAMU192Core.BLL
                 areas.ForEach(x => sb.AppendLine(string.Format("{0};{1}", cArea, x.GeraStringArquivo())));
             if (quadrantes.Count > 0)
                 quadrantes.ForEach(x => sb.AppendLine(string.Format("{0};{1}", cQuadrante, x.GeraStringArquivo())));
+
             return sb.ToString();
         }
 

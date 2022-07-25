@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using TRUE_SAPH_APP_FCM_WindowsService.Modelo;
 using TRUE_SAPH_APP_FCM_WindowsService.Util;
-using static TRUE_SAPH_APP_FCM_WindowsService.Modelo.FcmToSend;
+using static TRUE_SAPH_APP_FCM_WindowsService.Modelo.FCMRequest;
 
 namespace TRUE_SAPH_APP_FCM_WindowsService
 {
@@ -99,10 +99,12 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
 
                             if (!string.IsNullOrEmpty(fcmRegistration))
                             {
-                                FcmToSend fcmToSend = new FcmToSend()
+                                FCMRequest fcmRequest = new FCMRequest()
                                 {
-                                    FcmRegistration = fcmRegistration,
-                                    PayLoad = new FcmPayLoad()
+                                    FcmTokenOrTopic = fcmRegistration,
+                                    IsHighPriority = true,
+                                    NotificationBody = new Notification("Nova mensagem", conversaMensagem.Mensagem),
+                                    DataBody = new
                                     {
                                         CodConversaMensagem = conversaMensagem.CodConversaMensagem.Value,
                                         HorarioRegistro = conversaMensagem.HorarioRegistro.Value,
@@ -112,7 +114,7 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
                                 };
 
                                 System.Timers.Timer timerRunOnceEnviaFCM = new System.Timers.Timer(1);
-                                timerRunOnceEnviaFCM.Elapsed += (s, ea) => { EnviaFCM(fcmToSend); };
+                                timerRunOnceEnviaFCM.Elapsed += (s, ea) => { EnviaFCM(conversaMensagem.CodConversaMensagem.Value, fcmRequest); };
                                 timerRunOnceEnviaFCM.AutoReset = false;
                                 timerRunOnceEnviaFCM.Start();
                             }
@@ -130,18 +132,16 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
             }
         }
 
-        public async void EnviaFCM(FcmToSend fcmToSend)
+        public async void EnviaFCM(Guid codConversaMensagem, FCMRequest fcmRequest)
         {
             try
             {
-                string body = JsonConvert.SerializeObject(fcmToSend.PayLoad);
-
-                FCMSender.FCMReturn result = await _fcmSender.SendData(fcmToSend.FcmRegistration, body, true);
+                FCMReturn result = await _fcmSender.SendData(fcmRequest);
 
                 if (result != null)
                 {
                     SAPHBO.APP192.BOConversaMensagem conversaMensagem = new SAPHBO.APP192.BOConversaMensagem();
-                    conversaMensagem.Carrega(fcmToSend.PayLoad.CodConversaMensagem);
+                    conversaMensagem.Carrega(codConversaMensagem);
 
                     if (conversaMensagem != null)
                     {

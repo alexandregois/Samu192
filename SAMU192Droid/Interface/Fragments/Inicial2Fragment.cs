@@ -15,6 +15,8 @@ using Android.Content.PM;
 using SAMU192Core.Utils;
 using Microsoft.AppCenter.Analytics;
 using Android.Content;
+using Android.Locations;
+using Android.Gms.Location;
 
 namespace SAMU192Droid.Interface.Fragments
 {
@@ -182,18 +184,6 @@ namespace SAMU192Droid.Interface.Fragments
                 LoadControlValues();
                 Utils.Interface.FechaTeclado(Activity);
 
-
-                //Verifica Chat existente
-                resultPermitChat = RetornaConsultaParametrizacao();
-
-                if (resultPermitChat == 2)
-                {
-                    //Abre a Activity do Chat
-                    Intent i = new Intent(this.Context, typeof(ChatActivity));
-                    i.AddFlags(ActivityFlags.NewTask);
-                    this.Context.ApplicationContext.StartActivity(i);
-                }
-
             }
             catch (Exception ex)
             {
@@ -240,6 +230,18 @@ namespace SAMU192Droid.Interface.Fragments
 
                 CarregaGPS();
 
+                //Verifica Chat existente
+                resultPermitChat = RetornaConsultaParametrizacao();
+
+                if (resultPermitChat == 2)
+                {
+                    //Abre a Activity do Chat
+                    Intent i = new Intent(this.Context, typeof(ChatActivity));
+                    i.AddFlags(ActivityFlags.NewTask);
+                    this.Context.ApplicationContext.StartActivity(i);
+                }
+
+
                 activityAux.RunOnUiThread(() =>
                 {
                     HabilitaBotaoFoto();
@@ -251,6 +253,11 @@ namespace SAMU192Droid.Interface.Fragments
             {
                 Utils.Mensagem.Erro(ex);
             }
+        }
+
+        private LocationManager getSystemService(object lOCATION_SERVICE)
+        {
+            throw new NotImplementedException();
         }
 
         private void CarregaGPS()
@@ -620,8 +627,6 @@ namespace SAMU192Droid.Interface.Fragments
         {
             try
             {
-
-                
                 if (resultPermitChat == 1)
                 {
 
@@ -632,16 +637,18 @@ namespace SAMU192Droid.Interface.Fragments
                     BackgroundTask bgPacote = new BackgroundTask(activityAux, false, PreExecute_Pacote, RunInBackGround_Pacote, PostExecute_Pacote, OnCancel_Pacote, OnError_Pacote, OnValidationException_Pacote, "Enviando dados. Aguarde...", 30000, this.View);
                     bgPacote.Execute();
 
-                    if (validaSolicitacaoChat == true)
-                    {
-                        //Abre a Activity do Chat
-                        Intent i = new Intent(this.Context, typeof(ChatActivity));
+                    //if (validaSolicitacaoChat == true)
+                    //{
+
+                    //Abre a Activity do Chat
+                    Intent i = new Intent(this.Context, typeof(ChatActivity));
                         i.AddFlags(ActivityFlags.NewTask);
                         this.Context.ApplicationContext.StartActivity(i);
-                    }
+
+                    //}
 
                 }
-                
+
             }
             catch (ValidationException vex)
             {

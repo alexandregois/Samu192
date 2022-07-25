@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Dynamic;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using TRUE_SAPH_APP_FCM_WindowsService.Modelo;
 
 namespace TRUE_SAPH_APP_FCM_WindowsService
 {
@@ -20,7 +22,7 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
             _serverKey = serverKey;
         }
 
-        public async Task<FCMReturn> SendData(string fcmRegistration, string value, bool isHighPriority)
+        public async Task<FCMReturn> SendData(FCMRequest fcmRequest)
         {
             FCMReturn resp = new FCMReturn(false, string.Empty);
 
@@ -31,15 +33,27 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
                 tRequest.Method = "post";
                 tRequest.ContentType = "application/json";
 
-                var firebaseBody = new
+                dynamic firebaseBody = new ExpandoObject();
+                firebaseBody.to = fcmRequest.FcmTokenOrTopic;
+                firebaseBody.priority = (fcmRequest.IsHighPriority ? "high" : "normal");
+                firebaseBody.content_available = fcmRequest.IsContentAvailable;
+
+                if (fcmRequest.NotificationBody != null)
                 {
-                    to = fcmRegistration,
-                    data = new
+                    firebaseBody.notification = new
                     {
-                        msg = value
-                    },
-                    priority = (isHighPriority ? "high" : "normal")
-                };
+                        title = fcmRequest.NotificationBody.Title,
+                        body = fcmRequest.NotificationBody.Body
+                    };
+                }
+
+                if (fcmRequest.DataBody != null)
+                {
+                    firebaseBody.data = new
+                    {
+                        serializedJson = JsonConvert.SerializeObject(fcmRequest.DataBody)
+                    };
+                }
 
                 string json = JsonConvert.SerializeObject(firebaseBody);
 
@@ -76,20 +90,6 @@ namespace TRUE_SAPH_APP_FCM_WindowsService
             }
 
             return await Task.FromResult(resp);
-        }
-
-        public class FCMReturn
-        {
-            public bool Error { get; set; }
-            public string Message { get; set; }
-
-            public FCMReturn() { }
-
-            public FCMReturn(bool error, string message)
-            {
-                this.Error = error;
-                this.Message = message;
-            }
         }
     }
 }

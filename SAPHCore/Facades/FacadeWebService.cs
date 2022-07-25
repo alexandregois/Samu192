@@ -30,8 +30,8 @@ namespace SAMU192Core.Facades
                 List<ServidorDTO> servidores = null;
                 var coord = FacadeGPS.GetLastLocation();
 
-
 #if DEBUG
+                // coodenada marretada
                 CoordenadaDTO Coordenadas = new CoordenadaDTO();
                 Coordenadas.Latitude = -29.1668707;
                 Coordenadas.Longitude = -51.1801015;
@@ -89,6 +89,7 @@ namespace SAMU192Core.Facades
                 var coord = FacadeGPS.GetLastLocation();
 
 #if DEBUG
+                // coodenada marretada
                 CoordenadaDTO Coordenadas = new CoordenadaDTO();
                 Coordenadas.Latitude = -29.1668707;
                 Coordenadas.Longitude = -51.1801015;
@@ -138,6 +139,15 @@ namespace SAMU192Core.Facades
             {
                 List<ServidorDTO> servidores = null;
                 var coord = FacadeGPS.GetLastLocation();
+
+#if DEBUG
+                // coodenada marretada
+                CoordenadaDTO Coordenadas = new CoordenadaDTO();
+                Coordenadas.Latitude = -29.1668707;
+                Coordenadas.Longitude = -51.1801015;
+                coord = Coordenadas;
+#endif
+
                 if (coord != null)
                 {
                     servidores = FacadeLocalizacao.Localizar(coord);

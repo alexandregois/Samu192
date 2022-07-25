@@ -29,23 +29,44 @@ namespace SAMU192Core.BLL
         /// </summary>
         internal string senha;
 
+        /// <summary>
+        /// Peso da Central para GPS
+        /// </summary>
+        internal string peso;
+
         internal string Nome { get => nome; set => nome = value; }
 
         internal string GeraStringArquivo()
         {
-            return string.Format("{0};{1};{2};{3};{4}", cod.ToString(), Nome, endereco, Criptografa(usuario), Criptografa(senha));
+            return string.Format("{0};{1};{2};{3};{4};{5}", cod.ToString(), Nome, peso, endereco, Criptografa(usuario), Criptografa(senha));
         }
 
         internal void LeStringArquivo(string dados)
         {
+            //string[] array = dados.Split(';');
+            //cod = int.Parse(array[0]);
+            //Nome = array[1];
+            //endereco = array[2];
+            //if (array.Length > 3)
+            //{
+            //    usuario = Descriptografa(array[3]);
+            //    senha = Descriptografa(array[4]);
+            //}
+            //else
+            //{
+            //    usuario = string.Empty;
+            //    senha = string.Empty;
+            //}
+
             string[] array = dados.Split(';');
             cod = int.Parse(array[0]);
             Nome = array[1];
-            endereco = array[2];
-            if (array.Length > 3)
+            peso = array[2];
+            endereco = array[3];
+            if (array.Length > 4)
             {
-                usuario = Descriptografa(array[3]);
-                senha = Descriptografa(array[4]);
+                usuario = Descriptografa(array[4]);
+                senha = Descriptografa(array[5]);
             }
             else
             {

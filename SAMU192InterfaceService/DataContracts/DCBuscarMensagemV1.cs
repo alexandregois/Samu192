@@ -18,12 +18,10 @@ namespace SAMU192InterfaceService.DataContracts
             HorarioLida = 9,
             HorarioLidaI = 10,
             HorarioLidaF = 11,
-            Timestamp = 12,
-            TimestampI = 13,
-            TimestampF = 14
+            Timestamp = 12
         }
 
-        const int NUM_COLUNAS = 15;
+        const int NUM_COLUNAS = 13;
         public const string VERSAO = "DCBuscarMensagemV1";
 
         public DCBuscarMensagemV1()
@@ -54,8 +52,6 @@ namespace SAMU192InterfaceService.DataContracts
             HorarioLidaIStr = dados[(int)Colunas.HorarioLidaI];
             HorarioLidaFStr = dados[(int)Colunas.HorarioLidaF];
             TimestampStr = dados[(int)Colunas.Timestamp];
-            TimestampIStr = dados[(int)Colunas.TimestampI];
-            TimestampFStr = dados[(int)Colunas.TimestampF];
         }
 
         public string Identificador { get; set; }
@@ -358,62 +354,6 @@ namespace SAMU192InterfaceService.DataContracts
             }
         }
 
-        public int? TimestampI { get; set; }
-        public string TimestampIStr
-        {
-            get
-            {
-                if (TimestampI.HasValue)
-                {
-                    return TimestampI.Value.ToString();
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    if (int.TryParse(value, out int aux))
-                    {
-                        TimestampI = aux;
-                    }
-                    else
-                        throw new ApplicationException("Ação Inicial deve ser um número inteiro.");
-                }
-                else
-                    TimestampI = null;
-            }
-        }
-
-        public int? TimestampF { get; set; }
-        public string TimestampFStr
-        {
-            get
-            {
-                if (TimestampF.HasValue)
-                {
-                    return TimestampF.Value.ToString();
-                }
-                else
-                    return string.Empty;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
-                {
-                    if (int.TryParse(value, out int aux))
-                    {
-                        TimestampF = aux;
-                    }
-                    else
-                        throw new ApplicationException("Ação Final deve ser um número inteiro.");
-                }
-                else
-                    TimestampF = null;
-            }
-        }
-
         public string[] Dados
         {
             get
@@ -433,8 +373,6 @@ namespace SAMU192InterfaceService.DataContracts
                 resp[(int)Colunas.HorarioLidaI] = HorarioLidaIStr;
                 resp[(int)Colunas.HorarioLidaF] = HorarioLidaFStr;
                 resp[(int)Colunas.Timestamp] = TimestampStr;
-                resp[(int)Colunas.TimestampI] = TimestampIStr;
-                resp[(int)Colunas.TimestampF] = TimestampFStr;
 
                 return resp;
             }

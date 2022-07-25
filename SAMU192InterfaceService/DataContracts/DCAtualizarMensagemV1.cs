@@ -11,10 +11,10 @@ namespace SAMU192InterfaceService.DataContracts
         enum Colunas
         {
             Versao = 0,
-            FCMRegistration = 1,
+            Identificador = 1,
             CodConversaMensagem = 2,
-            HorarioRecebida = 3,
-            HorarioLida = 4
+            AtualizaHorarioRecebida = 3,
+            AtualizaHorarioLida = 4
         }
 
         const int NUM_COLUNAS = 5;
@@ -33,22 +33,22 @@ namespace SAMU192InterfaceService.DataContracts
             if (dados[(int)Colunas.Versao] != VERSAO)
                 throw new ApplicationException("Atualização de Mensagem: Versão incorreta de dados!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.FCMRegistration]))
-                throw new ApplicationException("Atualização de Mensagem: FCM não informado!");
+            if (string.IsNullOrEmpty(dados[(int)Colunas.Identificador]))
+                throw new ApplicationException("Atualização de Mensagem: Identificador não informado!");
 
             if (string.IsNullOrEmpty(dados[(int)Colunas.CodConversaMensagem]))
                 throw new ApplicationException("Atualização de Mensagem: CodConversaMensagem não informado!");
 
-            if (string.IsNullOrEmpty(dados[(int)Colunas.HorarioRecebida]) && string.IsNullOrEmpty(dados[(int)Colunas.HorarioLida]))
-                throw new ApplicationException("Atualização de Mensagem: Horário de recebimento ou horário de leitura da mensagem devem ser informados!");
+            if (string.IsNullOrEmpty(dados[(int)Colunas.AtualizaHorarioRecebida]) && string.IsNullOrEmpty(dados[(int)Colunas.AtualizaHorarioLida]))
+                throw new ApplicationException("Atualização de Mensagem: Horário de recebimento OU horário de leitura da mensagem devem ser informados!");
 
-            FCMRegistration = dados[(int)Colunas.FCMRegistration];
+            Identificador = dados[(int)Colunas.Identificador];
             CodConversaMensagemStr = dados[(int)Colunas.CodConversaMensagem];
-            HorarioRecebidaStr = dados[(int)Colunas.HorarioRecebida];
-            HorarioLidaStr = dados[(int)Colunas.HorarioLida];
+            AtualizaHorarioRecebidaStr = dados[(int)Colunas.AtualizaHorarioRecebida];
+            AtualizaHorarioLidaStr = dados[(int)Colunas.AtualizaHorarioLida];
         }
 
-        public string FCMRegistration { get; set; }
+        public string Identificador { get; set; }
 
         public Guid? CodConversaMensagem { get; set; }
         public string CodConversaMensagemStr
@@ -78,59 +78,49 @@ namespace SAMU192InterfaceService.DataContracts
             }
         }
 
-        public DateTime? HorarioRecebida { get; set; }
-        public string HorarioRecebidaStr
+        public bool? AtualizaHorarioRecebida { get; set; }
+        public string AtualizaHorarioRecebidaStr
         {
             get
             {
-                if (HorarioRecebida.HasValue)
+                if (AtualizaHorarioRecebida.HasValue)
                 {
-                    return HorarioRecebida.Value.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                    return AtualizaHorarioRecebida.Value ? "1" : "0";
                 }
                 else
-                    return string.Empty;
+                    return "1";
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                AtualizaHorarioRecebida = true;
+
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
                 {
-                    if (DateTime.TryParseExact(value, "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime aux))
-                    {
-                        HorarioRecebida = aux;
-                    }
-                    else
-                        throw new ApplicationException("Horario de Registro deve ser especificada no formato 'yyyy-MM-dd HH:mm:ss.fff'.");
+                    AtualizaHorarioRecebida = (value == "1");
                 }
-                else
-                    HorarioRecebida = null;
             }
         }
 
-        public DateTime? HorarioLida { get; set; }
-        public string HorarioLidaStr
+        public bool? AtualizaHorarioLida { get; set; }
+        public string AtualizaHorarioLidaStr
         {
             get
             {
-                if (HorarioLida.HasValue)
+                if (AtualizaHorarioLida.HasValue)
                 {
-                    return HorarioLida.Value.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                    return AtualizaHorarioLida.Value ? "1" : "0";
                 }
                 else
-                    return string.Empty;
+                    return "1";
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                AtualizaHorarioLida = true;
+
+                if (!string.IsNullOrEmpty(value) && !string.IsNullOrWhiteSpace(value))
                 {
-                    if (DateTime.TryParseExact(value, "yyyy-MM-dd HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime aux))
-                    {
-                        HorarioLida = aux;
-                    }
-                    else
-                        throw new ApplicationException("Horario de Leitura deve ser especificada no formato 'yyyy-MM-dd HH:mm:ss.fff'.");
+                    AtualizaHorarioLida = (value == "1");
                 }
-                else
-                    HorarioLida = null;
             }
         }
 
@@ -141,10 +131,10 @@ namespace SAMU192InterfaceService.DataContracts
                 string[] resp = new string[NUM_COLUNAS];
 
                 resp[(int)Colunas.Versao] = VERSAO;
-                resp[(int)Colunas.FCMRegistration] = FCMRegistration;
+                resp[(int)Colunas.Identificador] = Identificador;
                 resp[(int)Colunas.CodConversaMensagem] = CodConversaMensagemStr;
-                resp[(int)Colunas.HorarioRecebida] = HorarioRecebidaStr;
-                resp[(int)Colunas.HorarioLida] = HorarioLidaStr;
+                resp[(int)Colunas.AtualizaHorarioRecebida] = AtualizaHorarioRecebidaStr;
+                resp[(int)Colunas.AtualizaHorarioLida] = AtualizaHorarioLidaStr;
 
                 return resp;
             }

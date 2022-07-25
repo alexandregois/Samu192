@@ -25,7 +25,7 @@ Public Class EnviaMensagemV1
             Dim conversaMensagem As New APP192.BOConversaMensagem With {
                     .CodChamado = appChamado.CodChamado,
                     .Sentido = 1,
-                    .HorarioRegistro = _dados.HorarioRegistro.GetValueOrDefault(),
+                    .HorarioRegistro = DateTime.Now(),
                     .HorarioEnviada = DateTime.Now(),
                     .HorarioRecebida = DateTime.Now(),
                     .Mensagem = _dados.Mensagem.GetValueOrDefault(),

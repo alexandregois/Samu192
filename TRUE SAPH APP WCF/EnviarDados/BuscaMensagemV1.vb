@@ -55,12 +55,6 @@ Public Class BuscaMensagemV1
             If _dados.Timestamp IsNot Nothing AndAlso _dados.Timestamp.HasValue Then
                 filtro.Timestamp = _dados.Timestamp.Value
             End If
-            If _dados.TimestampI IsNot Nothing AndAlso _dados.TimestampI.HasValue Then
-                filtro.TimestampI = _dados.TimestampI.Value
-            End If
-            If _dados.TimestampF IsNot Nothing AndAlso _dados.TimestampF.HasValue Then
-                filtro.TimestampF = _dados.TimestampF.Value
-            End If
 
             'BOUtil.EventMsg(String.Concat("Filtro: ", JsonConvert.SerializeObject(filtro)), EventLogEntryType.Warning, BOUtil.eEventID.APPService_BuscarMensagens)
 #End Region
@@ -101,7 +95,8 @@ Public Class BuscaMensagemV1
                             Key .HorarioEnviada = conversaMensagem.HorarioEnviada,
                             Key .HorarioRecebida = conversaMensagem.HorarioRecebida,
                             Key .HorarioLida = conversaMensagem.HorarioLida,
-                            Key .Mensagem = conversaMensagem.Mensagem
+                            Key .Mensagem = conversaMensagem.Mensagem,
+                            Key .TimeStamp = oConversaMensagemTemp.TimeStamp.Value
                         }
 
                     oConversaMensagemRetornoList.Add(o)

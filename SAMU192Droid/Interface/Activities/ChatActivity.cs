@@ -18,12 +18,18 @@ namespace SAMU192Droid.Interface.Activities
     [Activity(Label = "ChatActivity")]
     public class ChatActivity : Activity
     {
+        View view;
+        ListView listaMensagens;
+        Button btnEnviaMensagens;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
 
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.chat);
+
+            //listaMensagens = FindViewById<ListView>(Resource.Id.listaMensagens);
+            //btnEnviaMensagens = FindViewById<Button>(Resource.Id.btnEnviaMensagens);
 
             var resultMessages = StubWebService.BuscaMensagens(StubUtilidades.MontaPacoteBuscaMensagem(Enums.BuscarMensagens.MensagensNovas, DateTime.Now));
 
@@ -34,5 +40,18 @@ namespace SAMU192Droid.Interface.Activities
         {
             OnBackPressed();
         }
+
+        internal void LoadScreenControls()
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                Utils.Mensagem.Erro(ex);
+            }
+        }
+
     }
 }

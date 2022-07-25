@@ -106,6 +106,7 @@ namespace SAMU192Droid.Interface.Fragments
 
         private void LoadScreenControls()
         {
+
             main_content = view.FindViewById<LinearLayout>(Resource.Id.main_content);
             etCadastro2Nome = view.FindViewById<EditText>(Resource.Id.cadastro2_nome_et);
             cadastro2_datanasc_tv = view.FindViewById<TextView>(Resource.Id.cadastro2_datanasc_tv);
@@ -117,11 +118,20 @@ namespace SAMU192Droid.Interface.Fragments
             tvDescricao = view.FindViewById<TextView>(Resource.Id.tvDescricao);
 
             deficiencia_switch = view.FindViewById<Switch>(Resource.Id.deficiencia_switch);
+
+            var pref = Application.Context.GetSharedPreferences("PacoteDados", FileCreationMode.Private);
+            string pneSelecionado = pref.GetString("pneSelecionado", "");
+
+            if ("pneSelecionado" == "1")
+                deficiencia_switch.Checked = true;
+            else
+                deficiencia_switch.Checked = false;
+
+
             cadastro2_cpf_et = view.FindViewById<EditText>(Resource.Id.cadastro2_cpf_et);
             cadastro2_cpf_et.TextChanged += Cadastro2_cpf_et_TextChanged;
 
             deficiencia_switch.CheckedChange += Deficiencia_switch_CheckedChange;
-
 
             spnCadastro2Sexo.Adapter = GeraAdapterSexo(true);
             spnCadastro2Sexo.ItemSelected += SpnCadastro2Sexo_ItemSelected;
@@ -173,9 +183,15 @@ namespace SAMU192Droid.Interface.Fragments
                 cadastro2_cpf_et.Visibility = ViewStates.Gone;
             else
             {
-                cadastro2_cpf_et.Visibility = ViewStates.Visible;
-                //FluxoSaidaQuestao(activityAux, new chat(), Resource.String.chamar_title, InformaComunicacaoFragment.TAG);
 
+                ISharedPreferences pref = Application.Context.GetSharedPreferences("pne", FileCreationMode.Private);
+                ISharedPreferencesEditor edit = pref.Edit();
+                edit.PutString("pneSelecionado", "1");
+
+                edit.Commit();
+                edit.Apply();
+
+                cadastro2_cpf_et.Visibility = ViewStates.Visible;
                 Intent intent = new Intent(this.Activity, typeof(InformaActivity));
                 StartActivity(intent);
             }

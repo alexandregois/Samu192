@@ -24,23 +24,23 @@ Public Class AtualizaMensagemV1
             Throw New ApplicationException("Chamada inválida a DCAtualizarMensagemV1")
         End If
 
-        Dim appConversaCompletada As APP192.BOAPPConversaCompletada = APP192.BOAPPConversaCompletada.CarregaArray(New APP192.FiltroAppConversaCompletada With {.FcmRegistration = _dados.FCMRegistration})?.FirstOrDefault()
+        Dim appChamado As APP192.BOAPPChamado = APP192.BOAPPChamado.CarregaArray(New APP192.FiltroAPPChamado With {.Identificador = _dados.Identificador, .ChamadoAberto = True})?.OrderByDescending(Function(f) f.CodAppChamado).FirstOrDefault()
 
-        If appConversaCompletada IsNot Nothing Then
+        If appChamado IsNot Nothing Then
             Dim conversaMensagem As New APP192.BOConversaMensagem
             conversaMensagem.Carrega(_dados.CodConversaMensagem.Value)
 
             If conversaMensagem IsNot Nothing Then
-                If conversaMensagem.HorarioEnviada Is Nothing AndAlso _dados.HorarioRecebida IsNot Nothing AndAlso _dados.HorarioRecebida.HasValue Then
-                    conversaMensagem.HorarioEnviada = _dados.HorarioRecebida.Value
+                If conversaMensagem.HorarioEnviada Is Nothing AndAlso _dados.AtualizaHorarioRecebida IsNot Nothing AndAlso _dados.AtualizaHorarioRecebida.HasValue AndAlso _dados.AtualizaHorarioRecebida.Value Then
+                    conversaMensagem.HorarioEnviada = DateTime.Now
                 End If
 
-                If conversaMensagem.HorarioRecebida Is Nothing AndAlso _dados.HorarioRecebida IsNot Nothing AndAlso _dados.HorarioRecebida.HasValue Then
-                    conversaMensagem.HorarioRecebida = _dados.HorarioRecebida.Value
+                If conversaMensagem.HorarioRecebida Is Nothing AndAlso _dados.AtualizaHorarioRecebida IsNot Nothing AndAlso _dados.AtualizaHorarioRecebida.HasValue AndAlso _dados.AtualizaHorarioRecebida.Value Then
+                    conversaMensagem.HorarioRecebida = DateTime.Now
                 End If
 
-                If conversaMensagem.HorarioLida Is Nothing AndAlso _dados.HorarioLida IsNot Nothing AndAlso _dados.HorarioLida.HasValue Then
-                    conversaMensagem.HorarioLida = _dados.HorarioLida.Value
+                If conversaMensagem.HorarioLida Is Nothing AndAlso _dados.AtualizaHorarioLida IsNot Nothing AndAlso _dados.AtualizaHorarioLida.HasValue AndAlso _dados.AtualizaHorarioLida.Value Then
+                    conversaMensagem.HorarioLida = DateTime.Now
                 End If
 
                 conversaMensagem.Salva()
